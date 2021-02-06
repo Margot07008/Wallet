@@ -1,0 +1,13 @@
+@import "src/styles/variables";
+
+.hello-text{
+    margin-bottom: 3rem;
+}
+
+#hello-text__title{
+    color: $color-white;
+}
+
+#hello-text__text{
+    color: $color-white;
+}
