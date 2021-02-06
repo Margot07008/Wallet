@@ -1,0 +1,12 @@
+@import "src/styles/variables";
+
+.tokens-money-cont {
+    display: block;
+    text-align: right;
+
+    &__dollar{
+        color: $color-light-dark;
+        font-size: 2.8rem;
+        line-height: 2;
+    }
+}
