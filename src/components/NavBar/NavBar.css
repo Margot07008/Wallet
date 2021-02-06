@@ -1,4 +1,11 @@
 .ant-page-header {
     background: #9fc4f1;
-    margin-bottom: 2rem;
+}
+
+.ant-page-header-heading-sub-title {
+    font-size: 20px;
+}
+
+.navbar-slogan {
+    font-size: 3.8rem;
 }

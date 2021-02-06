@@ -8,8 +8,8 @@ const NavBar = () => {
       <PageHeader
         ghost={false}
         onBack={() => {}}
-        title="Wallet"
-        subTitle="Check your money"
+        title={<div className={'navbar-slogan'}>Wallet</div>}
+        subTitle={<div className={'navbar-slogan'}>Check your money</div>}
         // extra={[
         //   <Button key="3">Operation</Button>,
         //   <Button key="2">Operation</Button>,
