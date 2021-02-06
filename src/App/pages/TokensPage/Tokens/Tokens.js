@@ -15,7 +15,7 @@ const Rate = ({rate, diff}) => {
   }
   return (
     <>
-      <span>{`$${formatMoney(rate,2)} `}</span>
+      <span className={'tokens-one-dollar'}>{`$${formatMoney(rate,2)} `}</span>
       <span className={'not-stonks'}>{`(${diff}%)`}</span>
     </>
   )
