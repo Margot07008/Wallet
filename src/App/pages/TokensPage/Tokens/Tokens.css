@@ -29,6 +29,11 @@
     font-size: 2.5rem;
 }
 
+.zero-stonks{
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 2.5rem;
+}
+
 .ant-list-item-meta-title {
     font-size: 3rem;
 }

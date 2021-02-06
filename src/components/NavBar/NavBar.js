@@ -11,11 +11,11 @@ const NavBar = () => {
         title={<div className={'navbar-slogan'}>Wallet</div>}
         subTitle={<div className={'navbar-slogan'}>Check your money</div>}
         // extra={[
-        //   <Button key="3">Operation</Button>,
-        //   <Button key="2">Operation</Button>,
-        //   <Button key="1" type="primary">
+        //   <SearchButton key="3">Operation</SearchButton>,
+        //   <SearchButton key="2">Operation</SearchButton>,
+        //   <SearchButton key="1" type="primary">
         //     Primary
-        //   </Button>,
+        //   </SearchButton>,
         // ]}
       >
       </PageHeader>

@@ -13,12 +13,22 @@ const Rate = ({rate, diff}) => {
       </>
     )
   }
-  return (
-    <>
-      <span className={'tokens-one-dollar'}>{`$${formatMoney(rate,2)} `}</span>
-      <span className={'not-stonks'}>{`(${diff}%)`}</span>
-    </>
-  )
+  else if (diff < 0) {
+    return (
+      <>
+        <span className={'tokens-one-dollar'}>{`$${formatMoney(rate,2)} `}</span>
+        <span className={'not-stonks'}>{`(${diff}%)`}</span>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <span className={'tokens-one-dollar'}>{`$${formatMoney(rate,2)} `}</span>
+        <span className={'zero-stonks'}>{`(${diff}%)`}</span>
+      </>
+    )
+  }
+
 }
 
 

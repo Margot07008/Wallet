@@ -1,0 +1,18 @@
+.welcome-bg {
+    height: 100vh;
+    background: #4d769c;
+    display: flex;
+    align-items: center;
+}
+
+.input-window {
+    width: 100%;
+    height: 50%;
+    padding: 0 5rem;
+    box-shadow: 1rem 1rem 3rem 6rem #9fc4f1;
+    background: #9fc4f1;
+}
+
+.search-input{
+    display: flex;
+}

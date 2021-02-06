@@ -1,0 +1,11 @@
+.hello-text{
+    margin-bottom: 3rem;
+}
+
+#hello-text__title{
+    color: white;
+}
+
+#hello-text__text{
+    color: white;
+}

@@ -1,11 +1,13 @@
 import React from 'react';
-import TokensPage from './pages/TokensPage';
+// import TokensPage from './pages/TokensPage';
 import './App.css';
+import WelcomePage from "./pages/WelcomePage";
 
 function App() {
   return (
     <div className="app">
-      <TokensPage />
+      {/*<TokensPage />*/}
+      <WelcomePage />
     </div>
   );
 }
