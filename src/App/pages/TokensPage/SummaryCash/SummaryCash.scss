@@ -1,15 +1,17 @@
+@import "src/styles/variables";
+
 .monitor {
     padding: 1rem 0;
     text-align: center;
-    background:#9fc4f1;
+    background:$color-bg-blue;
 }
 
 #monitor__summary {
-    color: white;
+    color: $color-white;
     font-size: 5rem;
 }
 
 #monitor__pubkey {
-    color: rgba(0, 0, 0, 0.45);
+    color: $color-light-dark;
     font-size: 3rem;
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PageHeader } from 'antd';
-import './NavBar.css';
+import './NavBar.scss';
 
 const NavBar = () => {
   return (
@@ -8,15 +8,8 @@ const NavBar = () => {
       <PageHeader
         ghost={false}
         onBack={() => {}}
-        title={<div className={'navbar-slogan'}>Wallet</div>}
-        subTitle={<div className={'navbar-slogan'}>Check your money</div>}
-        // extra={[
-        //   <Button key="3">Operation</Button>,
-        //   <Button key="2">Operation</Button>,
-        //   <Button key="1" type="primary">
-        //     Primary
-        //   </Button>,
-        // ]}
+        title={<div className="navbar-slogan">Wallet</div>}
+        subTitle={<div className="navbar-slogan">Check your money</div>}
       >
       </PageHeader>
     </div>

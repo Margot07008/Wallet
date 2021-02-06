@@ -1,6 +1,7 @@
 import React from 'react';
 import TokensPage from './pages/TokensPage';
-import './App.css';
+import './App.scss';
+
 
 function App() {
   return (
