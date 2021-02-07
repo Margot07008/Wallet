@@ -1,6 +1,7 @@
 
 
 export const formatMoney = (number, decimal) => {
+
   const strNumber = String(number);
   const idxDel = strNumber.indexOf('.');
   const mod = strNumber.slice(idxDel);
@@ -16,5 +17,6 @@ export const formatMoney = (number, decimal) => {
   if (rounded < 10000) {
     return rounded;
   }
+
   return new Intl.NumberFormat('ru-RU').format(rounded);
 }

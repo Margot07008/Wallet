@@ -3,8 +3,11 @@ import { Typography } from 'antd';
 import './SummaryCash.scss';
 const { Title, Text } = Typography;
 
+type Props = {
+    totalSum?: string,
+};
 
-const SummaryCash = ({totalSum}) => {
+const SummaryCash: React.FC<Props> = ({totalSum}) => {
   return (
     <div className="monitor">
       <Title id="monitor__summary" level={2}>${totalSum}</Title>
