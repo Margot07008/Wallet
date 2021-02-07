@@ -29,11 +29,3 @@ export function fit() {
   document.documentElement.style.fontSize = `${currentScale * initScale}px`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  initScale();
-})
-
-function initScale() {
-  window.addEventListener("resize", fit);
-  fit();
-}
