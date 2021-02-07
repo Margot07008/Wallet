@@ -1,7 +1,7 @@
 import { someTokens } from './mocks';
 import { formatMoney } from './formatMoney';
 
-export const CreateTokens =()=> {
+export const CreateTokens = () => {
     let totalSum = 0;
     const tokensForRender = [];
     const ethBalance = someTokens.ETH.balance * someTokens.ETH.price.rate;
