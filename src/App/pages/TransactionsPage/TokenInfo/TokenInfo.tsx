@@ -2,6 +2,7 @@ import React from "react";
 import Coin from "./Coin";
 import './TokenInfo.scss';
 import DisplayToken from "./DisplayToken";
+import Transactions from "./Transactions";
 
 const tokenInfo = {
     logo: 'https://ethplorer.io/images/tether.png',
@@ -15,10 +16,13 @@ const tokenInfo = {
 
 const TokenInfo = () => {
     return (
-        <div className="token-info-block">
-            <Coin rate={tokenInfo.rate} dif={tokenInfo.dif}/>
-            <DisplayToken logo={tokenInfo.logo} balance={tokenInfo.balance} price={tokenInfo.price} symbol={tokenInfo.symbol}/>
-        </div>
+        <>
+            <div className="token-info-block">
+                <Coin rate={tokenInfo.rate} dif={tokenInfo.dif}/>
+                <DisplayToken logo={tokenInfo.logo} balance={tokenInfo.balance} price={tokenInfo.price} symbol={tokenInfo.symbol}/>
+            </div>
+            <Transactions />
+        </>
     )
 }
 

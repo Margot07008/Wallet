@@ -1,19 +1,5 @@
-@import "../../../../../../styles/variables";
+@import "src/styles/variables";
 
-
-.stonks {
-    font-size: 2.5rem;
-    &_up {
-        color: $color-green;
-
-    }
-    &_down {
-        color: $color-red;
-    }
-    &_static{
-        color: $color-light-dark;
-    }
-}
 
 .dollars {
     font-size: 2.8rem;
