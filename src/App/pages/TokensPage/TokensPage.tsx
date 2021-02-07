@@ -8,11 +8,10 @@ import {CreateTokens} from "../../../utils/CreateTokens";
 
 const TokensPage = () => {
   const listOfToken = CreateTokens();
-  const totalSum = formatMoney(listOfToken.totalSum, 2);
   return (
     <>
-      <NavBar/>
-      <SummaryCash totalSum={String(totalSum)}/>
+      <NavBar title={'Wallet'} subtitle={'Check your money'}/>
+      <SummaryCash totalSum={String(listOfToken.totalSum)}/>
       <Tokens tokens={listOfToken.tokens}/>
     </>
   )

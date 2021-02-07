@@ -1,6 +1,6 @@
 
 
-export const formatMoney = (number, decimal) => {
+export const formatMoney = (number: string | number | undefined, decimal: number | undefined) => {
 
   const strNumber = String(number);
   const idxDel = strNumber.indexOf('.');

@@ -1,8 +1,9 @@
 import * as React from 'react';
-import Rate from "../Rate";
+import Rate from "./Rate";
 import {formatMoney} from "../../../../../utils/formatMoney";
 import {Avatar, List} from "antd";
 import './SingleToken.scss';
+import {FrownOutlined} from "@ant-design/icons";
 
 
 type Props = {
@@ -25,14 +26,14 @@ const SingleToken: React.FC<Props> = ({token}) => {
       <List.Item key={token?.address}>
         <List.Item.Meta
           avatar={
-            <Avatar src={token?.logo} />
+            <Avatar src={token?.logo} icon={<FrownOutlined />} style={{color: '#f56a00', background: '#fde3cf'}}/>
           }
           title={token?.name}
           description={<Rate rate={token?.rate} diff={token?.dif}/>}
         />
         <div className="tokens-money-cont">
-          <div className="dollars">{formatMoney(token?.balance,7)} {token?.symbol}</div>
-          <div className="tokens-money-cont__dollar">${formatMoney(token?.price,2)}</div>
+          <div className="dollars">{token?.balance} {token?.symbol}</div>
+          <div className="tokens-money-cont__dollar">${token?.price}</div>
         </div>
       </List.Item>
       </>
