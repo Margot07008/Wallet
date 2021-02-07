@@ -1,1 +1,1 @@
-export {default} from './FillInNavBar';
+export { default } from './FillInNavBar';

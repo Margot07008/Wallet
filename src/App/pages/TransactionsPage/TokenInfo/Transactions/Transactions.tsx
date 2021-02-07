@@ -1,14 +1,20 @@
-import {someTransaction} from "../../../../../utils/mocks";
-import {formatMoney} from "../../../../../utils/formatMoney";
-import {List} from "antd";
-import * as React from "react";
-import SingleTrans from "./SingleTrans";
-import {convertDate} from "../../../../../utils/convertDate";
+import { someTransaction } from '../../../../../utils/mocks';
+import { formatMoney } from '../../../../../utils/formatMoney';
+import { List } from 'antd';
+import * as React from 'react';
+import SingleTrans from './SingleTrans';
+import { convertDate } from '../../../../../utils/convertDate';
 import './Transactions.scss';
 
-
 const createListOfTransactions = (list: any[]) => {
-    let formedList: {transactionHash: string; timestamp: string; balance: string; to: string; from: string; symbol: string; }[] = [];
+    let formedList: {
+        transactionHash: string;
+        timestamp: string;
+        balance: string;
+        to: string;
+        from: string;
+        symbol: string;
+    }[] = [];
     list.forEach((item) => {
         formedList.push({
             transactionHash: item.transactionHash,
@@ -17,12 +23,11 @@ const createListOfTransactions = (list: any[]) => {
             to: item.to,
             from: item.from,
             symbol: item.tokenInfo.symbol,
-        }
-        )
+        });
         console.log(new Date(item.timestamp));
-    })
+    });
     return formedList;
-}
+};
 
 const Transactions = () => {
     const listOfTrans = createListOfTransactions(someTransaction.operations);
@@ -31,13 +36,10 @@ const Transactions = () => {
         <div className="transactions-list">
             <List
                 dataSource={listOfTrans}
-                renderItem={trans => (
-                    <SingleTrans trans={trans} reqAddress={reqAddress}/>
-                )}
-            >
-            </List>
+                renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
+            ></List>
         </div>
-    )
-}
+    );
+};
 
 export default Transactions;

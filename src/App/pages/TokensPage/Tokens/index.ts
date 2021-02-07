@@ -1,1 +1,1 @@
-export {default} from './Tokens';
+export { default } from './Tokens';

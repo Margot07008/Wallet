@@ -1,1 +1,1 @@
-export {default} from './TokenInfo';
+export { default } from './TokenInfo';

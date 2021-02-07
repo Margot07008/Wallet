@@ -1,1 +1,1 @@
-export {default} from './DisplayToken';
+export { default } from './DisplayToken';

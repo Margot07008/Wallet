@@ -1,1 +1,1 @@
-export {default} from './SingleTrans';
+export { default } from './SingleTrans';

@@ -1,1 +1,1 @@
-export {default} from './TransactionsPage';
+export { default } from './TransactionsPage';

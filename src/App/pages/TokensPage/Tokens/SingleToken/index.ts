@@ -1,1 +1,1 @@
-export {default} from './SingleToken';
+export { default } from './SingleToken';
