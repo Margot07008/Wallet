@@ -28,4 +28,3 @@ export function fit() {
 
   document.documentElement.style.fontSize = `${currentScale * initScale}px`;
 }
-
