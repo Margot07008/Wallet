@@ -83,7 +83,7 @@ export const someTokens = {
         "ethTransfersCount":0,
         "price":{
           "rate":1.00013315025982,
-          "diff":-0.08,
+          "diff":0,
           "diff7d":-0.03,
           "ts":1612555388,
           "marketCapUsd":27792916357.114876,

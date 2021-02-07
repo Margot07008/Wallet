@@ -1,6 +1,7 @@
 import React from 'react';
 import TokensPage from './pages/TokensPage';
 import './App.scss';
+import WelcomePage from "./pages/WelcomePage";
 
 
 function App() {
