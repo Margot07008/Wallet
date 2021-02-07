@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {Avatar, List} from 'antd';
+import { Avatar, List } from 'antd';
 import './SingleTrans.scss';
-import {DownCircleOutlined, FrownOutlined, UpCircleOutlined} from "@ant-design/icons";
+import {
+    ToTopOutlined, VerticalAlignBottomOutlined,
+} from '@ant-design/icons';
 
 type Props = {
     trans: {
@@ -17,21 +19,25 @@ type Props = {
 
 const SingleTrans: React.FC<Props> = ({ trans, reqAddress }) => {
     const isSend = reqAddress === trans.from;
-    const description = isSend ? `To: ${trans.to.slice(0,6)}...${trans.to.slice(38)}` : `From: ${trans.from.slice(0,6)}...${trans.from.slice(38)}`;
+    const description = isSend
+        ? `To: ${trans.to.slice(2, 7)}...${trans.to.slice(37)}`
+        : `From: ${trans.from.slice(2, 7)}...${trans.from.slice(37)}`;
     const style = isSend ? 'red' : 'green';
-    const icon = isSend ? <UpCircleOutlined /> : <DownCircleOutlined />;
+    const icon = isSend ? <ToTopOutlined /> : <VerticalAlignBottomOutlined />;
 
     return (
         <>
             <List.Item key={trans.transactionHash}>
-                <List.Item.Meta title={trans.timestamp} description={description}
-                                avatar={
-                                    <Avatar
-                                        size={"large"}
-                                        icon={icon}
-                                        style={{ color: `${style}`, background: 'white' }}
-                                    />
-                                }
+                <List.Item.Meta
+                    title={trans.timestamp}
+                    description={description}
+                    avatar={
+                        <Avatar
+                            size={'large'}
+                            icon={icon}
+                            style={{ color: `${style}`, background: 'white' }}
+                        />
+                    }
                 />
                 <div
                     className={`transactions-list-balance ${isSend ? 'stonks_down' : 'stonks_up'}`}

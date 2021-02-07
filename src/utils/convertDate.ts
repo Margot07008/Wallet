@@ -5,7 +5,7 @@ export const convertDate = (date: number) => {
     const hh = newDate.getHours() <= 9 ? '0' + newDate.getHours() : newDate.getHours();
     const mm = newDate.getMinutes() <= 9 ? '0' + newDate.getMinutes() : newDate.getMinutes();
     if (!diff && newDate.getDay() === today.getDay()) {
-        return `в ${hh}:${mm}`;
+        return `Сегодня в ${hh}:${mm}`;
     } else if (!diff || diff < 7) {
         return `в ${newDate.getDay()} ${hh}:${mm}`;
     } else {
