@@ -1,0 +1,18 @@
+@import "src/styles/variables";
+
+.monitor {
+    padding: 72px 0 1rem;
+    text-align: center;
+    background:$color-bg-blue;
+
+}
+
+#monitor__summary {
+    color: $color-white;
+    font-size: 5rem;
+}
+
+#monitor__pubkey {
+    color: $color-light-dark;
+    font-size: 3rem;
+}

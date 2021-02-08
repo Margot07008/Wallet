@@ -1,0 +1,15 @@
+@import "src/styles/variables";
+
+.ant-page-header {
+    background: $color-bg-blue;
+}
+
+.navbar-slogan {
+    font-size: 3.8rem;
+}
+
+.site-page-header-ghost-wrapper{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
