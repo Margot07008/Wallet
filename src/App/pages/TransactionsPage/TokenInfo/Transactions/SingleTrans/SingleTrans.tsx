@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { Avatar, List } from 'antd';
 import './SingleTrans.scss';
-import {
-    ToTopOutlined, VerticalAlignBottomOutlined,
-} from '@ant-design/icons';
+import { ToTopOutlined, VerticalAlignBottomOutlined } from '@ant-design/icons';
 
 type Props = {
     trans: {

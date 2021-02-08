@@ -21,51 +21,6 @@ export const someTokens = {
   "tokens":[
     {
       "tokenInfo":{
-        "address":"0x082280b4ae1a9e552555c256124de96fab63159b",
-        "name":"Meterqubes",
-        "decimals":"18",
-        "symbol":"MEQ",
-        "totalSupply":"1000000000000000000000000000",
-        "owner":"0x0920dccf5844ede071f11a199ba49ae113aa905e",
-        "lastUpdated":1604095362,
-        "issuancesCount":0,
-        "holdersCount":17888,
-        "image":"/images/MEQ082280b4.jpg",
-        "website":"https://meterqubes.io",
-        "facebook":"MeterQubes-2217917285125892",
-        "telegram":"https://t.me/meterqubes",
-        "twitter":"MeterQubes",
-        "coingecko":"meterqubes",
-        "ethTransfersCount":0,
-        "price":false,
-        "publicTags":[
-          "DEX"
-        ]
-      },
-      "balance":4.0e+20,
-      "totalIn":0,
-      "totalOut":0
-    },
-    {
-      "tokenInfo":{
-        "address":"0xf050e54d2b50c055c9919a4b856a195221d3db71",
-        "name":"Rutile",
-        "decimals":"18",
-        "symbol":"RUT",
-        "totalSupply":"150000000000000000000000000",
-        "owner":"0x",
-        "lastUpdated":1607633978,
-        "issuancesCount":0,
-        "holdersCount":4949,
-        "ethTransfersCount":0,
-        "price":false
-      },
-      "balance":6.7e+21,
-      "totalIn":0,
-      "totalOut":0
-    },
-    {
-      "tokenInfo":{
         "address":"0xdac17f958d2ee523a2206206994597c13d831ec7",
         "name":"Tether USD",
         "decimals":"6",

@@ -2,11 +2,24 @@ import * as React from 'react';
 import NavBar from '../../../components/NavBar';
 import SummaryCash from './SummaryCash';
 import Tokens from './Tokens';
-import { formatMoney } from '../../../utils/formatMoney';
 import { CreateTokens } from '../../../utils/CreateTokens';
+import {useEffect, useState} from "react";
+import {someTokens} from "../../../utils/mocks";
+import axios from "axios";
 
 const TokensPage = () => {
-    const listOfToken = CreateTokens();
+
+    const [listOfTokens, getListOfTokens] = useState([{}]);
+
+    useEffect(() => {
+        axios({
+            method: 'get',
+            url: ''
+        })
+    },[])
+
+    // @ts-ignore
+    const listOfToken = CreateTokens(someTokens);
     return (
         <>
             <NavBar title={'Wallet'} subtitle={'Check your money'} />
