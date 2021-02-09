@@ -3,28 +3,39 @@ import NavBar from '../../../components/NavBar';
 import SummaryCash from './SummaryCash';
 import Tokens from './Tokens';
 import { CreateTokens } from '../../../utils/CreateTokens';
-import {useEffect, useState} from "react";
-import {someTokens} from "../../../utils/mocks";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import {apikey, apiUrl, getAddressInfo} from "../../../config";
+
 
 const TokensPage = () => {
 
-    const [listOfTokens, getListOfTokens] = useState([{}]);
+    // @ts-ignore
+    const {id}  = useParams();
+    const [clearData, setTokens] = useState({totalSum: '', tokens: []});
+
 
     useEffect(() => {
-        axios({
-            method: 'get',
-            url: ''
-        })
-    },[])
+        const makeRequest = async () => {
+            axios({
+                method: 'get',
+                url: `${apiUrl}${getAddressInfo}${id}${apikey}`,
+            }).then((response) => {
+                // @ts-ignore
+                setTokens(CreateTokens(response.data));
+            });
+        };
 
-    // @ts-ignore
-    const listOfToken = CreateTokens(someTokens);
+        makeRequest();
+    }, []);
+
+
     return (
         <>
             <NavBar title={'Wallet'} subtitle={'Check your money'} />
-            <SummaryCash totalSum={String(listOfToken.totalSum)} />
-            <Tokens tokens={listOfToken.tokens} />
+            <SummaryCash totalSum={String(clearData.totalSum)} />
+            <Tokens tokens={clearData.tokens} />
         </>
     );
 };

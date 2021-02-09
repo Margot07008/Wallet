@@ -1,76 +1,75 @@
-
 import { formatMoney } from './formatMoney';
 // import RootObject = namespace.RootObject;
 
 // declare module namespace {
 
-    export interface Price {
-        rate: number;
-        diff: number;
-        diff7d: number;
-        ts: number;
-        marketCapUsd: number;
-        availableSupply: number;
-        volume24h: number;
-        diff30d: number;
-        volDiff1: number;
-        volDiff7: number;
-        volDiff30: number;
-    }
+export interface Price {
+    rate: number;
+    diff: number;
+    diff7d: number;
+    ts: number;
+    marketCapUsd: number;
+    availableSupply: number;
+    volume24h: number;
+    diff30d: number;
+    volDiff1: number;
+    volDiff7: number;
+    volDiff30: number;
+}
 
-    export interface ETH {
-        balance: number;
-        price: Price;
-    }
+export interface ETH {
+    balance: number;
+    price: Price;
+}
 
-    export interface Price2 {
-        rate: number;
-        diff: number;
-        diff7d: number;
-        ts: number;
-        marketCapUsd: number;
-        availableSupply: number;
-        volume24h: number;
-        diff30d: number;
-        volDiff1: number;
-        volDiff7: number;
-        volDiff30: number;
-        currency: string;
-    }
+export interface Price2 {
+    rate: number;
+    diff: number;
+    diff7d: number;
+    ts: number;
+    marketCapUsd: number;
+    availableSupply: number;
+    volume24h: number;
+    diff30d: number;
+    volDiff1: number;
+    volDiff7: number;
+    volDiff30: number;
+    currency: string;
+}
 
-    export interface TokenInfo {
-        address: string;
-        name: string;
-        decimals: string;
-        symbol: string;
-        totalSupply: string;
-        owner: string;
-        lastUpdated: number;
-        issuancesCount: number;
-        holdersCount: number;
-        website: string;
-        twitter: string;
-        image: string;
-        facebook: string;
-        coingecko: string;
-        ethTransfersCount: number;
-        price: Price2;
-        publicTags: string[];
-    }
+export interface TokenInfo {
+    address: string;
+    name: string;
+    decimals: string;
+    symbol: string;
+    totalSupply: string;
+    owner: string;
+    lastUpdated: number;
+    issuancesCount: number;
+    holdersCount: number;
+    website: string;
+    twitter: string;
+    image: string;
+    facebook: string;
+    coingecko: string;
+    ethTransfersCount: number;
+    price: Price2;
+    publicTags: string[];
+}
 
-    export interface Token {
-        tokenInfo: TokenInfo;
-        balance: number;
-        totalIn: number;
-        totalOut: number;
-    }
+export interface Token {
+    tokenInfo: TokenInfo;
+    balance: number;
+    totalIn: number;
+    totalOut: number;
+}
 
-    export interface RootObject {
-        address: string;
-        ETH: ETH;
-        countTxs: number;
-        tokens: Token[];
-    }
+export interface RootObject {
+    address: string;
+    ETH: ETH;
+    countTxs: number;
+    tokens: Token[];
+}
 
 // }
 export const CreateTokens = (someTokens: RootObject) => {
@@ -116,5 +115,6 @@ export const CreateTokens = (someTokens: RootObject) => {
         });
     }
 
+    console.log(tokensForRender)
     return { tokens: tokensForRender, totalSum: formatMoney(totalSum, 2) };
 };

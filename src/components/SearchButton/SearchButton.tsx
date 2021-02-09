@@ -1,40 +1,31 @@
-import React, {useState} from 'react';
+import * as React from 'react';
 import { Button, Tooltip } from 'antd';
 import { ArrowRightOutlined } from '@ant-design/icons';
-import axios from "axios";
-import {apikey, apiUrl, getAddressInfo, urls} from "../../config";
-import {Link} from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom';
+import { urls } from '../../config';
+
 
 type Props = {
-    inputText: string
-}
+    inputText: string;
+};
 
-const submitAddress = (address: string) :void => {
 
-    const [isRedirected, redirect] = useState(false);
+const SearchButton: React.FC<Props> = ({ inputText }) => {
 
-    const makeRequest = async () => {
-        axios({
-            method: 'get',
-            url: `${apiUrl}${getAddressInfo}${address}${apikey}`
-        }).then(response => {
-            console.log(response);
-            redirect(true);
-        });
+    const history = useHistory();
 
-    }
-
-    makeRequest().then(()=>{
-
-    });
-
-}
-
-const SearchButton:React.FC<Props> = ({inputText}) => {
     return (
         <>
-            <Tooltip title="search" >
-                <Button onClick={()=>{submitAddress(inputText)}} shape="circle" icon={<ArrowRightOutlined />} />
+            <Tooltip title="search">
+                <Link to={urls.TOKENS.create(inputText)} >
+                <Button
+                    onClick={() => {
+                        history.push(`tokens/${inputText}`);
+                    }}
+                    shape="circle"
+                    icon={<ArrowRightOutlined />}
+                />
+                </Link>
             </Tooltip>
         </>
     );
