@@ -1,41 +1,46 @@
-import { someTransaction } from '../../../../../utils/mocks';
-import { formatMoney } from '../../../../../utils/formatMoney';
 import { List } from 'antd';
 import * as React from 'react';
 import SingleTrans from './SingleTrans';
-import { convertDate } from '../../../../../utils/convertDate';
 import './Transactions.scss';
-
-const createListOfTransactions = (list: any[]) => {
-    let formedList: {
-        transactionHash: string;
-        timestamp: string;
-        balance: string;
-        to: string;
-        from: string;
-        symbol: string;
-    }[] = [];
-    list.forEach((item) => {
-        formedList.push({
-            transactionHash: item.transactionHash,
-            timestamp: convertDate(item.timestamp),
-            balance: String(formatMoney(item.value / Math.pow(10, item.tokenInfo.decimals), 7)),
-            to: item.to,
-            from: item.from,
-            symbol: item.tokenInfo.symbol,
-        });
-        console.log(new Date(item.timestamp));
-    });
-    return formedList;
-};
+import {useHistory, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {apikey, apiUrl, getAddressHistoryByToken} from "../../../../../config";
+import {cleanup} from "@testing-library/react";
+import {createListOfTransactions} from "../../../../../utils/CreateTransactions";
 
 const Transactions = () => {
-    const listOfTrans = createListOfTransactions(someTransaction.operations);
-    const reqAddress = '0xc88f7666330b4b511358b7742dc2a3234710e7b1'; //TODO как только буду игратьсь с запросами, буду оттуда брать адрес кошелька, по которому ищем инфу
+
+    // @ts-ignore
+    const {address}  = useParams();
+    const history = useHistory();
+    const searchToken = history.location.search.slice(1);
+
+    const [transactions, uploadTransactions] = useState([]);
+
+    useEffect(() => {
+        const makeRequest = async () => {
+            axios({
+                method: 'get',
+                url: `${apiUrl}${getAddressHistoryByToken}${address}${apikey}&${searchToken}`,
+            }).then((response) => {
+                // @ts-ignore
+                uploadTransactions(createListOfTransactions(response.data.operations));
+            });
+        }
+
+
+        makeRequest();
+        return  cleanup();
+    }, [])
+
+    // @ts-ignore
+
+    const reqAddress = address;
     return (
         <div className="transactions-list">
             <List
-                dataSource={listOfTrans}
+                dataSource={transactions}
                 renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
             ></List>
         </div>

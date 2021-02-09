@@ -1,9 +1,10 @@
 import * as React from 'react';
-import Rate from './Rate';
-import { formatMoney } from '../../../../../utils/formatMoney';
-import { Avatar, List } from 'antd';
+import { List } from 'antd';
 import './SingleToken.scss';
-import { FrownOutlined } from '@ant-design/icons';
+import {urls} from "../../../../../config";
+import {Link, useHistory} from "react-router-dom";
+import TokenListMeta from "./TokenListMeta";
+
 
 type Props = {
     token?: {
@@ -18,21 +19,17 @@ type Props = {
     };
 };
 
+
+
 const SingleToken: React.FC<Props> = ({ token }) => {
+    const history = useHistory();
+    const addressWallet = history.location.pathname.split('/tokens/')[1];
+
     return (
         <>
+            <Link to={urls.TRANS.create(addressWallet, token?.address)} onClick={()=>{}} >
             <List.Item key={token?.address}>
-                <List.Item.Meta
-                    avatar={
-                        <Avatar
-                            src={token?.logo}
-                            icon={<FrownOutlined />}
-                            style={{ color: '#f56a00', background: '#fde3cf' }}
-                        />
-                    }
-                    title={token?.name}
-                    description={<Rate rate={token?.rate} diff={token?.dif} />}
-                />
+                <TokenListMeta token={token}/>
                 <div className="tokens-money-cont">
                     <div className="dollars">
                         {token?.balance} {token?.symbol}
@@ -40,6 +37,7 @@ const SingleToken: React.FC<Props> = ({ token }) => {
                     <div className="tokens-money-cont__dollar">${token?.price}</div>
                 </div>
             </List.Item>
+            </Link>
         </>
     );
 };

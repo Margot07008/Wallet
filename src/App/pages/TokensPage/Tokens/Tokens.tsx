@@ -1,7 +1,11 @@
 import * as React from 'react';
 import './Tokens.scss';
-import { List } from 'antd';
+import {List} from 'antd';
 import SingleToken from './SingleToken';
+import {createContext, useContext, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import {urls} from "../../../../config";
+
 
 type Props = {
     tokens: {
@@ -16,11 +20,16 @@ type Props = {
     }[];
 };
 
+
+
 const Tokens: React.FC<Props> = ({ tokens }) => {
+
     return (
+
         <div className="tokens-list">
-            <List dataSource={tokens} renderItem={(token) => <SingleToken token={token} />}></List>
+            <List dataSource={tokens} renderItem={(token) => <SingleToken token={token}/>}/>
         </div>
+
     );
 };
 
