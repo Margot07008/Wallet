@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './Coin.scss';
-import '../../../../../styles/variables.scss';
+import '@styles/variables.scss';
 
 type Props = {
     rate: string;

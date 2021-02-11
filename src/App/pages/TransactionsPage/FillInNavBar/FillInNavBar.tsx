@@ -1,13 +1,15 @@
-import NavBar from '../../../../components/NavBar';
-import React from 'react';
+import NavBar from '@components/NavBar';
+import * as React from 'react';
 
-const TransTitle = {
-    name: 'Ethereum',
-    symbol: 'ETH',
-};
+type Props = {
+    infoToken: {
+        name: string,
+        symbol: string,
+    }
+}
 
-const FillInNavBar = () => {
-    const titleNavBar = `${TransTitle.name} (${TransTitle.symbol})`;
+const FillInNavBar: React.FC<Props> = ({infoToken}) => {
+    const titleNavBar = `${infoToken.name} (${infoToken.symbol})`;
     return <NavBar title={titleNavBar} subtitle={''} />;
 };
 

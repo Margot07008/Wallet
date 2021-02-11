@@ -1,1 +1,1 @@
-export {default} from './TokenListMeta';
+export { default } from './TokenListMeta';

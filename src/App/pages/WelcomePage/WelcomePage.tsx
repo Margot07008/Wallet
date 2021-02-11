@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import './WelcomePage.scss';
 import HelloText from './HelloText';
-import AddressInput from '../../../components/AddressInput';
-import SearchButton from '../../../components/SearchButton';
-import { Formik, Form } from 'formik';
+import AddressInput from '@components/AddressInput';
+import SearchButton from '@components/SearchButton';
+import {useState} from "react";
+
 
 const WelcomePage = () => {
     const [inputText, saveInput] = useState('');

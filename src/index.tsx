@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { ConfigProvider } from 'antd';
 import 'antd/dist/antd.css';
 import App from './App';
-import './styles/index.scss';
-import { fit } from './utils/fit';
+import '@styles/index.scss';
+import { fit } from '@utils/fit';
 
 ReactDOM.render(
     <React.StrictMode>

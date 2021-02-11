@@ -12,7 +12,9 @@ const NavBar: React.FC<Props> = ({ title, subtitle }) => {
         <div className="site-page-header-ghost-wrapper">
             <PageHeader
                 ghost={false}
-                onBack={() => {window.history.back()}}
+                onBack={() => {
+                    window.history.back();
+                }}
                 title={<div className="navbar-slogan">{title}</div>}
                 subTitle={<div className="navbar-slogan">{subtitle}</div>}
             />

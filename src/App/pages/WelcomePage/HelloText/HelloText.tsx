@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import * as antd from 'antd';
 import './HelloText.scss';
 const { Typography } = antd;

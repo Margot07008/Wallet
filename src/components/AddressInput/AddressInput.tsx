@@ -1,5 +1,5 @@
 import * as antd from 'antd';
-import React from 'react';
+import * as React from 'react';
 import './AddressInput.scss';
 
 const { Input } = antd;
