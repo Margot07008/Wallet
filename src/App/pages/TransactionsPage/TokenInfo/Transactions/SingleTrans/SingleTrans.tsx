@@ -15,11 +15,15 @@ type Props = {
     reqAddress: string;
 };
 
+const shortAddress = (trans:string) => {
+    return `${trans.slice(2, 7)}...${trans.slice(37)}`;
+}
+
 const SingleTrans: React.FC<Props> = ({ trans, reqAddress }) => {
     const isSend = reqAddress === trans.from;
     const description = isSend
-        ? `To: ${trans.to.slice(2, 7)}...${trans.to.slice(37)}`
-        : `From: ${trans.from.slice(2, 7)}...${trans.from.slice(37)}`;
+        ? `To: ${shortAddress(trans.to)}`
+        : `From: ${shortAddress(trans.from)}`;
     const style = isSend ? 'red' : 'green';
     const icon = isSend ? <ToTopOutlined /> : <VerticalAlignBottomOutlined />;
 

@@ -1,35 +1,21 @@
 import * as React from 'react';
 import './Tokens.scss';
-import {List} from 'antd';
+import { List } from 'antd';
 import SingleToken from './SingleToken';
-import {createContext, useContext, useState} from "react";
-import {Link, useHistory} from "react-router-dom";
-import {urls} from "../../../../config";
-
+import {EthTokenArr} from "@store/models/tokens/ethToken";
+import TokenInfoStore from "@store/TokenInfoStore";
 
 type Props = {
-    tokens: {
-        address: string;
-        symbol: string;
-        name: string;
-        balance: string;
-        price: string;
-        logo: string;
-        rate: string;
-        dif: string;
-    }[];
+    tokens: EthTokenArr,
+    storeTokenInfo: TokenInfoStore,
 };
 
-
-
-const Tokens: React.FC<Props> = ({ tokens }) => {
+const Tokens: React.FC<Props> = ({ tokens,storeTokenInfo }) => {
 
     return (
-
         <div className="tokens-list">
-            <List dataSource={tokens} renderItem={(token) => <SingleToken token={token}/>}/>
+            <List dataSource={tokens} renderItem={(token) => <SingleToken storeTokenInfo={storeTokenInfo} token={token} />} />
         </div>
-
     );
 };
 
