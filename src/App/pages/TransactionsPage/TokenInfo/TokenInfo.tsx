@@ -3,14 +3,13 @@ import Coin from './Coin';
 import './TokenInfo.scss';
 import DisplayToken from './DisplayToken';
 import Transactions from './Transactions';
-import TokenInfoStore from "@store/TokenInfoStore";
-
+import TokenInfoStore from '@store/TokenInfoStore';
 
 type Props = {
-    storeTrans: TokenInfoStore
-}
+    storeTrans: TokenInfoStore;
+};
 
-const TokenInfo: React.FC<Props> = ({storeTrans}) => {
+const TokenInfo: React.FC<Props> = ({ storeTrans }) => {
     return (
         <>
             <div className="token-info-block">
@@ -22,7 +21,7 @@ const TokenInfo: React.FC<Props> = ({storeTrans}) => {
                     symbol={storeTrans.repos.tokenInfo.symbol}
                 />
             </div>
-            <Transactions storeTrans={storeTrans}/>
+            <Transactions storeTrans={storeTrans} />
         </>
     );
 };

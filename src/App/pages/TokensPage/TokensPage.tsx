@@ -3,23 +3,22 @@ import NavBar from '@components/NavBar';
 import SummaryCash from './SummaryCash';
 import Tokens from './Tokens';
 import { useParams } from 'react-router-dom';
-import TokensStore from "@store/TokensStore";
-import {useLocalStore} from "@utils/useLocal";
-import {useAsync} from "@utils/useAsync";
+import TokensStore from '@store/TokensStore';
+import { useLocalStore } from '@utils/useLocal';
+import { useAsync } from '@utils/useAsync';
 import { observer } from 'mobx-react-lite';
-import TokenInfoStore from "@store/TokenInfoStore";
+import TokenInfoStore from '@store/TokenInfoStore';
 
 type Props = {
-    storeTokenInfo: TokenInfoStore,
+    storeTokenInfo: TokenInfoStore;
 };
 
-const TokensPage: React.FC<Props> = ({storeTokenInfo}) => {
-
+const TokensPage: React.FC<Props> = ({ storeTokenInfo }) => {
     // @ts-ignore
-    const {id} = useParams();
+    const { id } = useParams();
 
     const store = useLocalStore(() => new TokensStore());
-    useAsync(store.fetch, [id],[]);
+    useAsync(store.fetch, [id], []);
 
     return (
         <>

@@ -1,1 +1,1 @@
-export {default} from './TokensStore';
+export { default } from './TokensStore';

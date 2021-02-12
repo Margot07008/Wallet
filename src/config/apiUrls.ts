@@ -16,4 +16,5 @@ export const apiUrl = 'https://api.ethplorer.io/';
 
 export const getAddressInfo = 'getAddressInfo/';
 export const getAddressHistoryByToken = 'getAddressHistory/';
-export const getEtherTrans = 'getAddressTransactions/';    //address, ?limit success
+export const getEtherTrans = 'getAddressTransactions/';
+export const getTokenInfo = 'getTokenInfo/';

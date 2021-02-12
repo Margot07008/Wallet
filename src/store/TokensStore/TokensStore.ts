@@ -1,5 +1,5 @@
-import {EthTokenArr} from "@store/models/tokens/ethToken";
-import {Meta} from "@utils/meta";
+import { EthTokenArr } from '@store/models/tokens/ethToken';
+import { Meta } from '@utils/meta';
 import {
     action,
     computed,
@@ -7,13 +7,14 @@ import {
     observable,
     reaction,
     runInAction,
-    IReactionDisposer, get,
+    IReactionDisposer,
+    get,
 } from 'mobx';
-import {requestTokensRepos} from "@store/TokensStore/requestTokensRepos";
-import {log} from "@utils/log";
+import { requestTokensRepos } from '@store/TokensStore/requestTokensRepos';
+import { log } from '@utils/log';
 
 export default class TokensStore {
-    _repos: { tokens: EthTokenArr; totalSum: number | string; } = {
+    _repos: { tokens: EthTokenArr; totalSum: number | string } = {
         tokens: [],
         totalSum: 0,
     };
@@ -25,7 +26,7 @@ export default class TokensStore {
             meta: observable,
             fetch: action.bound,
             repos: computed,
-        })
+        });
     }
 
     async fetch(id: string): Promise<void> {
@@ -63,6 +64,6 @@ export default class TokensStore {
         () => this.meta,
         (...args) => {
             log('Reaction', args);
-        }
+        },
     );
 }

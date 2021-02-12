@@ -15,7 +15,7 @@ const DisplayToken: React.FC<Props> = ({ logo, balance, price, symbol }) => {
     return (
         <div className="personal-token-info">
             <Avatar
-                src={symbol==='ETH' ? imgEth:logo}
+                src={symbol === 'ETH' ? imgEth : logo}
                 size={64}
                 icon={<FrownOutlined />}
                 style={{ color: '#f56a00', background: 'white' }}

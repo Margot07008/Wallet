@@ -1,11 +1,19 @@
-import {action, computed, IReactionDisposer, makeObservable, observable, reaction, runInAction} from "mobx";
-import {Meta} from "@utils/meta";
-import {SingleTransaction, TokenInfoDisplay} from "@store/models/transactions/transactionsEthApi";
-import {log} from "@utils/log";
-import {requestTransactions} from "@store/TokenInfoStore/requestTransactions";
+import {
+    action,
+    computed,
+    IReactionDisposer,
+    makeObservable,
+    observable,
+    reaction,
+    runInAction,
+} from 'mobx';
+import { Meta } from '@utils/meta';
+import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
+import { log } from '@utils/log';
+import { requestTransactions } from '@store/TokenInfoStore/requestTransactions';
 
 export default class TokenInfoStore {
-    _repos: { trans: SingleTransaction[], tokenInfo: TokenInfoDisplay } = {
+    _repos: { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay } = {
         trans: [],
         tokenInfo: {
             logo: '',
@@ -14,7 +22,7 @@ export default class TokenInfoStore {
             totalDollar: '',
             totalCrypto: '',
             rate: '',
-            symbol: ''
+            symbol: '',
         },
     };
     meta: Meta = Meta.initial;
@@ -25,7 +33,7 @@ export default class TokenInfoStore {
             meta: observable,
             fetch: action.bound,
             repos: computed,
-        })
+        });
     }
 
     async fetch(address: string, searchToken: string): Promise<void> {
@@ -43,7 +51,7 @@ export default class TokenInfoStore {
                 totalDollar: '',
                 totalCrypto: '',
                 rate: '',
-                symbol: ''
+                symbol: '',
             },
         };
 
@@ -59,7 +67,7 @@ export default class TokenInfoStore {
         });
     }
 
-    get repos(): { trans: SingleTransaction[], tokenInfo: TokenInfoDisplay } {
+    get repos(): { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay } {
         return this._repos;
     }
 
@@ -71,8 +79,6 @@ export default class TokenInfoStore {
         () => this.meta,
         (...args) => {
             log('Reaction', args);
-        }
+        },
     );
-
 }
-
