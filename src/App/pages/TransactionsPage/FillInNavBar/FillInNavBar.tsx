@@ -3,12 +3,12 @@ import * as React from 'react';
 
 type Props = {
     infoToken: {
-        name: string,
-        symbol: string,
-    }
-}
+        name: string;
+        symbol: string;
+    };
+};
 
-const FillInNavBar: React.FC<Props> = ({infoToken}) => {
+const FillInNavBar: React.FC<Props> = ({ infoToken }) => {
     const titleNavBar = `${infoToken.name} (${infoToken.symbol})`;
     return <NavBar title={titleNavBar} subtitle={''} />;
 };

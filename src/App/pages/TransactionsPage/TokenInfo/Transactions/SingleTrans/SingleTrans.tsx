@@ -15,9 +15,9 @@ type Props = {
     reqAddress: string;
 };
 
-const shortAddress = (trans:string) => {
+const shortAddress = (trans: string) => {
     return `${trans.slice(2, 7)}...${trans.slice(37)}`;
-}
+};
 
 const SingleTrans: React.FC<Props> = ({ trans, reqAddress }) => {
     const isSend = reqAddress === trans.from;

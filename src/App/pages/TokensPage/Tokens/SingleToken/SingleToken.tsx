@@ -4,18 +4,17 @@ import './SingleToken.scss';
 import { urls } from '@config/apiUrls';
 import { Link, useHistory } from 'react-router-dom';
 import TokenListMeta from './TokenListMeta';
-import {EthToken} from "@store/models/tokens/ethToken";
-import TokenInfoStore from "@store/TokenInfoStore";
+import { EthToken } from '@store/models/tokens/ethToken';
+import TokenInfoStore from '@store/TokenInfoStore';
 
 type Props = {
     token: EthToken;
-    storeTokenInfo: TokenInfoStore
+    storeTokenInfo: TokenInfoStore;
 };
 
-const SingleToken: React.FC<Props> = ({ token , storeTokenInfo}) => {
+const SingleToken: React.FC<Props> = ({ token, storeTokenInfo }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
-
 
     return (
         <>

@@ -1,13 +1,11 @@
-import {EthToken} from "@store/models/tokens/ethToken";
-import {formatMoney} from "@utils/formatMoney";
-import {TokenApiModel} from "@store/models/tokens/tokensEthApi";
+import { EthToken } from '@store/models/tokens/ethToken';
+import { formatMoney } from '@utils/formatMoney';
+import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
-
-export const createSingleToken = (item: TokenApiModel):EthToken => {
+export const createSingleToken = (item: TokenApiModel): EthToken => {
     const itemInfo = item.tokenInfo;
     const itemBalance = Number(item.balance) / Math.pow(10, Number(itemInfo.decimals));
     if (item.tokenInfo.price) {
-
         let itemPrice: any;
         itemPrice = itemInfo.price;
 
@@ -35,4 +33,4 @@ export const createSingleToken = (item: TokenApiModel):EthToken => {
             dif: '0', //рост, падение за сутки
         };
     }
-}
+};

@@ -1,1 +1,1 @@
-export {default} from './TokenInfoStore';
+export { default } from './TokenInfoStore';

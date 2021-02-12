@@ -1,13 +1,17 @@
 import {
     SingleTransaction,
     TokenInfoDisplay,
-    TransactionsEthApi
-} from "@store/models/transactions/transactionsEthApi";
-import {convertDate} from "@utils/convertDate";
-import {formatMoney} from "@utils/formatMoney";
+    TransactionsEthApi,
+} from '@store/models/transactions/transactionsEthApi';
+import { convertDate } from '@utils/convertDate';
+import { formatMoney } from '@utils/formatMoney';
+import {TokenApiModel} from "@store/models/tokens/tokensEthApi";
 
-
-export const createListTransPage = (list: TransactionsEthApi, searchAddress:string ):{trans: SingleTransaction[], tokenInfo: TokenInfoDisplay} => {
+export const createListTransPage = (
+    list: TransactionsEthApi,
+    tokensInformation: TokenApiModel[],
+    tokensAddr: string,
+): { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay } => {
     let formedList: SingleTransaction[] = [];
     let tokenInfoDisplay: TokenInfoDisplay = {
         logo: '',
@@ -16,13 +20,33 @@ export const createListTransPage = (list: TransactionsEthApi, searchAddress:stri
         totalDollar: '',
         totalCrypto: '',
         rate: '',
-        symbol: ''
+        symbol: '',
     };
-    let totalSumCrypt: number = 0;
+
+    let foundedTokenInfo: TokenApiModel = {
+        tokenInfo: {
+            address: '',
+            name: '',
+            decimals: '',
+            symbol: '',
+            image: '',
+            price: {
+                rate: '',
+                diff: '',
+            },
+        },
+        balance: '',
+    };
+
+    tokensInformation.forEach((singleToken) => {
+        if (singleToken.tokenInfo.address === tokensAddr) {
+            foundedTokenInfo = singleToken;
+        }
+    })
+
 
     list.operations.forEach((item) => {
         const tmpBalance = Number(item.value) / Math.pow(10, Number(item.tokenInfo.decimals));
-        item.from === searchAddress ? totalSumCrypt -= tmpBalance : totalSumCrypt += tmpBalance;
         formedList.push({
             transactionHash: item.transactionHash,
             timestamp: convertDate(item.timestamp),
@@ -33,19 +57,24 @@ export const createListTransPage = (list: TransactionsEthApi, searchAddress:stri
         });
     });
 
-    if (list.operations) {
-        const firstTrans = list.operations[0];
-        const tokenInfoPrice = firstTrans.tokenInfo.price;
+    if (foundedTokenInfo) {
+        const tokenInfoPrice = foundedTokenInfo.tokenInfo.price;
+        const totalCrypto = (Number(foundedTokenInfo.balance) / Math.pow(10, Number(foundedTokenInfo.tokenInfo.decimals)));
+        console.log(foundedTokenInfo);
         tokenInfoDisplay = {
-            logo: firstTrans.tokenInfo.image ? 'https://ethplorer.io' + firstTrans.tokenInfo.image : '',
-            name: firstTrans.tokenInfo.name,
-            dif: tokenInfoPrice ? String(firstTrans.tokenInfo.price.diff) : '0',
-            totalCrypto: String(formatMoney(totalSumCrypt, 7)),
-            totalDollar: tokenInfoPrice ? String(formatMoney(totalSumCrypt * firstTrans.tokenInfo.price.rate, 2)) : '0',
-            rate: tokenInfoPrice ? String(formatMoney(firstTrans.tokenInfo.price.rate, 2)) : '0',
-            symbol: firstTrans.tokenInfo.symbol
-        }
+            logo: foundedTokenInfo.tokenInfo.image
+                ? 'https://ethplorer.io' + foundedTokenInfo.tokenInfo.image
+                : '',
+            name: foundedTokenInfo.tokenInfo.name,
+            dif: tokenInfoPrice ? String(foundedTokenInfo.tokenInfo.price.diff) : '0',
+            totalCrypto: totalCrypto ? String(formatMoney(totalCrypto, 7)) : '0',
+            totalDollar: tokenInfoPrice
+                ? String(formatMoney(totalCrypto * Number(foundedTokenInfo.tokenInfo.price.rate), 2))
+                : '0',
+            rate: tokenInfoPrice ? String(formatMoney(foundedTokenInfo.tokenInfo.price.rate, 2)) : '0',
+            symbol: foundedTokenInfo.tokenInfo.symbol,
+        };
     }
 
-    return {trans: formedList, tokenInfo: tokenInfoDisplay};
+    return { trans: formedList, tokenInfo: tokenInfoDisplay };
 };
