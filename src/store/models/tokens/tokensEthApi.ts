@@ -30,10 +30,9 @@ export type TokenApiModel = {
 };
 
 export type EtherApiModels = {
-    balance: number,
-    price:{
-        "rate":number,
-        "diff":number,
-    },
-}
-
+    balance: number;
+    price: {
+        rate: number;
+        diff: number;
+    };
+};
