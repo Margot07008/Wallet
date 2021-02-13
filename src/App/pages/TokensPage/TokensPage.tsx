@@ -7,13 +7,9 @@ import TokensStore from '@store/TokensStore';
 import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { observer } from 'mobx-react-lite';
-import TokenInfoStore from '@store/TokenInfoStore';
 
-type Props = {
-    storeTokenInfo: TokenInfoStore;
-};
 
-const TokensPage: React.FC<Props> = ({ storeTokenInfo }) => {
+const TokensPage = () => {
     // @ts-ignore
     const { id } = useParams();
 
@@ -24,7 +20,7 @@ const TokensPage: React.FC<Props> = ({ storeTokenInfo }) => {
         <>
             <NavBar title={'Wallet'} subtitle={'Check your money'} />
             <SummaryCash totalSum={String(store.repos.totalSum)} />
-            <Tokens storeTokenInfo={storeTokenInfo} tokens={store.repos.tokens} />
+            <Tokens store={store} tokens={store.repos.tokens} />
         </>
     );
 };

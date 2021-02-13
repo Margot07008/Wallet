@@ -7,28 +7,31 @@ import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
 import TokenInfoStore from '@store/TokenInfoStore';
 
+import TokensStore from "@store/TokensStore";
+
 type Props = {
     token: EthToken;
-    storeTokenInfo: TokenInfoStore;
+    store: TokensStore;
 };
 
-const SingleToken: React.FC<Props> = ({ token, storeTokenInfo }) => {
+const SingleToken: React.FC<Props> = ({ store, token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
 
     return (
         <>
-            <Link to={urls.TRANS.create(addressWallet, token?.address)}>
-                <List.Item key={token?.address}>
-                    <TokenListMeta token={token} />
-                    <div className="tokens-money-cont">
-                        <div className="dollars">
-                            {token?.balance} {token?.symbol}
+
+                <Link to={urls.TRANS.create(addressWallet, token?.address)}>
+                    <List.Item key={token?.address}>
+                        <TokenListMeta token={token} />
+                        <div className="tokens-money-cont">
+                            <div className="dollars">
+                                {token?.balance} {token?.symbol}
+                            </div>
+                            <div className="tokens-money-cont__dollar">${token?.price}</div>
                         </div>
-                        <div className="tokens-money-cont__dollar">${token?.price}</div>
-                    </div>
-                </List.Item>
-            </Link>
+                    </List.Item>
+                </Link>
         </>
     );
 };

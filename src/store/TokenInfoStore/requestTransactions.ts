@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
     apikey,
     apiUrl,
-    getAddressHistoryByToken, getAddressInfo,
+    getAddressHistoryByToken,
+    getAddressInfo,
     getEtherTrans,
     getTokenInfo,
 } from '@config/apiUrls';
@@ -14,21 +15,22 @@ import { createEthTrans } from '@utils/createEthTrans';
 export const requestTransactions = async (
     address: string,
     searchToken: string,
+    lastTransTime: number,
 ): Promise<ApiResp> => {
-    let tokenAddress = searchToken.split('=')[1]
+    let tokenAddress = searchToken.split('=')[1];
     if (address !== tokenAddress) {
         try {
             const response = await axios({
                 method: 'get',
-                url: `${apiUrl}${getAddressHistoryByToken}${address}${apikey}&${searchToken}&type=transfer`,
+                url: `${apiUrl}${getAddressHistoryByToken}${address}${apikey}&${searchToken}&type=transfer&limit=10&timestamp=${lastTransTime}`,
             });
             const response2 = await axios({
                 method: 'get',
                 url: `${apiUrl}${getAddressInfo}${address}${apikey}`,
-            })
+            });
             return {
                 isError: false,
-                data: createListTransPage(response.data,response2.data.tokens, tokenAddress),
+                data: createListTransPage(response.data, response2.data.tokens, tokenAddress),
             };
         } catch (e) {
             log(e);
@@ -41,12 +43,12 @@ export const requestTransactions = async (
         try {
             const response = await axios({
                 method: 'get',
-                url: `${apiUrl}${getEtherTrans}${address}${apikey}&limit=50`,
+                url: `${apiUrl}${getEtherTrans}${address}${apikey}&limit=50&timestamp=${lastTransTime}`,
             });
             const response2 = await axios({
                 method: 'get',
                 url: `${apiUrl}${getAddressInfo}${address}${apikey}`,
-            })
+            });
             return {
                 isError: false,
                 data: createEthTrans(response.data, response2.data),
@@ -60,3 +62,5 @@ export const requestTransactions = async (
         }
     }
 };
+
+

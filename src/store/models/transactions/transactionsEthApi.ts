@@ -23,6 +23,7 @@ export type TransactionsEthApi = {
 };
 
 export type SingleTransaction = {
+    unixTimestamp: number,
     timestamp: string;
     transactionHash: string;
     to: string;

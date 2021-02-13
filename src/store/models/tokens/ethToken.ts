@@ -9,5 +9,4 @@ export type EthToken = {
     dif: string;
 };
 
-
 export type EthTokenArr = EthToken[];

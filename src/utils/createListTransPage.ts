@@ -5,7 +5,7 @@ import {
 } from '@store/models/transactions/transactionsEthApi';
 import { convertDate } from '@utils/convertDate';
 import { formatMoney } from '@utils/formatMoney';
-import {TokenApiModel} from "@store/models/tokens/tokensEthApi";
+import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
 export const createListTransPage = (
     list: TransactionsEthApi,
@@ -42,12 +42,12 @@ export const createListTransPage = (
         if (singleToken.tokenInfo.address === tokensAddr) {
             foundedTokenInfo = singleToken;
         }
-    })
-
+    });
 
     list.operations.forEach((item) => {
         const tmpBalance = Number(item.value) / Math.pow(10, Number(item.tokenInfo.decimals));
         formedList.push({
+            unixTimestamp: item.timestamp,
             transactionHash: item.transactionHash,
             timestamp: convertDate(item.timestamp),
             balance: String(formatMoney(tmpBalance, 7)),
@@ -59,7 +59,9 @@ export const createListTransPage = (
 
     if (foundedTokenInfo) {
         const tokenInfoPrice = foundedTokenInfo.tokenInfo.price;
-        const totalCrypto = (Number(foundedTokenInfo.balance) / Math.pow(10, Number(foundedTokenInfo.tokenInfo.decimals)));
+        const totalCrypto =
+            Number(foundedTokenInfo.balance) /
+            Math.pow(10, Number(foundedTokenInfo.tokenInfo.decimals));
         console.log(foundedTokenInfo);
         tokenInfoDisplay = {
             logo: foundedTokenInfo.tokenInfo.image
@@ -69,12 +71,16 @@ export const createListTransPage = (
             dif: tokenInfoPrice ? String(foundedTokenInfo.tokenInfo.price.diff) : '0',
             totalCrypto: totalCrypto ? String(formatMoney(totalCrypto, 7)) : '0',
             totalDollar: tokenInfoPrice
-                ? String(formatMoney(totalCrypto * Number(foundedTokenInfo.tokenInfo.price.rate), 2))
+                ? String(
+                      formatMoney(totalCrypto * Number(foundedTokenInfo.tokenInfo.price.rate), 2),
+                  )
                 : '0',
-            rate: tokenInfoPrice ? String(formatMoney(foundedTokenInfo.tokenInfo.price.rate, 2)) : '0',
+            rate: tokenInfoPrice
+                ? String(formatMoney(foundedTokenInfo.tokenInfo.price.rate, 2))
+                : '0',
             symbol: foundedTokenInfo.tokenInfo.symbol,
         };
     }
 
-    return { trans: formedList, tokenInfo: tokenInfoDisplay };
+    return { trans: formedList, tokenInfo: tokenInfoDisplay};
 };

@@ -3,20 +3,22 @@ import './Tokens.scss';
 import { List } from 'antd';
 import SingleToken from './SingleToken';
 import { EthTokenArr } from '@store/models/tokens/ethToken';
-import TokenInfoStore from '@store/TokenInfoStore';
+import TokensStore from "@store/TokensStore";
 
 type Props = {
     tokens: EthTokenArr;
-    storeTokenInfo: TokenInfoStore;
+    store: TokensStore;
 };
 
-const Tokens: React.FC<Props> = ({ tokens, storeTokenInfo }) => {
+
+const Tokens: React.FC<Props> = ({ store, tokens }) => {
+
     return (
         <div className="tokens-list">
             <List
                 dataSource={tokens}
                 renderItem={(token) => (
-                    <SingleToken storeTokenInfo={storeTokenInfo} token={token} />
+                    <SingleToken store={store} token={token} />
                 )}
             />
         </div>
