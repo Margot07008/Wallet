@@ -2,7 +2,6 @@ import * as React from 'react';
 import Coin from './Coin';
 import './TokenInfo.scss';
 import DisplayToken from './DisplayToken';
-import Transactions from './Transactions';
 import TokenInfoStore from '@store/TokenInfoStore';
 
 type Props = {
@@ -21,7 +20,6 @@ const TokenInfo: React.FC<Props> = ({ storeTrans }) => {
                     symbol={storeTrans.repos.tokenInfo.symbol}
                 />
             </div>
-            <Transactions storeTrans={storeTrans} />
         </>
     );
 };

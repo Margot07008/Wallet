@@ -7,7 +7,7 @@ import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
 import TokenInfoStore from '@store/TokenInfoStore';
 
-import TokensStore from "@store/TokensStore";
+import TokensStore from '@store/TokensStore';
 
 type Props = {
     token: EthToken;
@@ -20,18 +20,17 @@ const SingleToken: React.FC<Props> = ({ store, token }) => {
 
     return (
         <>
-
-                <Link to={urls.TRANS.create(addressWallet, token?.address)}>
-                    <List.Item key={token?.address}>
-                        <TokenListMeta token={token} />
-                        <div className="tokens-money-cont">
-                            <div className="dollars">
-                                {token?.balance} {token?.symbol}
-                            </div>
-                            <div className="tokens-money-cont__dollar">${token?.price}</div>
+            <Link to={urls.TRANS.create(addressWallet, token?.address)}>
+                <List.Item key={token?.address}>
+                    <TokenListMeta token={token} />
+                    <div className="tokens-money-cont">
+                        <div className="dollars">
+                            {token?.balance} {token?.symbol}
                         </div>
-                    </List.Item>
-                </Link>
+                        <div className="tokens-money-cont__dollar">${token?.price}</div>
+                    </div>
+                </List.Item>
+            </Link>
         </>
     );
 };
