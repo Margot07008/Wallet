@@ -7,6 +7,9 @@ import TokensStore from '@store/TokensStore';
 import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { observer } from 'mobx-react-lite';
+import {createContext} from "react";
+
+export const TokensContext = createContext<TokensStore | null>(null);
 
 const TokensPage = () => {
     // @ts-ignore
@@ -17,9 +20,11 @@ const TokensPage = () => {
 
     return (
         <>
-            <NavBar title={'Wallet'} subtitle={'Check your money'} />
-            <SummaryCash totalSum={String(store.repos.totalSum)} />
-            <Tokens store={store} tokens={store.repos.tokens} />
+            <TokensContext.Provider value={store}>
+                <NavBar title={'Wallet'} subtitle={'Check your money'} />
+                <SummaryCash />
+                <Tokens />
+            </TokensContext.Provider>
         </>
     );
 };

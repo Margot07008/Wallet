@@ -2,20 +2,18 @@ import * as React from 'react';
 import './Tokens.scss';
 import { List } from 'antd';
 import SingleToken from './SingleToken';
-import { EthTokenArr } from '@store/models/tokens/ethToken';
-import TokensStore from '@store/TokensStore';
+import {useContext} from "react";
+import {TokensContext} from "../TokensPage";
 
-type Props = {
-    tokens: EthTokenArr;
-    store: TokensStore;
-};
 
-const Tokens: React.FC<Props> = ({ store, tokens }) => {
+const Tokens = () => {
+    const store = useContext(TokensContext);
+
     return (
         <div className="tokens-list">
             <List
-                dataSource={tokens}
-                renderItem={(token) => <SingleToken store={store} token={token} />}
+                dataSource={store?.repos.tokens}
+                renderItem={(token) => <SingleToken token={token} />}
             />
         </div>
     );

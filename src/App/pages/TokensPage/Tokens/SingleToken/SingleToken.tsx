@@ -5,16 +5,14 @@ import { urls } from '@config/apiUrls';
 import { Link, useHistory } from 'react-router-dom';
 import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
-import TokenInfoStore from '@store/TokenInfoStore';
 
-import TokensStore from '@store/TokensStore';
 
 type Props = {
     token: EthToken;
-    store: TokensStore;
 };
 
-const SingleToken: React.FC<Props> = ({ store, token }) => {
+const SingleToken: React.FC<Props> = ({  token }) => {
+
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
 
