@@ -6,6 +6,7 @@ import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { useHistory, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
+import Transactions from './TokenInfo/Transactions';
 
 type Props = {
     storeTokenInfo: TokenInfoStore;
@@ -20,10 +21,12 @@ const TransactionsPage: React.FC<Props> = ({ storeTokenInfo }) => {
     const storeTrans = useLocalStore(() => new TokenInfoStore());
     useAsync(storeTrans.fetch, [address, searchToken], []);
 
+    console.log(storeTrans.repos.tokenInfo);
     return (
         <>
             <FillInNavBar infoToken={storeTrans.repos.tokenInfo} />
             <TokenInfo storeTrans={storeTrans} />
+            <Transactions storeTrans={storeTrans} />
         </>
     );
 };

@@ -7,22 +7,29 @@ import { convertDate } from '@utils/convertDate';
 import { formatMoney } from '@utils/formatMoney';
 import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
-export const createListTransPage = (
-    list: TransactionsEthApi,
+export const createListTransPage = (list: TransactionsEthApi): SingleTransaction[] => {
+    let formedList: SingleTransaction[] = [];
+
+    list.operations.forEach((item) => {
+        const tmpBalance = Number(item.value) / Math.pow(10, Number(item.tokenInfo.decimals));
+        formedList.push({
+            unixTimestamp: item.timestamp,
+            transactionHash: item.transactionHash,
+            timestamp: convertDate(item.timestamp),
+            balance: String(formatMoney(tmpBalance, 7)),
+            to: item.to,
+            from: item.from,
+            symbol: item.tokenInfo.symbol,
+        });
+    });
+
+    return formedList;
+};
+
+export const listTransInfo = (
     tokensInformation: TokenApiModel[],
     tokensAddr: string,
-): { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay } => {
-    let formedList: SingleTransaction[] = [];
-    let tokenInfoDisplay: TokenInfoDisplay = {
-        logo: '',
-        name: '',
-        dif: '',
-        totalDollar: '',
-        totalCrypto: '',
-        rate: '',
-        symbol: '',
-    };
-
+): TokenInfoDisplay => {
     let foundedTokenInfo: TokenApiModel = {
         tokenInfo: {
             address: '',
@@ -38,23 +45,20 @@ export const createListTransPage = (
         balance: '',
     };
 
+    let tokenInfoDisplay: TokenInfoDisplay = {
+        logo: '',
+        name: '',
+        dif: '',
+        totalDollar: '',
+        totalCrypto: '',
+        rate: '',
+        symbol: '',
+    };
+
     tokensInformation.forEach((singleToken) => {
         if (singleToken.tokenInfo.address === tokensAddr) {
             foundedTokenInfo = singleToken;
         }
-    });
-
-    list.operations.forEach((item) => {
-        const tmpBalance = Number(item.value) / Math.pow(10, Number(item.tokenInfo.decimals));
-        formedList.push({
-            unixTimestamp: item.timestamp,
-            transactionHash: item.transactionHash,
-            timestamp: convertDate(item.timestamp),
-            balance: String(formatMoney(tmpBalance, 7)),
-            to: item.to,
-            from: item.from,
-            symbol: item.tokenInfo.symbol,
-        });
     });
 
     if (foundedTokenInfo) {
@@ -82,5 +86,5 @@ export const createListTransPage = (
         };
     }
 
-    return { trans: formedList, tokenInfo: tokenInfoDisplay};
+    return tokenInfoDisplay;
 };

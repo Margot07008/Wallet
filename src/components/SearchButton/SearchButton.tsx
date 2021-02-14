@@ -4,9 +4,14 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { Link, useHistory } from 'react-router-dom';
 import { urls } from '@config/apiUrls';
 
+
 type Props = {
     inputText: string;
 };
+
+const validateAddress = (inputText: string) => {
+    return inputText !== '';
+}
 
 const SearchButton: React.FC<Props> = ({ inputText }) => {
     const history = useHistory();
@@ -16,8 +21,12 @@ const SearchButton: React.FC<Props> = ({ inputText }) => {
             <Tooltip title="search">
                 <Link to={urls.TOKENS.create(inputText)}>
                     <Button
-                        onClick={() => {
-                            history.push(`tokens/${inputText}`);
+                        onClick={(e) => {
+                            if (validateAddress(inputText)) {
+                                history.push(`tokens/${inputText}`);
+                            } else {
+                                e.preventDefault();
+                            }
                         }}
                         shape="circle"
                         icon={<ArrowRightOutlined />}

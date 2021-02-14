@@ -3,8 +3,8 @@ import * as React from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
 import TokenInfoStore from '@store/TokenInfoStore';
-import {useHistory, useParams} from 'react-router-dom';
-import {useEffect, useRef, useState} from "react";
+import { useHistory, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
     storeTrans: TokenInfoStore;
@@ -19,7 +19,7 @@ const Transactions: React.FC<Props> = ({ storeTrans }) => {
     const searchToken = history.location.search.slice(1);
 
     const [postList, setPostList] = useState({
-        list: []
+        list: [],
     });
 
     const [page, setPage] = useState(1);
@@ -29,40 +29,35 @@ const Transactions: React.FC<Props> = ({ storeTrans }) => {
     useEffect(() => {
         var options = {
             root: null,
-            rootMargin: "20px",
-            threshold: 1.0
+            rootMargin: '20px',
+            threshold: 1.0,
         };
 
         const observer = new IntersectionObserver(handleObserver, options);
         if (loader.current) {
             // @ts-ignore
-            observer.observe(loader.current)
+            observer.observe(loader.current);
         }
-
     }, []);
-
 
     useEffect(() => {
         if (needSearch) {
-            storeTrans.fetch(address, searchToken, needSearch, setNeedSearch).then(() => {
+            storeTrans.loadMore(address, searchToken, needSearch, setNeedSearch).then(() => {
                 // @ts-ignore
                 const newList = postList.list.concat(storeTrans.repos.trans);
                 setPostList({
-                    list: newList
-                })
-            })
+                    list: newList,
+                });
+            });
         }
-
-    }, [page])
+    }, [page]);
 
     const handleObserver = (entities: any[]) => {
         const target = entities[0];
         if (target.isIntersecting) {
             setPage((page) => page + 1);
         }
-    }
-
-
+    };
 
     return (
         <div className="transactions-list">

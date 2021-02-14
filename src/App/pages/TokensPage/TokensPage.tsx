@@ -8,7 +8,6 @@ import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { observer } from 'mobx-react-lite';
 
-
 const TokensPage = () => {
     // @ts-ignore
     const { id } = useParams();
