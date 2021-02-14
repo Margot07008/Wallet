@@ -25,7 +25,7 @@ export const requestTransactions = async (
             isError: false,
             data: {
                 tokenInfo:
-                    address !== tokenAddress
+                    address.toUpperCase() !== tokenAddress.toUpperCase()
                         ? listTransInfo(response2.data.tokens, tokenAddress)
                         : ethTransInfo(response2.data),
             },
@@ -60,7 +60,7 @@ export const requestLoadMore = async (
         return {
             isError: false,
             data:
-                address !== tokenAddress
+                address.toLocaleUpperCase() !== tokenAddress.toLocaleUpperCase()
                     ? { trans: createListTransPage(response.data) }
                     : {
                           trans: createEthTrans(response.data),

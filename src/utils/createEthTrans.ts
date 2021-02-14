@@ -23,6 +23,7 @@ export const createEthTrans = (transactions: EtherTransApi[]): SingleTransaction
 };
 
 export const ethTransInfo = (etherInfo: TokensEthApiModel) => {
+    console.log('kek');
     return {
         logo: imgEth,
         name: 'Ethereum',

@@ -30,6 +30,7 @@ export const listTransInfo = (
     tokensInformation: TokenApiModel[],
     tokensAddr: string,
 ): TokenInfoDisplay => {
+    console.log('ell')
     let foundedTokenInfo: TokenApiModel = {
         tokenInfo: {
             address: '',
@@ -66,7 +67,6 @@ export const listTransInfo = (
         const totalCrypto =
             Number(foundedTokenInfo.balance) /
             Math.pow(10, Number(foundedTokenInfo.tokenInfo.decimals));
-        console.log(foundedTokenInfo);
         tokenInfoDisplay = {
             logo: foundedTokenInfo.tokenInfo.image
                 ? 'https://ethplorer.io' + foundedTokenInfo.tokenInfo.image

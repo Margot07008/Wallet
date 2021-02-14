@@ -102,7 +102,10 @@ export default class TokenInfoStore {
 
         runInAction(() => {
             this.meta = Meta.success;
-            const lastDate = data.trans[data.trans.length - 1].unixTimestamp;
+            let lastDate: number = Date.now();
+            if (data.trans.length > 0) {
+                lastDate = data.trans[data.trans.length - 1].unixTimestamp;
+            }
 
             if (this._repos.lastTransTime === lastDate) {
                 setNeedSearch(false);
