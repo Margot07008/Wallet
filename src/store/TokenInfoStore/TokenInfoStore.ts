@@ -1,8 +1,16 @@
-import {action, computed, IReactionDisposer, makeObservable, observable, reaction, runInAction,} from 'mobx';
-import {Meta} from '@utils/meta';
-import {SingleTransaction, TokenInfoDisplay} from '@store/models/transactions/transactionsEthApi';
-import {log} from '@utils/log';
-import {requestLoadMore, requestTransactions} from '@store/TokenInfoStore/requestTransactions';
+import {
+    action,
+    computed,
+    IReactionDisposer,
+    makeObservable,
+    observable,
+    reaction,
+    runInAction,
+} from 'mobx';
+import { Meta } from '@utils/meta';
+import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
+import { log } from '@utils/log';
+import { requestLoadMore, requestTransactions } from '@store/TokenInfoStore/requestTransactions';
 import React from 'react';
 
 export default class TokenInfoStore {
@@ -31,14 +39,10 @@ export default class TokenInfoStore {
         });
     }
 
-    async fetch(
-        address: string,
-        searchToken: string,
-    ): Promise<void> {
+    async fetch(address: string, searchToken: string): Promise<void> {
         // if (this.meta === Meta.loading || this.meta === Meta.success) {
         //     return;
         // }
-
 
         this.meta = Meta.loading;
         this._repos = {
@@ -55,10 +59,7 @@ export default class TokenInfoStore {
             },
         };
 
-        const { isError, data } = await requestTransactions(
-            address,
-            searchToken,
-        );
+        const { isError, data } = await requestTransactions(address, searchToken);
 
         if (isError) {
             this.meta = Meta.error;

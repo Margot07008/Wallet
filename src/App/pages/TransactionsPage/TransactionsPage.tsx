@@ -6,7 +6,7 @@ import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { useHistory, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import Transactions from "./TokenInfo/Transactions";
+import Transactions from './TokenInfo/Transactions';
 
 type Props = {
     storeTokenInfo: TokenInfoStore;

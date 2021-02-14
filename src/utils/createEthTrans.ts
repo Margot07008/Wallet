@@ -1,12 +1,10 @@
-import {EtherTransApi, SingleTransaction,} from '@store/models/transactions/transactionsEthApi';
-import {convertDate} from '@utils/convertDate';
-import {formatMoney} from '@utils/formatMoney';
+import { EtherTransApi, SingleTransaction } from '@store/models/transactions/transactionsEthApi';
+import { convertDate } from '@utils/convertDate';
+import { formatMoney } from '@utils/formatMoney';
 import imgEth from '@img/ethereum.png';
-import {TokensEthApiModel} from '@store/models/tokens/tokensEthApi';
+import { TokensEthApiModel } from '@store/models/tokens/tokensEthApi';
 
-export const createEthTrans = (
-    transactions: EtherTransApi[],
-): SingleTransaction[] => {
+export const createEthTrans = (transactions: EtherTransApi[]): SingleTransaction[] => {
     let formedData: SingleTransaction[] = [];
 
     transactions.forEach((item) => {
@@ -21,7 +19,6 @@ export const createEthTrans = (
         });
     });
 
-
     return formedData;
 };
 
@@ -34,5 +31,5 @@ export const ethTransInfo = (etherInfo: TokensEthApiModel) => {
         totalDollar: String(formatMoney(etherInfo.ETH.balance * etherInfo.ETH.price.rate, 2)),
         rate: String(formatMoney(etherInfo.ETH.price.rate, 2)),
         symbol: 'ETH',
-    }
-}
+    };
+};

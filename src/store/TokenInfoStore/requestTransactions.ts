@@ -1,9 +1,15 @@
-import {ApiResp} from '@utils/ApiResp';
+import { ApiResp } from '@utils/ApiResp';
 import axios from 'axios';
-import {apikey, apiUrl, getAddressHistoryByToken, getAddressInfo, getEtherTrans,} from '@config/apiUrls';
-import {log} from '@utils/log';
-import {createListTransPage, listTransInfo} from '@utils/createListTransPage';
-import {createEthTrans, ethTransInfo} from '@utils/createEthTrans';
+import {
+    apikey,
+    apiUrl,
+    getAddressHistoryByToken,
+    getAddressInfo,
+    getEtherTrans,
+} from '@config/apiUrls';
+import { log } from '@utils/log';
+import { createListTransPage, listTransInfo } from '@utils/createListTransPage';
+import { createEthTrans, ethTransInfo } from '@utils/createEthTrans';
 
 export const requestTransactions = async (
     address: string,
@@ -17,8 +23,13 @@ export const requestTransactions = async (
         });
         return {
             isError: false,
-            data: { tokenInfo: address !== tokenAddress ? listTransInfo(response2.data.tokens, tokenAddress) : ethTransInfo(response2.data) }
-           };
+            data: {
+                tokenInfo:
+                    address !== tokenAddress
+                        ? listTransInfo(response2.data.tokens, tokenAddress)
+                        : ethTransInfo(response2.data),
+            },
+        };
     } catch (e) {
         log(e);
         return {
@@ -48,11 +59,12 @@ export const requestLoadMore = async (
         });
         return {
             isError: false,
-            data: address !== tokenAddress ?
-                {trans: createListTransPage(response.data)}
-                : {
-                    trans: createEthTrans(response.data)
-                },
+            data:
+                address !== tokenAddress
+                    ? { trans: createListTransPage(response.data) }
+                    : {
+                          trans: createEthTrans(response.data),
+                      },
         };
     } catch (e) {
         log(e);

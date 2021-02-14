@@ -7,9 +7,7 @@ import { convertDate } from '@utils/convertDate';
 import { formatMoney } from '@utils/formatMoney';
 import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
-export const createListTransPage = (
-    list: TransactionsEthApi,
-): SingleTransaction[] => {
+export const createListTransPage = (list: TransactionsEthApi): SingleTransaction[] => {
     let formedList: SingleTransaction[] = [];
 
     list.operations.forEach((item) => {
@@ -28,10 +26,10 @@ export const createListTransPage = (
     return formedList;
 };
 
-
 export const listTransInfo = (
-                              tokensInformation: TokenApiModel[],
-                              tokensAddr: string,): TokenInfoDisplay => {
+    tokensInformation: TokenApiModel[],
+    tokensAddr: string,
+): TokenInfoDisplay => {
     let foundedTokenInfo: TokenApiModel = {
         tokenInfo: {
             address: '',
@@ -78,8 +76,8 @@ export const listTransInfo = (
             totalCrypto: totalCrypto ? String(formatMoney(totalCrypto, 7)) : '0',
             totalDollar: tokenInfoPrice
                 ? String(
-                    formatMoney(totalCrypto * Number(foundedTokenInfo.tokenInfo.price.rate), 2),
-                )
+                      formatMoney(totalCrypto * Number(foundedTokenInfo.tokenInfo.price.rate), 2),
+                  )
                 : '0',
             rate: tokenInfoPrice
                 ? String(formatMoney(foundedTokenInfo.tokenInfo.price.rate, 2))
@@ -89,4 +87,4 @@ export const listTransInfo = (
     }
 
     return tokenInfoDisplay;
-}
+};
