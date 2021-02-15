@@ -1,5 +1,5 @@
 import { EthToken } from '@store/models/tokens/ethToken';
-import { formatMoney } from '@utils/formatMoney';
+import {formatDiff, formatMoney} from '@utils/formatMoney';
 import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
 export const createSingleToken = (item: TokenApiModel): EthToken => {
@@ -19,7 +19,7 @@ export const createSingleToken = (item: TokenApiModel): EthToken => {
             price: String(formatMoney(tmpPrice, 2)), //мое кол-во денег в долларах (balance * rate)
             logo: itemInfo.image ? 'https://ethplorer.io' + itemInfo.image : '', //картинка валюты
             rate: String(formatMoney(itemPrice.rate, 2)), //курс в долларах за 1 монетку
-            dif: String(itemPrice.diff), //рост, падение за сутки
+            dif: formatDiff(itemPrice.diff), //рост, падение за сутки
         };
     } else {
         return {
@@ -30,7 +30,7 @@ export const createSingleToken = (item: TokenApiModel): EthToken => {
             price: '0', //мое кол-во денег в долларах (balance * rate)
             logo: itemInfo.image ? 'https://ethplorer.io' + itemInfo.image : '', //картинка валюты
             rate: '0', //курс в долларах за 1 монетку
-            dif: '0', //рост, падение за сутки
+            dif: '0,00', //рост, падение за сутки
         };
     }
 };

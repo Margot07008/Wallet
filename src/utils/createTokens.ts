@@ -1,5 +1,5 @@
 import { EthTokenArr } from '@store/models/tokens/ethToken';
-import { formatMoney } from '@utils/formatMoney';
+import {formatDiff, formatMoney} from '@utils/formatMoney';
 import { createSingleToken } from '@utils/createSingleToken';
 import { TokensEthApiModel } from '@store/models/tokens/tokensEthApi';
 
@@ -17,7 +17,7 @@ export const CreateTokens = (
         price: String(formatMoney(ethBalance, 2)),
         logo: '',
         rate: String(formatMoney(someTokens.ETH.price.rate, 2)),
-        dif: String(someTokens.ETH.price.diff),
+        dif: formatDiff(someTokens.ETH.price.diff),
     });
     totalSum += ethBalance;
     if (someTokens.tokens) {
@@ -26,8 +26,8 @@ export const CreateTokens = (
                 const itemBalance =
                     Number(item.balance) / Math.pow(10, Number(item.tokenInfo.decimals));
                 totalSum += itemBalance * Number(item.tokenInfo.price.rate);
+                tokensForRender.push(createSingleToken(item));
             }
-            tokensForRender.push(createSingleToken(item));
         });
     }
 

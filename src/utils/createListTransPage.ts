@@ -4,7 +4,7 @@ import {
     TransactionsEthApi,
 } from '@store/models/transactions/transactionsEthApi';
 import { convertDate } from '@utils/convertDate';
-import { formatMoney } from '@utils/formatMoney';
+import {formatDiff, formatMoney} from '@utils/formatMoney';
 import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
 export const createListTransPage = (list: TransactionsEthApi): SingleTransaction[] => {
@@ -71,7 +71,7 @@ export const listTransInfo = (
                 ? 'https://ethplorer.io' + foundedTokenInfo.tokenInfo.image
                 : '',
             name: foundedTokenInfo.tokenInfo.name,
-            dif: tokenInfoPrice ? String(foundedTokenInfo.tokenInfo.price.diff) : '0',
+            dif: tokenInfoPrice ? formatDiff(foundedTokenInfo.tokenInfo.price.diff) : '0,00',
             totalCrypto: totalCrypto ? String(formatMoney(totalCrypto, 7)) : '0',
             totalDollar: tokenInfoPrice
                 ? String(

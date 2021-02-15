@@ -1,3 +1,4 @@
+
 export const formatMoney = (number: string | number | undefined, decimal: number | undefined) => {
     const strNumber = String(number);
     const idxDel = strNumber.indexOf('.');
@@ -12,9 +13,11 @@ export const formatMoney = (number: string | number | undefined, decimal: number
 
     const rounded = Number(typeNumber.toFixed(decimal));
 
-    if (rounded < 10000) {
-        return rounded;
-    }
-
-    return new Intl.NumberFormat('ru-RU').format(rounded);
+    return new Intl.NumberFormat().format(rounded)
 };
+
+
+export const formatDiff = (diff: string | number): string => {
+    const diffNum = Number(diff);
+    return String(diffNum.toFixed(2));
+}
