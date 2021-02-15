@@ -1,5 +1,5 @@
 import { EthTokenArr } from '@store/models/tokens/ethToken';
-import {formatDiff, formatMoney} from '@utils/formatMoney';
+import { formatDiff, formatMoney } from '@utils/formatMoney';
 import { createSingleToken } from '@utils/createSingleToken';
 import { TokensEthApiModel } from '@store/models/tokens/tokensEthApi';
 

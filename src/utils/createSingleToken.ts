@@ -1,5 +1,5 @@
 import { EthToken } from '@store/models/tokens/ethToken';
-import {formatDiff, formatMoney} from '@utils/formatMoney';
+import { formatDiff, formatMoney } from '@utils/formatMoney';
 import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
 export const createSingleToken = (item: TokenApiModel): EthToken => {

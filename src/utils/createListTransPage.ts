@@ -4,7 +4,7 @@ import {
     TransactionsEthApi,
 } from '@store/models/transactions/transactionsEthApi';
 import { convertDate } from '@utils/convertDate';
-import {formatDiff, formatMoney} from '@utils/formatMoney';
+import { formatDiff, formatMoney } from '@utils/formatMoney';
 import { TokenApiModel } from '@store/models/tokens/tokensEthApi';
 
 export const createListTransPage = (list: TransactionsEthApi): SingleTransaction[] => {

@@ -1,14 +1,14 @@
-import { List } from 'antd';
+import {List, Spin} from 'antd';
 import * as React from 'react';
+import {useContext, useEffect, useRef, useState} from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
-import { useHistory, useParams } from 'react-router-dom';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { TransContext } from '../../TransactionsPage';
+import {useHistory, useParams} from 'react-router-dom';
+import {TransContext} from '../../TransactionsPage';
 
 const Transactions = () => {
     // @ts-ignore
-    const { address } = useParams();
+    const {address} = useParams();
     const reqAddress = address;
 
     const history = useHistory();
@@ -25,7 +25,7 @@ const Transactions = () => {
     const loader = useRef(null);
 
     useEffect(() => {
-        var options = {
+        const options = {
             root: null,
             rootMargin: '20px',
             threshold: 1.0,
@@ -67,10 +67,11 @@ const Transactions = () => {
             <div className="transactions-list">
                 <List
                     dataSource={postList.list}
-                    renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
+                    renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress}/>}
                 />
-                <div ref={loader} />
+                <div ref={loader}/>
             </div>
+            {store.meta === 'loading' && <div className="loader"><Spin size="large"/></div>}
         </>
     );
 };
