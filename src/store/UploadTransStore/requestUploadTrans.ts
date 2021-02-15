@@ -1,9 +1,9 @@
-import {ApiResp} from "@utils/ApiResp";
-import {apikey, apiUrl, getAddressHistoryByToken, getEtherTrans} from "@config/apiUrls";
-import axios from "axios";
-import {createListTransPage} from "@utils/createListTransPage";
-import {createEthTrans} from "@utils/createEthTrans";
-import {log} from "@utils/log";
+import { ApiResp } from '@utils/ApiResp';
+import { apikey, apiUrl, getAddressHistoryByToken, getEtherTrans } from '@config/apiUrls';
+import axios from 'axios';
+import { createListTransPage } from '@utils/createListTransPage';
+import { createEthTrans } from '@utils/createEthTrans';
+import { log } from '@utils/log';
 
 export const requestUploadTrans = async (
     address: string,
@@ -29,8 +29,8 @@ export const requestUploadTrans = async (
                 address.toLocaleUpperCase() !== tokenAddress.toLocaleUpperCase()
                     ? { trans: createListTransPage(response.data) }
                     : {
-                        trans: createEthTrans(response.data),
-                    },
+                          trans: createEthTrans(response.data),
+                      },
         };
     } catch (e) {
         log(e);

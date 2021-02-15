@@ -4,15 +4,13 @@ import HelloText from './HelloText';
 import AddressInput from '@components/AddressInput';
 import SearchButton from '@components/SearchButton';
 import { useState } from 'react';
-import {Form, Input, Space} from "antd";
+import { Form, Input, Space } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-import Search from "antd/es/input/Search";
+import Search from 'antd/es/input/Search';
 import { History } from 'history';
-import Web3 from "web3";
+import Web3 from 'web3';
 var web3 = new Web3(Web3.givenProvider);
-
-
 
 const onSearch = (history: History<unknown> | string[], value: string) => {
     try {
@@ -21,11 +19,10 @@ const onSearch = (history: History<unknown> | string[], value: string) => {
             history.push(`tokens/${value}`);
         }
         // const address = web3.utils.toChecksumAddress(value);
-
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
-}
+};
 
 const WelcomePage = () => {
     const [inputText, saveInput] = useState('');
@@ -41,9 +38,14 @@ const WelcomePage = () => {
                     {/*    <SearchButton inputText={inputText} />*/}
                     {/*</div>*/}
                     <Space direction="vertical">
-                        <Search allowClear  placeholder="input search text" onSearch = {(value) => {
-                            onSearch(history, value);
-                        }} enterButton />
+                        <Search
+                            allowClear
+                            placeholder="input search text"
+                            onSearch={(value) => {
+                                onSearch(history, value);
+                            }}
+                            enterButton
+                        />
                     </Space>
                 </div>
             </div>

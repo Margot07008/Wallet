@@ -1,1 +1,1 @@
-export {default} from './UploadTransStore';
+export { default } from './UploadTransStore';

@@ -1,8 +1,16 @@
-import {action, computed, IReactionDisposer, makeObservable, observable, reaction, runInAction,} from 'mobx';
-import {Meta} from '@utils/meta';
-import {SingleTransaction, TokenInfoDisplay} from '@store/models/transactions/transactionsEthApi';
-import {log} from '@utils/log';
-import {requestTransactions} from '@store/TokenInfoStore/requestTransactions';
+import {
+    action,
+    computed,
+    IReactionDisposer,
+    makeObservable,
+    observable,
+    reaction,
+    runInAction,
+} from 'mobx';
+import { Meta } from '@utils/meta';
+import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
+import { log } from '@utils/log';
+import { requestTransactions } from '@store/TokenInfoStore/requestTransactions';
 import React from 'react';
 
 export default class TokenInfoStore {

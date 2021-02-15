@@ -8,7 +8,7 @@ import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { observer } from 'mobx-react-lite';
 import { createContext } from 'react';
-import {Spin} from "antd";
+import { Spin } from 'antd';
 
 // @ts-ignore
 export const TokensContext = createContext<TokensStore>();
@@ -23,14 +23,16 @@ const TokensPage = () => {
     return (
         <>
             <TokensContext.Provider value={store}>
-                {store.meta === 'loading' && <Spin className="loading" size="large" tip="Loading..."/>}
-                {store.meta === 'success' &&
-                  <>
-                    <NavBar title={'Wallet'} subtitle={'Check your money'} />
-                    <SummaryCash />
-                    <Tokens />
+                {store.meta === 'loading' && (
+                    <Spin className="loading" size="large" tip="Loading..." />
+                )}
+                {store.meta === 'success' && (
+                    <>
+                        <NavBar title={'Wallet'} subtitle={'Check your money'} />
+                        <SummaryCash />
+                        <Tokens />
                     </>
-                }
+                )}
             </TokensContext.Provider>
         </>
     );

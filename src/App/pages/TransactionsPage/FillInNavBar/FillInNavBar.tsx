@@ -1,7 +1,7 @@
 import NavBar from '@components/NavBar';
 import * as React from 'react';
-import {useContext} from "react";
-import {TransInfoContext} from "../TransactionsPage";
+import { useContext } from 'react';
+import { TransInfoContext } from '../TransactionsPage';
 
 const FillInNavBar = () => {
     const store = useContext(TransInfoContext);

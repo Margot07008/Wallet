@@ -1,8 +1,16 @@
-import {action, computed, IReactionDisposer, makeObservable, observable, reaction, runInAction,} from 'mobx';
-import {Meta} from '@utils/meta';
-import {SingleTransaction, TokenInfoDisplay} from '@store/models/transactions/transactionsEthApi';
-import {log} from '@utils/log';
-import {requestUploadTrans} from '@store/UploadTransStore/requestUploadTrans';
+import {
+    action,
+    computed,
+    IReactionDisposer,
+    makeObservable,
+    observable,
+    reaction,
+    runInAction,
+} from 'mobx';
+import { Meta } from '@utils/meta';
+import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
+import { log } from '@utils/log';
+import { requestUploadTrans } from '@store/UploadTransStore/requestUploadTrans';
 import React from 'react';
 
 export default class TokenInfoStore {
@@ -27,7 +35,7 @@ export default class TokenInfoStore {
             _repos: observable,
             meta: observable,
             repos: computed,
-            loadMore: action.bound
+            loadMore: action.bound,
         });
     }
 

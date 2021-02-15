@@ -4,11 +4,9 @@ import SingleTrans from './SingleTrans';
 import './Transactions.scss';
 import TokenInfoStore from '@store/TokenInfoStore';
 import { useHistory, useParams } from 'react-router-dom';
-import {createContext, useContext, useEffect, useRef, useState} from 'react';
-import UploadTransStore from "@store/UploadTransStore/UploadTransStore";
-import {TransContext} from "../../TransactionsPage";
-
-
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
+import { TransContext } from '../../TransactionsPage';
 
 const Transactions = () => {
     // @ts-ignore
@@ -17,7 +15,6 @@ const Transactions = () => {
 
     const history = useHistory();
     const searchToken = history.location.search.slice(1);
-
 
     const store = useContext(TransContext);
 
@@ -52,12 +49,12 @@ const Transactions = () => {
             store.loadMore(address, searchToken, needSearch, setNeedSearch).then(() => {
                 // @ts-ignore
                 const newList = postList.list.concat(store.repos.trans);
-                    setPostList({
-                        list: newList,
-                    });
+                setPostList({
+                    list: newList,
+                });
             });
         }
-        return () => mounted = false;
+        return () => (mounted = false);
     }, [page]);
 
     const handleObserver = (entities: any[]) => {
@@ -69,15 +66,14 @@ const Transactions = () => {
 
     return (
         <>
-
-        <div className="transactions-list">
-            <List
-                dataSource={postList.list}
-                renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
-            />
-            <div ref={loader} />
-        </div>
-            </>
+            <div className="transactions-list">
+                <List
+                    dataSource={postList.list}
+                    renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
+                />
+                <div ref={loader} />
+            </div>
+        </>
     );
 };
 

@@ -19,9 +19,8 @@ export const createEthTrans = (transactions: EtherTransApi[]): SingleTransaction
                 symbol: 'ETH',
             });
         });
-
     } else {
-        formedData = []
+        formedData = [];
     }
     return formedData;
 };

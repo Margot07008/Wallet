@@ -13,7 +13,6 @@ const validateAddress = (inputText: string) => {
 };
 
 const SearchButton: React.FC<Props> = ({ inputText }) => {
-
     return (
         <>
             <Tooltip title="search">
