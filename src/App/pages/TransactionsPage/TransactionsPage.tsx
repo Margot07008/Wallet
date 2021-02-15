@@ -7,26 +7,42 @@ import { useAsync } from '@utils/useAsync';
 import { useHistory, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import Transactions from './TokenInfo/Transactions';
+import { createContext } from 'react';
+import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
+import { Spin } from 'antd';
 
-type Props = {
-    storeTokenInfo: TokenInfoStore;
-};
+// @ts-ignore
+export const TransInfoContext = createContext<TokenInfoStore>();
+// @ts-ignore
+export const TransContext = createContext<UploadTransStore>();
 
-const TransactionsPage: React.FC<Props> = ({ storeTokenInfo }) => {
+const TransactionsPage = () => {
     // @ts-ignore
     const { address } = useParams();
     const history = useHistory();
     const searchToken = history.location.search.slice(1);
 
-    const storeTrans = useLocalStore(() => new TokenInfoStore());
-    useAsync(storeTrans.fetch, [address, searchToken], []);
+    const storeTransInfo = useLocalStore(() => new TokenInfoStore());
+    useAsync(storeTransInfo.fetch, [address, searchToken], []);
 
-    console.log(storeTrans.repos.tokenInfo);
+    const storeTrans = useLocalStore(() => new UploadTransStore());
+
     return (
         <>
-            <FillInNavBar infoToken={storeTrans.repos.tokenInfo} />
-            <TokenInfo storeTrans={storeTrans} />
-            <Transactions storeTrans={storeTrans} />
+            {(storeTransInfo.meta === 'loading' || storeTrans.meta === 'loading') && (
+                <Spin className="loading" size="large" />
+            )}
+            <TransInfoContext.Provider value={storeTransInfo}>
+                {storeTransInfo.meta === 'success' && (
+                    <>
+                        <FillInNavBar />
+                        <TokenInfo />
+                    </>
+                )}
+            </TransInfoContext.Provider>
+            <TransContext.Provider value={storeTrans}>
+                <Transactions />
+            </TransContext.Provider>
         </>
     );
 };

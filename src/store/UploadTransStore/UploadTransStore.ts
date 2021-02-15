@@ -10,7 +10,7 @@ import {
 import { Meta } from '@utils/meta';
 import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
 import { log } from '@utils/log';
-import { requestTransactions } from '@store/TokenInfoStore/requestTransactions';
+import { requestUploadTrans } from '@store/UploadTransStore/requestUploadTrans';
 import React from 'react';
 
 export default class TokenInfoStore {
@@ -34,14 +34,18 @@ export default class TokenInfoStore {
         makeObservable(this, {
             _repos: observable,
             meta: observable,
-            fetch: action.bound,
             repos: computed,
-            // loadMore: action.bound,
+            loadMore: action.bound,
         });
     }
 
-    async fetch(address: string, searchToken: string): Promise<void> {
-        if (this.meta === Meta.loading || this.meta === Meta.success) {
+    async loadMore(
+        address: string,
+        searchToken: string,
+        needSearch: boolean,
+        setNeedSearch: React.Dispatch<React.SetStateAction<boolean>>,
+    ): Promise<void> {
+        if (this.meta === Meta.loading) {
             return;
         }
 
@@ -49,18 +53,14 @@ export default class TokenInfoStore {
         this._repos = {
             lastTransTime: this._repos.lastTransTime,
             trans: [],
-            tokenInfo: {
-                logo: '',
-                name: '',
-                dif: '',
-                totalDollar: '',
-                totalCrypto: '',
-                rate: '',
-                symbol: '',
-            },
+            tokenInfo: this._repos.tokenInfo,
         };
 
-        const { isError, data } = await requestTransactions(address, searchToken);
+        const { isError, data } = await requestUploadTrans(
+            address,
+            searchToken,
+            this._repos.lastTransTime,
+        );
 
         if (isError) {
             this.meta = Meta.error;
@@ -69,7 +69,18 @@ export default class TokenInfoStore {
 
         runInAction(() => {
             this.meta = Meta.success;
-            this._repos.tokenInfo = data.tokenInfo;
+            let lastDate: number = Date.now();
+            if (data.trans.length > 0) {
+                lastDate = data.trans[data.trans.length - 1].unixTimestamp;
+            }
+
+            if (this._repos.lastTransTime === lastDate || data.trans.length === 0) {
+                setNeedSearch(false);
+            } else {
+                setNeedSearch(true);
+                this._repos.trans = data.trans;
+                this._repos.lastTransTime = lastDate;
+            }
         });
     }
 

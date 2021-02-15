@@ -2,21 +2,19 @@ import { List } from 'antd';
 import * as React from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
-import TokenInfoStore from '@store/TokenInfoStore';
 import { useHistory, useParams } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { TransContext } from '../../TransactionsPage';
 
-type Props = {
-    storeTrans: TokenInfoStore;
-};
-
-const Transactions: React.FC<Props> = ({ storeTrans }) => {
+const Transactions = () => {
     // @ts-ignore
     const { address } = useParams();
     const reqAddress = address;
 
     const history = useHistory();
     const searchToken = history.location.search.slice(1);
+
+    const store = useContext(TransContext);
 
     const [postList, setPostList] = useState({
         list: [],
@@ -38,18 +36,23 @@ const Transactions: React.FC<Props> = ({ storeTrans }) => {
             // @ts-ignore
             observer.observe(loader.current);
         }
+        return () => observer.disconnect();
     }, []);
 
+    let mounted = true;
+
+    // @ts-ignore
     useEffect(() => {
         if (needSearch) {
-            storeTrans.loadMore(address, searchToken, needSearch, setNeedSearch).then(() => {
+            store.loadMore(address, searchToken, needSearch, setNeedSearch).then(() => {
                 // @ts-ignore
-                const newList = postList.list.concat(storeTrans.repos.trans);
+                const newList = postList.list.concat(store.repos.trans);
                 setPostList({
                     list: newList,
                 });
             });
         }
+        return () => (mounted = false);
     }, [page]);
 
     const handleObserver = (entities: any[]) => {
@@ -60,15 +63,15 @@ const Transactions: React.FC<Props> = ({ storeTrans }) => {
     };
 
     return (
-        <div className="transactions-list">
-            <List
-                dataSource={postList.list}
-                renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
-            />
-            <div className="loading" ref={loader}>
-                {/*<h2>Load More</h2>*/}
+        <>
+            <div className="transactions-list">
+                <List
+                    dataSource={postList.list}
+                    renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress} />}
+                />
+                <div ref={loader} />
             </div>
-        </div>
+        </>
     );
 };
 

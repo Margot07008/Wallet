@@ -5,7 +5,7 @@ import WelcomePage from './pages/WelcomePage';
 import TransactionsPage from './pages/TransactionsPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { urls } from '@config/apiUrls';
-import NotFoundPage from "./pages/NotFoundPage";
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     return (
@@ -15,7 +15,7 @@ function App() {
                     <Route component={WelcomePage} exact path={urls.MAIN} />
                     <Route component={TokensPage} path={urls.TOKENS.mask} />
                     <Route component={TransactionsPage} path={urls.TRANS.mask} />
-                    <Route component={NotFoundPage}/>
+                    <Route component={NotFoundPage} />
                 </Switch>
             </BrowserRouter>
         </div>

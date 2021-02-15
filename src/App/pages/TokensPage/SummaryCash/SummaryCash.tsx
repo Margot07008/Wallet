@@ -1,17 +1,18 @@
 import * as React from 'react';
 import { Typography } from 'antd';
 import './SummaryCash.scss';
+import { useContext } from 'react';
+import { TokensContext } from '../TokensPage';
+
 const { Title, Text } = Typography;
 
-type Props = {
-    totalSum?: string;
-};
+const SummaryCash = () => {
+    const store = useContext(TokensContext);
 
-const SummaryCash: React.FC<Props> = ({ totalSum }) => {
     return (
         <div className="monitor">
             <Title id="monitor__summary" level={2}>
-                ${totalSum}
+                ${store?.repos.totalSum}
             </Title>
             <Text id="monitor__pubkey" type="secondary">
                 readonly

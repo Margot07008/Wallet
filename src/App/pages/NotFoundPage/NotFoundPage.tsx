@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Button, Result} from "antd";
-import {urls} from "@config/apiUrls";
-import {Link} from "react-router-dom";
+import { Button, Result } from 'antd';
+import { urls } from '@config/apiUrls';
+import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
     return (
@@ -15,7 +15,7 @@ const NotFoundPage = () => {
                 </Link>
             }
         />
-    )
-}
+    );
+};
 
 export default NotFoundPage;
