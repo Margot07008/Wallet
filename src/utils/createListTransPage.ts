@@ -30,7 +30,6 @@ export const listTransInfo = (
     tokensInformation: TokenApiModel[],
     tokensAddr: string,
 ): TokenInfoDisplay => {
-    console.log('ell');
     let foundedTokenInfo: TokenApiModel = {
         tokenInfo: {
             address: '',

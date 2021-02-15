@@ -7,23 +7,26 @@ import { TokensEthApiModel } from '@store/models/tokens/tokensEthApi';
 export const createEthTrans = (transactions: EtherTransApi[]): SingleTransaction[] => {
     let formedData: SingleTransaction[] = [];
 
-    transactions.forEach((item) => {
-        formedData.push({
-            unixTimestamp: item.timestamp,
-            transactionHash: item.hash,
-            timestamp: convertDate(item.timestamp),
-            balance: String(formatMoney(item.value, 7)),
-            to: item.to,
-            from: item.from,
-            symbol: 'ETH',
+    if (transactions.length > 0) {
+        transactions.forEach((item) => {
+            formedData.push({
+                unixTimestamp: item.timestamp,
+                transactionHash: item.hash,
+                timestamp: convertDate(item.timestamp),
+                balance: String(formatMoney(item.value, 7)),
+                to: item.to,
+                from: item.from,
+                symbol: 'ETH',
+            });
         });
-    });
 
+    } else {
+        formedData = []
+    }
     return formedData;
 };
 
 export const ethTransInfo = (etherInfo: TokensEthApiModel) => {
-    console.log('kek');
     return {
         logo: imgEth,
         name: 'Ethereum',

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Typography } from 'antd';
 import './SummaryCash.scss';
-import {useContext} from "react";
-import {TokensContext} from "../TokensPage";
+import { useContext } from 'react';
+import { TokensContext } from '../TokensPage';
 
 const { Title, Text } = Typography;
 

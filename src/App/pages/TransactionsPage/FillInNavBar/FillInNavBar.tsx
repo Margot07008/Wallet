@@ -1,15 +1,11 @@
 import NavBar from '@components/NavBar';
 import * as React from 'react';
+import {useContext} from "react";
+import {TransInfoContext} from "../TransactionsPage";
 
-type Props = {
-    infoToken: {
-        name: string;
-        symbol: string;
-    };
-};
-
-const FillInNavBar: React.FC<Props> = ({ infoToken }) => {
-    const titleNavBar = `${infoToken.name} (${infoToken.symbol})`;
+const FillInNavBar = () => {
+    const store = useContext(TransInfoContext);
+    const titleNavBar = `${store.repos.tokenInfo.name} (${store.repos.tokenInfo.symbol})`;
     return <NavBar title={titleNavBar} subtitle={''} />;
 };
 

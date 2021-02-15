@@ -20,7 +20,7 @@ const shortAddress = (trans: string) => {
 };
 
 const SingleTrans: React.FC<Props> = ({ trans, reqAddress }) => {
-    const isSend = reqAddress === trans.from;
+    const isSend = reqAddress.toUpperCase() === trans.from.toUpperCase();
     const description = isSend
         ? `To: ${shortAddress(trans.to)}`
         : `From: ${shortAddress(trans.from)}`;

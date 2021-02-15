@@ -6,13 +6,11 @@ import { Link, useHistory } from 'react-router-dom';
 import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
 
-
 type Props = {
     token: EthToken;
 };
 
-const SingleToken: React.FC<Props> = ({  token }) => {
-
+const SingleToken: React.FC<Props> = ({ token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
 

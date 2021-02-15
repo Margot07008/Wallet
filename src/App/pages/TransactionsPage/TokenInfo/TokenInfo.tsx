@@ -3,21 +3,22 @@ import Coin from './Coin';
 import './TokenInfo.scss';
 import DisplayToken from './DisplayToken';
 import TokenInfoStore from '@store/TokenInfoStore';
+import {useContext} from "react";
+import {TransInfoContext} from "../TransactionsPage";
 
-type Props = {
-    storeTrans: TokenInfoStore;
-};
 
-const TokenInfo: React.FC<Props> = ({ storeTrans }) => {
+const TokenInfo = () => {
+    const store = useContext(TransInfoContext);
+
     return (
         <>
             <div className="token-info-block">
-                <Coin rate={storeTrans.repos.tokenInfo.rate} dif={storeTrans.repos.tokenInfo.dif} />
+                <Coin rate={store.repos.tokenInfo.rate} dif={store.repos.tokenInfo.dif} />
                 <DisplayToken
-                    logo={storeTrans.repos.tokenInfo.logo}
-                    balance={storeTrans.repos.tokenInfo.totalCrypto}
-                    price={storeTrans.repos.tokenInfo.totalDollar}
-                    symbol={storeTrans.repos.tokenInfo.symbol}
+                    logo={store.repos.tokenInfo.logo}
+                    balance={store.repos.tokenInfo.totalCrypto}
+                    price={store.repos.tokenInfo.totalDollar}
+                    symbol={store.repos.tokenInfo.symbol}
                 />
             </div>
         </>

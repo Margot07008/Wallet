@@ -13,7 +13,6 @@ const validateAddress = (inputText: string) => {
 };
 
 const SearchButton: React.FC<Props> = ({ inputText }) => {
-    const history = useHistory();
 
     return (
         <>
@@ -21,9 +20,7 @@ const SearchButton: React.FC<Props> = ({ inputText }) => {
                 <Link to={urls.TOKENS.create(inputText)}>
                     <Button
                         onClick={(e) => {
-                            if (validateAddress(inputText)) {
-                                history.push(`tokens/${inputText}`);
-                            } else {
+                            if (!validateAddress(inputText)) {
                                 e.preventDefault();
                             }
                         }}
