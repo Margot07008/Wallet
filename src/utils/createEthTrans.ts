@@ -1,6 +1,6 @@
 import { EtherTransApi, SingleTransaction } from '@store/models/transactions/transactionsEthApi';
 import { convertDate } from '@utils/convertDate';
-import { formatMoney } from '@utils/formatMoney';
+import { formatDiff, formatMoney } from '@utils/formatMoney';
 import imgEth from '@img/ethereum.png';
 import { TokensEthApiModel } from '@store/models/tokens/tokensEthApi';
 
@@ -29,7 +29,7 @@ export const ethTransInfo = (etherInfo: TokensEthApiModel) => {
     return {
         logo: imgEth,
         name: 'Ethereum',
-        dif: String(formatMoney(etherInfo.ETH.price.diff, 2)),
+        dif: formatDiff(etherInfo.ETH.price.diff),
         totalCrypto: String(formatMoney(etherInfo.ETH.balance, 7)),
         totalDollar: String(formatMoney(etherInfo.ETH.balance * etherInfo.ETH.price.rate, 2)),
         rate: String(formatMoney(etherInfo.ETH.price.rate, 2)),
