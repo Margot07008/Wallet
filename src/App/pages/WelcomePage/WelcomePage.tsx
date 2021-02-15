@@ -7,8 +7,6 @@ import { useHistory } from 'react-router-dom';
 import Search from 'antd/es/input/Search';
 import { History } from 'history';
 
-
-
 const onSearch = (history: History<unknown> | string[], value: string) => {
     try {
         const reg = new RegExp('0x[0-9a-fA-F]{40}');
