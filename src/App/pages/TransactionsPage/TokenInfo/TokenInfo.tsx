@@ -2,7 +2,6 @@ import * as React from 'react';
 import Coin from './Coin';
 import './TokenInfo.scss';
 import DisplayToken from './DisplayToken';
-import TokenInfoStore from '@store/TokenInfoStore';
 import { useContext } from 'react';
 import { TransInfoContext } from '../TransactionsPage';
 

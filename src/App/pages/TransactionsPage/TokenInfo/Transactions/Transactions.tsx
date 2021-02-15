@@ -2,10 +2,8 @@ import { List } from 'antd';
 import * as React from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
-import TokenInfoStore from '@store/TokenInfoStore';
 import { useHistory, useParams } from 'react-router-dom';
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { TransContext } from '../../TransactionsPage';
 
 const Transactions = () => {
