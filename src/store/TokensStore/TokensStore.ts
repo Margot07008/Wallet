@@ -55,15 +55,4 @@ export default class TokensStore {
     get repos(): { tokens: EthTokenArr; totalSum: number | string } {
         return this._repos;
     }
-
-    destroy(): void {
-        this._metaChangedReaction();
-    }
-
-    _metaChangedReaction: IReactionDisposer = reaction(
-        () => this.meta,
-        (...args) => {
-            log('Reaction', args);
-        },
-    );
 }

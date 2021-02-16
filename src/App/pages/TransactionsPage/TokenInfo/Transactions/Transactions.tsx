@@ -68,13 +68,13 @@ const Transactions = () => {
             <div className="transactions-list">
                 <List
                     dataSource={postList.list}
-                    renderItem={(trans) =>
+                    renderItem={(trans) => (
                         <>
                             {/*{setDay(trans.timestamp) && <div>123</div>}*/}
 
-                        <SingleTrans trans={trans} reqAddress={reqAddress} />
+                            <SingleTrans trans={trans} reqAddress={reqAddress} />
                         </>
-                    }
+                    )}
                 />
                 <div ref={loader} />
             </div>

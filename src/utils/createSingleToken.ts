@@ -10,7 +10,6 @@ export const createSingleToken = (item: TokenApiModel): EthToken => {
         itemPrice = itemInfo.price;
 
         const tmpPrice = itemBalance * itemPrice.rate;
-
         return {
             address: String(itemInfo.address), //адрес кошелька
             symbol: String(itemInfo.symbol), //ETH, BTC,

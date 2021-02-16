@@ -80,15 +80,4 @@ export default class TokenInfoStore {
     } {
         return this._repos;
     }
-
-    destroy(): void {
-        this._metaChangedReaction();
-    }
-
-    _metaChangedReaction: IReactionDisposer = reaction(
-        () => this.meta,
-        (...args) => {
-            log('Reaction', args);
-        },
-    );
 }
