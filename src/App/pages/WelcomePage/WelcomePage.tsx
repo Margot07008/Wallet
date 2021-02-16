@@ -7,7 +7,6 @@ import { useHistory } from 'react-router-dom';
 import Search from 'antd/es/input/Search';
 import { History } from 'history';
 
-
 const WelcomePage = () => {
     const history = useHistory();
 

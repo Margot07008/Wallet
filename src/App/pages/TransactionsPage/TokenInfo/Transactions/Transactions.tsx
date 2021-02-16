@@ -1,14 +1,14 @@
-import {List, Spin} from 'antd';
+import { List, Spin } from 'antd';
 import * as React from 'react';
-import {useContext, useEffect, useRef, useState} from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
-import {useHistory, useParams} from 'react-router-dom';
-import {TransContext} from '../../TransactionsPage';
+import { useHistory, useParams } from 'react-router-dom';
+import { TransContext } from '../../TransactionsPage';
 
 const Transactions = () => {
     // @ts-ignore
-    const {address} = useParams();
+    const { address } = useParams();
     const reqAddress = address;
 
     const history = useHistory();
@@ -61,17 +61,28 @@ const Transactions = () => {
             setPage((page) => page + 1);
         }
     };
+    const [tmpDay, setDay] = useState();
 
     return (
         <>
             <div className="transactions-list">
                 <List
                     dataSource={postList.list}
-                    renderItem={(trans) => <SingleTrans trans={trans} reqAddress={reqAddress}/>}
+                    renderItem={(trans) =>
+                        <>
+                            {/*{setDay(trans.timestamp) && <div>123</div>}*/}
+
+                        <SingleTrans trans={trans} reqAddress={reqAddress} />
+                        </>
+                    }
                 />
-                <div ref={loader}/>
+                <div ref={loader} />
             </div>
-            {store.meta === 'loading' && <div className="loader"><Spin size="large"/></div>}
+            {store.meta === 'loading' && (
+                <div className="loader">
+                    <Spin size="large" tip="Loading..." />
+                </div>
+            )}
         </>
     );
 };

@@ -12,7 +12,7 @@ export const formatMoney = (number: string | number | undefined, decimal: number
 
     const rounded = Number(typeNumber.toFixed(decimal));
 
-    return new Intl.NumberFormat('en-US', {style: 'decimal'}).format(rounded);
+    return new Intl.NumberFormat('en-US', { style: 'decimal' }).format(rounded);
 };
 
 export const formatDiff = (diff: string | number): string => {
