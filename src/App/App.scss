@@ -1,7 +1,11 @@
 @import "src/styles/variables";
 
+.root {
+    height: 100vh;
+}
+
 .app {
-    min-height: 100vh;
+    min-height: 100%;
     background: $color-bg-blue;
 }
 
@@ -11,8 +15,6 @@
     transform: translateY(-50%);
     top: 50%;
     text-align: center;
-    color: white;
-    //background: white;
 }
 
 .loader {

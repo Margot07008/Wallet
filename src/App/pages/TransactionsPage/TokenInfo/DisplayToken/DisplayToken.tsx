@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar } from 'antd';
-import { FrownOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import './DisplayToken.scss';
 import imgEth from '@img/ethereum.png';
 
@@ -17,13 +17,13 @@ const DisplayToken: React.FC<Props> = ({ logo, balance, price, symbol }) => {
             <Avatar
                 src={symbol === 'ETH' ? imgEth : logo}
                 size={64}
-                icon={<FrownOutlined />}
-                style={{ color: '#f56a00', background: 'white' }}
+                icon={<QuestionCircleOutlined />}
+                style={{ fontSize:'11rem', color: '#d3adf7', background: 'white' }}
             />
-            <div className="personal-token-info__balance">
-                ≈${price}
+            <div className="personal-token-info__balance">${price}</div>
+            <div className="personal-token-info__price">
+                {balance} {symbol}
             </div>
-            <div className="personal-token-info__price">{balance} {symbol}</div>
         </div>
     );
 };

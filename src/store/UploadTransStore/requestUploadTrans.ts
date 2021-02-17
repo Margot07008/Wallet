@@ -14,10 +14,10 @@ export const requestUploadTrans = async (
     let url: string = '';
 
     try {
-        if (address !== tokenAddress) {
+        if (address.toUpperCase() !== tokenAddress.toUpperCase()) {
             url = `${apiUrl}${getAddressHistoryByToken}${address}${apikey}&${searchToken}&type=transfer&limit=10&timestamp=${lastTransTime}`;
         } else {
-            url = `${apiUrl}${getEtherTrans}${address}${apikey}&limit=10&timestamp=${lastTransTime}`;
+            url = `${apiUrl}${getEtherTrans}${address}${apikey}&limit=50&timestamp=${lastTransTime}`;
         }
         const response = await axios({
             method: 'get',

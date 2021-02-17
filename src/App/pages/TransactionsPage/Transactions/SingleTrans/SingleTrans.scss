@@ -1,8 +1,9 @@
 @import "src/styles/variables";
 
+
 .ant-list-item-meta-description{
     overflow: scroll;
-    font-size: 2rem;
+    font-size: $fs-token-mon-t;
 }
 
 .transactions-list-balance {
