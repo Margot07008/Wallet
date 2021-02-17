@@ -1,8 +1,8 @@
-import Search from "antd/es/input/Search";
-import {Alert, Space} from "antd";
-import * as React from "react";
-import {useHistory} from "react-router-dom";
-import {useState} from "react";
+import Search from 'antd/es/input/Search';
+import { Alert, Space } from 'antd';
+import * as React from 'react';
+import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 export const SearchInput = () => {
     const history = useHistory();
@@ -26,21 +26,22 @@ export const SearchInput = () => {
                     onSearch={(value) => {
                         onSearch(value);
                     }}
-                    onChange={() => {setError(false)}}
-                    defaultValue='0x6f2e19b1dac147587ab8ad3a3ff556a5f2bb332a'
+                    onChange={() => {
+                        setError(false);
+                    }}
+                    defaultValue="0x6f2e19b1dac147587ab8ad3a3ff556a5f2bb332a"
                     enterButton
                 />
             </Space>
-            {isError &&
-            <Alert
-              message="Incorrect address"
-              description="You should enter the correct wallet ethereum address"
-              type="error"
-            />
-            }
+            {isError && (
+                <Alert
+                    message="Incorrect address"
+                    description="You should enter the correct wallet ethereum address"
+                    type="error"
+                />
+            )}
         </>
     );
-
-}
+};
 
 export default SearchInput;

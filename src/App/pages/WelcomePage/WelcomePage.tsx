@@ -1,8 +1,7 @@
 import * as React from 'react';
 import './WelcomePage.scss';
 import HelloText from './HelloText';
-import SearchInput from "./SearchInput/SearchInput";
-
+import SearchInput from './SearchInput/SearchInput';
 
 const WelcomePage = () => {
     return (

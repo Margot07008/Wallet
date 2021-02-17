@@ -21,9 +21,9 @@ const DisplayToken: React.FC<Props> = ({ logo, balance, price, symbol }) => {
                 style={{ color: '#f56a00', background: 'white' }}
             />
             <div className="personal-token-info__balance">
-                {balance} {symbol}
+                ≈${price}
             </div>
-            <div className="personal-token-info__price">≈${price}</div>
+            <div className="personal-token-info__price">{balance} {symbol}</div>
         </div>
     );
 };

@@ -5,7 +5,6 @@ export const formatMoney = (number: string | number | undefined, decimal: number
     const count = mod.search(/[1-9]/);
     let isRate = false;
 
-
     if (count > 1 && Number(decimal) === 2) {
         isRate = true;
         decimal = count;

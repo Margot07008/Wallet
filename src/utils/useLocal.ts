@@ -10,8 +10,7 @@ export const useLocal = <T>(creator: () => T): T => {
     return container.current;
 };
 
-export interface ILocalStore {
-}
+export interface ILocalStore {}
 
 export const useLocalStore = <T extends ILocalStore>(creator: () => T): T => {
     const store = useLocal(creator);

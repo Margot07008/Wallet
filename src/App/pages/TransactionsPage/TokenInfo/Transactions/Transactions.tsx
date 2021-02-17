@@ -65,7 +65,7 @@ const Transactions = () => {
 
     return (
         <>
-            <div className="transactions-list">
+            <div className="tokens-list">
                 <List
                     dataSource={postList.list}
                     renderItem={(trans) => (

@@ -1,7 +1,8 @@
 @import "src/styles/variables";
 
 .app {
-    height: 100vh;
+    min-height: 100vh;
+    background: $color-bg-blue;
 }
 
 .loading {
@@ -10,7 +11,8 @@
     transform: translateY(-50%);
     top: 50%;
     text-align: center;
-    background: white;
+    color: white;
+    //background: white;
 }
 
 .loader {
@@ -24,4 +26,18 @@
     justify-content: center;
     text-align: center;
     background: white;
+}
+
+.stonks {
+    font-size: 2.5rem;
+    &_up {
+        color: $color-green;
+
+    }
+    &_down {
+        color: $color-red;
+    }
+    &_static{
+        color: $color-light-dark;
+    }
 }

@@ -12,7 +12,6 @@ const Coin: React.FC<Props> = ({ rate, dif }) => {
     return (
         <>
             <div className="coin-line">
-                <div className="coin-line__coin">COIN</div>
                 <div className="coin-line-right">
                     <div className="dollars coin-line-right__dollars">${rate}</div>
                     <div

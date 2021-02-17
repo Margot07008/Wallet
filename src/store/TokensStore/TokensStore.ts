@@ -14,9 +14,10 @@ import { requestTokensRepos } from '@store/TokensStore/requestTokensRepos';
 import { log } from '@utils/log';
 
 export default class TokensStore {
-    _repos: { tokens: EthTokenArr; totalSum: number | string } = {
+    _repos: { tokens: EthTokenArr; totalSum: number | string, dailyMoney: number|string } = {
         tokens: [],
         totalSum: 0,
+        dailyMoney: 0,
     };
     meta: Meta = Meta.initial;
 
@@ -38,6 +39,7 @@ export default class TokensStore {
         this._repos = {
             tokens: [],
             totalSum: 0,
+            dailyMoney: 0,
         };
 
         const { isError, data } = await requestTokensRepos(id);
@@ -52,7 +54,7 @@ export default class TokensStore {
         });
     }
 
-    get repos(): { tokens: EthTokenArr; totalSum: number | string } {
+    get repos(): { tokens: EthTokenArr, totalSum: number | string, dailyMoney: number | string } {
         return this._repos;
     }
 }
