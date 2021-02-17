@@ -20,10 +20,10 @@ const SingleToken: React.FC<Props> = ({ token }) => {
                 <List.Item key={token?.address}>
                     <TokenListMeta token={token} />
                     <div className="tokens-money-cont">
-                        <div className="dollars">
-                            {token?.balance} {token?.symbol}
+                        <div className="tokens-money-cont__crypt">
+                            ${token?.price}
                         </div>
-                        <div className="tokens-money-cont__dollar">${token?.price}</div>
+                        <div className="tokens-money-cont__dollar">{token?.balance} {token?.symbol}</div>
                     </div>
                 </List.Item>
             </Link>

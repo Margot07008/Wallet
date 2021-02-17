@@ -5,8 +5,9 @@ import { TokensEthApiModel } from '@store/models/tokens/tokensEthApi';
 
 export const CreateTokens = (
     someTokens: TokensEthApiModel,
-): { tokens: EthTokenArr; totalSum: Number | string } => {
+): { tokens: EthTokenArr, totalSum: number | string, dailyMoney: string | number} => {
     let totalSum = 0;
+    let dailyMoney = 0;
     const tokensForRender = [];
     const ethBalance = someTokens.ETH.balance * someTokens.ETH.price.rate;
     tokensForRender.push({
@@ -19,17 +20,20 @@ export const CreateTokens = (
         rate: String(formatMoney(someTokens.ETH.price.rate, 2)),
         dif: formatDiff(someTokens.ETH.price.diff),
     });
+    dailyMoney += (ethBalance * someTokens.ETH.price.diff / 100);
     totalSum += ethBalance;
     if (someTokens.tokens) {
         someTokens.tokens.forEach((item) => {
             if (item.tokenInfo.price) {
                 const itemBalance =
                     Number(item.balance) / Math.pow(10, Number(item.tokenInfo.decimals));
-                totalSum += itemBalance * Number(item.tokenInfo.price.rate);
+                const ItemBalanceDol = itemBalance * Number(item.tokenInfo.price.rate);
+                totalSum += ItemBalanceDol;
+                dailyMoney += (ItemBalanceDol * Number(item.tokenInfo.price.diff) / 100);
                 tokensForRender.push(createSingleToken(item));
             }
         });
     }
 
-    return { tokens: tokensForRender, totalSum: formatMoney(totalSum, 2) };
+    return { tokens: tokensForRender, totalSum: totalSum, dailyMoney: formatMoney(dailyMoney, 2) };
 };

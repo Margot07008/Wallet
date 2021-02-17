@@ -10,15 +10,13 @@ export const useLocal = <T>(creator: () => T): T => {
     return container.current;
 };
 
-export interface ILocalStore {
-    destroy(): void;
-}
+export interface ILocalStore {}
 
 export const useLocalStore = <T extends ILocalStore>(creator: () => T): T => {
     const store = useLocal(creator);
 
     React.useEffect(() => {
-        return () => store.destroy();
+        return () => {};
     }, []);
 
     return store;

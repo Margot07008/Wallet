@@ -8,7 +8,11 @@ import { urls } from '@config/apiUrls';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
+
+
+
     return (
+        <>
         <div className="app">
             <BrowserRouter>
                 <Switch>
@@ -19,6 +23,7 @@ function App() {
                 </Switch>
             </BrowserRouter>
         </div>
+            </>
     );
 }
 

@@ -1,18 +1,38 @@
 @import "src/styles/variables";
 
 .monitor {
-    padding: 72px 0 1rem;
+    height: 30rem;
     text-align: center;
     background:$color-bg-blue;
+    padding: 2rem 0 5rem;
+    &__title {
+        color: $color-white;
+        font-size: $fs-token-info-small;
+    }
 
 }
 
-#monitor__summary {
-    color: $color-white;
-    font-size: 5rem;
+.main-info-cash {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: 0 !important;
+    &__dop {
+        color: $color-light-white;
+        font-size: $fs-token-info-small !important;
+    }
+    &__main {
+        color: $color-white;
+        font-size: 5rem !important;
+    }
 }
 
-#monitor__pubkey {
-    color: $color-light-dark;
-    font-size: 3rem;
+.daily-profit {
+    color: $color-bg-blue;
+    background: $color-white;
+    font-size: $fs-token-info-small;
+    padding: 0.1rem 2rem;
+    width: fit-content;
+    margin: 2rem auto 0;
+    border-radius: 2rem;
 }

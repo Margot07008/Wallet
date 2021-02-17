@@ -1,27 +1,14 @@
-$color-bg-blue: #9fc4f1;
-$color-shadow-blue: #4d769c;
+$color-bg-blue: #120338;
+$color-shadow-blue: #22075e;
 $color-green: green;
 $color-red: red;
 $color-white: white;
 $color-light-dark: rgba(0, 0, 0, 0.45);
+$color-light-white: #d3adf7;
 
 
-.stonks {
-    font-size: 2.5rem;
-    &_up {
-        color: $color-green;
-
-    }
-    &_down {
-        color: $color-red;
-    }
-    &_static{
-        color: $color-light-dark;
-    }
-}
-
-
-//.ant-list-item {
-//    padding: 2rem 3.6rem;
-//}
-
+$fs-token-name: 3rem;
+$fs-token-mon-d: 3rem;
+$fs-token-one-d: 2.8rem;
+$fs-token-mon-t: 2.8rem;
+$fs-token-info-small: 3.09rem;
