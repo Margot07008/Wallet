@@ -31,6 +31,7 @@ export default class TokensStore {
     }
 
     async fetch(id: string): Promise<void> {
+
         if (this.meta === Meta.loading || this.meta === Meta.success) {
             return;
         }

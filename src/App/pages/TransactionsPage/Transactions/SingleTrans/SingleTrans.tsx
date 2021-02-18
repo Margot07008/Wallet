@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Avatar, List } from 'antd';
 import './SingleTrans.scss';
-import Icon, { ToTopOutlined, VerticalAlignBottomOutlined } from '@ant-design/icons';
+import Icon from '@ant-design/icons';
 import { formatMoney } from '@utils/formatMoney';
-import {ReactComponent as SendIcon} from '@img/send.svg';
-import {ReactComponent as Receive} from '@img/receive.svg';
+import { ReactComponent as SendIcon } from '@img/send.svg';
+import { ReactComponent as Receive } from '@img/receive.svg';
+
 
 type Props = {
     trans: {
@@ -40,14 +41,15 @@ const SingleTrans: React.FC<Props> = ({ trans, reqAddress, rate }) => {
                     description={description}
                     avatar={
                         <Avatar
-                            size={'large'}
+                            size={'small'}
                             icon={icon}
-                            style={{ color: `${style}`, background: 'white' }}
+                            style={{ color: `${style}`, background: 'white', fontSize:'4rem' }}
                         />
                     }
                 />
                 <div className="tokens-money-cont">
                     <div className={`tokens-money-cont__crypt `}>
+                        {isSend ? '-' : ''}
                         ${formatMoney((Number(rate) * Number(balanceReplace)).toFixed(2), 2)}
                     </div>
                     <div

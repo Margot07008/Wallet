@@ -5,7 +5,7 @@ import { urls } from '@config/apiUrls';
 import { Link, useHistory } from 'react-router-dom';
 import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
-import {formatMoney} from "@utils/formatMoney";
+import { formatMoney } from '@utils/formatMoney';
 
 type Props = {
     token: EthToken;
@@ -24,9 +24,9 @@ const SingleToken: React.FC<Props> = ({ token }) => {
                     <div className="tokens-money-cont">
                         <div className="tokens-money-cont__crypt">${token?.price}</div>
                         <div className="tokens-money-cont__dollar">
-                            {rate < 1 && formatMoney(token.balance.replaceAll(',',''),3)}
+                            {rate < 1 && formatMoney(token.balance.replaceAll(',', ''), 3)}
                             {rate >= 1 && token.balance}
-                             {token.symbol}
+                            {token.symbol}
                         </div>
                     </div>
                 </List.Item>

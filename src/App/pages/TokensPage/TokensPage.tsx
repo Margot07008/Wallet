@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { createContext } from 'react';
-import NavBar from '@components/NavBar';
+import {createContext, useState} from 'react';
 import SummaryCash from './SummaryCash';
 import Tokens from './Tokens';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import TokensStore from '@store/TokensStore';
-import { useLocalStore } from '@utils/useLocal';
-import { useAsync } from '@utils/useAsync';
-import { observer } from 'mobx-react-lite';
-import { Spin } from 'antd';
+import {useLocalStore} from '@utils/useLocal';
+import {useAsync} from '@utils/useAsync';
+import {observer} from 'mobx-react-lite';
+import {Spin} from 'antd';
 import './TokensPage.scss';
-import { LogoutOutlined, QrcodeOutlined } from '@ant-design/icons';
-import { urls } from '@config/apiUrls';
 import TokensNavBar from './TokensNavBar/TokensNavBar';
+import PullToRefresh from 'react-simple-pull-to-refresh';
+import {Meta} from "@utils/meta";
+
 
 // @ts-ignore
 export const TokensContext = createContext<TokensStore>();
@@ -24,14 +24,30 @@ const TokensPage = () => {
     const store = useLocalStore(() => new TokensStore());
     useAsync(store.fetch, [id], []);
 
+    const [refresh, setRefresh] = useState(false);
+
+    const onRefresh = async () => {
+            store.meta = Meta.initial;
+            setRefresh(true);
+            await store.fetch(id);
+            setRefresh(false)
+        };
+
     return (
         <TokensContext.Provider value={store}>
-            {store.meta === 'loading' && <Spin className="loading" size="large" tip="Loading..." />}
+            {store.meta === 'loading' && !refresh && <Spin className="loading" size="large" tip="Loading..." />}
             {store.meta === 'success' && (
                 <>
                     <TokensNavBar />
                     <SummaryCash />
-                    <Tokens />
+                    <PullToRefresh
+                        refreshingContent={<Spin size="large" className="spinning"/>}
+                        onRefresh={onRefresh}
+                        pullDownThreshold={30}
+                        maxPullDownDistance={50}
+                    >
+                        <Tokens />
+                    </PullToRefresh>
                 </>
             )}
         </TokensContext.Provider>
