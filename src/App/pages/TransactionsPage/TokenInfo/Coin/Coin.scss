@@ -2,7 +2,7 @@
 
 .coin-line {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     &__coin {
         font-weight: 500;

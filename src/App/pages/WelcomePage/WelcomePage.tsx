@@ -1,22 +1,16 @@
-import React from 'react';
+import * as React from 'react';
 import './WelcomePage.scss';
 import HelloText from './HelloText';
-import AddressInput from '../../../components/AddressInput';
-import SearchButton from '../../../components/SearchButton';
+import SearchInput from './SearchInput/SearchInput';
 
 const WelcomePage = () => {
     return (
-        <>
-            <div className="welcome-bg">
-                <div className="input-window">
-                    <HelloText />
-                    <div className="search-input">
-                        <AddressInput />
-                        <SearchButton />
-                    </div>
-                </div>
+        <div className="welcome-bg">
+            <div className="input-window">
+                <HelloText />
+                <SearchInput />
             </div>
-        </>
+        </div>
     );
 };
 

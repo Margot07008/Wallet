@@ -1,5 +1,45 @@
 @import "src/styles/variables";
 
-.app {
+.root {
     height: 100vh;
+}
+
+.app {
+    min-height: 100%;
+    background: $color-bg-blue;
+}
+
+.loading {
+    width: 100%;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    text-align: center;
+}
+
+.loader {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+}
+
+.stonks {
+    font-size: 2.5rem;
+    &_up {
+        color: $color-green;
+
+    }
+    &_down {
+        color: $color-red;
+    }
+    &_static{
+        color: $color-light-dark;
+    }
 }

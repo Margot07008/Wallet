@@ -1,45 +1,36 @@
 import * as React from 'react';
-import Rate from './Rate';
-import { formatMoney } from '../../../../../utils/formatMoney';
-import { Avatar, List } from 'antd';
+import { List } from 'antd';
 import './SingleToken.scss';
-import { FrownOutlined } from '@ant-design/icons';
+import { urls } from '@config/apiUrls';
+import { Link, useHistory } from 'react-router-dom';
+import TokenListMeta from './TokenListMeta';
+import { EthToken } from '@store/models/tokens/ethToken';
+import {formatMoney} from "@utils/formatMoney";
 
 type Props = {
-    token?: {
-        address?: string;
-        logo?: string;
-        name?: string;
-        rate?: string;
-        dif?: string;
-        balance?: string;
-        symbol?: string;
-        price?: string;
-    };
+    token: EthToken;
 };
 
 const SingleToken: React.FC<Props> = ({ token }) => {
+    const history = useHistory();
+    const addressWallet = history.location.pathname.split('/tokens/')[1];
+    const rate = Number(token.rate.replaceAll(',', ''));
+
     return (
         <>
-            <List.Item key={token?.address}>
-                <List.Item.Meta
-                    avatar={
-                        <Avatar
-                            src={token?.logo}
-                            icon={<FrownOutlined />}
-                            style={{ color: '#f56a00', background: '#fde3cf' }}
-                        />
-                    }
-                    title={token?.name}
-                    description={<Rate rate={token?.rate} diff={token?.dif} />}
-                />
-                <div className="tokens-money-cont">
-                    <div className="dollars">
-                        {token?.balance} {token?.symbol}
+            <Link to={urls.TRANS.create(addressWallet, token?.address)}>
+                <List.Item key={token?.address}>
+                    <TokenListMeta token={token} />
+                    <div className="tokens-money-cont">
+                        <div className="tokens-money-cont__crypt">${token?.price}</div>
+                        <div className="tokens-money-cont__dollar">
+                            {rate < 1 && formatMoney(token.balance.replaceAll(',',''),3)}
+                            {rate >= 1 && token.balance}
+                             {token.symbol}
+                        </div>
                     </div>
-                    <div className="tokens-money-cont__dollar">${token?.price}</div>
-                </div>
-            </List.Item>
+                </List.Item>
+            </Link>
         </>
     );
 };

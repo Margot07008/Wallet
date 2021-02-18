@@ -1,0 +1,9 @@
+@import "src/styles/variables";
+
+.dollars {
+    font-size: $fs-token-one-d;
+
+    &_bolder {
+        font-weight: 500;
+    }
+}

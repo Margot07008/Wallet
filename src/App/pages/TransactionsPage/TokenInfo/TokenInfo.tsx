@@ -1,32 +1,24 @@
-import React from 'react';
+import * as React from 'react';
 import Coin from './Coin';
 import './TokenInfo.scss';
 import DisplayToken from './DisplayToken';
-import Transactions from './Transactions';
-
-const tokenInfo = {
-    logo: 'https://ethplorer.io/images/tether.png',
-    name: 'Ethereum',
-    rate: '1705.54',
-    dif: '3.13',
-    balance: '69.8072392',
-    symbol: 'ETH',
-    price: '119044',
-};
+import { useContext } from 'react';
+import { TransInfoContext } from '../TransactionsPage';
 
 const TokenInfo = () => {
+    const store = useContext(TransInfoContext);
+
     return (
         <>
             <div className="token-info-block">
-                <Coin rate={tokenInfo.rate} dif={tokenInfo.dif} />
+                <Coin rate={store.repos.tokenInfo.rate} dif={store.repos.tokenInfo.dif} />
                 <DisplayToken
-                    logo={tokenInfo.logo}
-                    balance={tokenInfo.balance}
-                    price={tokenInfo.price}
-                    symbol={tokenInfo.symbol}
+                    logo={store.repos.tokenInfo.logo}
+                    balance={store.repos.tokenInfo.totalCrypto}
+                    price={store.repos.tokenInfo.totalDollar}
+                    symbol={store.repos.tokenInfo.symbol}
                 />
             </div>
-            <Transactions />
         </>
     );
 };

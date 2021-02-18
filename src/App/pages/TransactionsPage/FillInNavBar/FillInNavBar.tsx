@@ -1,13 +1,11 @@
-import NavBar from '../../../../components/NavBar';
-import React from 'react';
-
-const TransTitle = {
-    name: 'Ethereum',
-    symbol: 'ETH',
-};
+import NavBar from '@components/NavBar';
+import * as React from 'react';
+import { useContext } from 'react';
+import { TransInfoContext } from '../TransactionsPage';
 
 const FillInNavBar = () => {
-    const titleNavBar = `${TransTitle.name} (${TransTitle.symbol})`;
+    const store = useContext(TransInfoContext);
+    const titleNavBar = `${store.repos.tokenInfo.name} (${store.repos.tokenInfo.symbol})`;
     return <NavBar title={titleNavBar} subtitle={''} />;
 };
 

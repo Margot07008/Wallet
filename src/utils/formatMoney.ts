@@ -3,17 +3,26 @@ export const formatMoney = (number: string | number | undefined, decimal: number
     const idxDel = strNumber.indexOf('.');
     const mod = strNumber.slice(idxDel);
     const count = mod.search(/[1-9]/);
+    let isRate = false;
 
-    if (count > 1) {
+    if (count > 1 && Number(decimal) === 2) {
+        isRate = true;
         decimal = count;
     }
 
     const typeNumber = Number(number);
 
     const rounded = Number(typeNumber.toFixed(decimal));
-    if (rounded < 10000) {
-        return rounded;
-    }
+    return isRate
+        ? rounded
+        : new Intl.NumberFormat('en-US', {
+              style: 'decimal',
+              minimumFractionDigits: 2,
+              maximumFractionDigits: decimal,
+          }).format(rounded);
+};
 
-    return new Intl.NumberFormat('ru-RU').format(rounded);
+export const formatDiff = (diff: string | number): string => {
+    const diffNum = Number(diff);
+    return String(diffNum.toFixed(2));
 };

@@ -1,0 +1,24 @@
+@import "src/styles/variables";
+
+
+.ant-list-item-meta-description{
+    overflow: scroll;
+    font-size: $fs-token-mon-t;
+}
+
+.transactions-list-balance {
+    font-size: $fs-token-mon-d;
+    font-weight: 500;
+}
+
+//.ant-list-item-meta-title{
+//    font-size: 2.8rem;
+//}
+//
+//.ant-list-item-meta{
+//    align-items: center;
+//}
+//
+//.ant-list-item{
+//    padding: 2rem 3.6rem 2rem 2rem;
+//}
