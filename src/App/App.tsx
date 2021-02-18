@@ -8,22 +8,19 @@ import { urls } from '@config/apiUrls';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-
-
-
     return (
         <>
-        <div className="app">
-            <BrowserRouter>
-                <Switch>
-                    <Route component={WelcomePage} exact path={urls.MAIN} />
-                    <Route component={TokensPage} path={urls.TOKENS.mask} />
-                    <Route component={TransactionsPage} path={urls.TRANS.mask} />
-                    <Route component={NotFoundPage} />
-                </Switch>
-            </BrowserRouter>
-        </div>
-            </>
+            <div className="app">
+                <BrowserRouter>
+                    <Switch>
+                        <Route component={WelcomePage} exact path={urls.MAIN} />
+                        <Route component={TokensPage} path={urls.TOKENS.mask} />
+                        <Route component={TransactionsPage} path={urls.TRANS.mask} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </BrowserRouter>
+            </div>
+        </>
     );
 }
 

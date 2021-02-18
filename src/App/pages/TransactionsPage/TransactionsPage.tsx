@@ -6,8 +6,8 @@ import { useLocalStore } from '@utils/useLocal';
 import { useAsync } from '@utils/useAsync';
 import { useHistory, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import Transactions from './TokenInfo/Transactions';
-import { createContext } from 'react';
+import Transactions from './Transactions';
+import { createContext, useContext } from 'react';
 import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
 import { Spin } from 'antd';
 
@@ -26,6 +26,7 @@ const TransactionsPage = () => {
     useAsync(storeTransInfo.fetch, [address, searchToken], []);
 
     const storeTrans = useLocalStore(() => new UploadTransStore());
+    const rate = storeTransInfo.repos.tokenInfo.rate.replace(',', '');
 
     return (
         <>
@@ -41,7 +42,7 @@ const TransactionsPage = () => {
                 )}
             </TransInfoContext.Provider>
             <TransContext.Provider value={storeTrans}>
-                <Transactions />
+                <Transactions rate={rate} />
             </TransContext.Provider>
         </>
     );

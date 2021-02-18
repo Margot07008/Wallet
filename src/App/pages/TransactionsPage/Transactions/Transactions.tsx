@@ -4,9 +4,13 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
 import { useHistory, useParams } from 'react-router-dom';
-import { TransContext } from '../../TransactionsPage';
+import { TransContext } from '../TransactionsPage';
 
-const Transactions = () => {
+type Props = {
+    rate: string;
+};
+
+const Transactions: React.FC<Props> = ({ rate }) => {
     // @ts-ignore
     const { address } = useParams();
     const reqAddress = address;
@@ -61,19 +65,14 @@ const Transactions = () => {
             setPage((page) => page + 1);
         }
     };
-    const [tmpDay, setDay] = useState();
 
     return (
         <>
-            <div className="tokens-list">
+            <div className="transactions-list">
                 <List
                     dataSource={postList.list}
                     renderItem={(trans) => (
-                        <>
-                            {/*{setDay(trans.timestamp) && <div>123</div>}*/}
-
-                            <SingleTrans trans={trans} reqAddress={reqAddress} />
-                        </>
+                           <SingleTrans trans={trans} reqAddress={reqAddress} rate={rate} />
                     )}
                 />
                 <div ref={loader} />

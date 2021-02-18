@@ -14,7 +14,7 @@ import { requestTokensRepos } from '@store/TokensStore/requestTokensRepos';
 import { log } from '@utils/log';
 
 export default class TokensStore {
-    _repos: { tokens: EthTokenArr; totalSum: number | string, dailyMoney: number|string } = {
+    _repos: { tokens: EthTokenArr; totalSum: number | string; dailyMoney: number } = {
         tokens: [],
         totalSum: 0,
         dailyMoney: 0,
@@ -54,7 +54,7 @@ export default class TokensStore {
         });
     }
 
-    get repos(): { tokens: EthTokenArr, totalSum: number | string, dailyMoney: number | string } {
+    get repos(): { tokens: EthTokenArr; totalSum: number | string; dailyMoney: number } {
         return this._repos;
     }
 }

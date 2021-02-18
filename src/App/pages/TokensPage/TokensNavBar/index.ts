@@ -1,1 +1,1 @@
-export {default} from './TokensNavBar';
+export { default } from './TokensNavBar';
