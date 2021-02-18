@@ -14,9 +14,12 @@ const NavBar: React.FC<Props> = ({ title, subtitle }) => {
 
     return (
         <>
-            <div className="site-page-header-ghost-wrapper" onClick={() => {
-                window.scrollTo(0,0);
-            }}>
+            <div
+                className="site-page-header-ghost-wrapper"
+                onClick={() => {
+                    window.scrollTo(0, 0);
+                }}
+            >
                 <PageHeader
                     backIcon={<ArrowLeftOutlined style={{ color: 'white' }} />}
                     ghost={false}

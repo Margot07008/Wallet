@@ -18,7 +18,7 @@ const DisplayToken: React.FC<Props> = ({ logo, balance, price, symbol }) => {
                 src={symbol === 'ETH' ? imgEth : logo}
                 size={64}
                 icon={<QuestionCircleOutlined />}
-                style={{ fontSize:'11rem', color: '#d3adf7', background: 'white' }}
+                style={{ fontSize: '11rem', color: '#d3adf7', background: 'white' }}
             />
             <div className="personal-token-info__balance">${price}</div>
             <div className="personal-token-info__price">

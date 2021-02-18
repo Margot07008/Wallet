@@ -1,6 +1,6 @@
 import { Avatar, List } from 'antd';
 import img from '@img/ethereum.png';
-import { QuestionCircleOutlined  } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import Rate from './Rate';
 import * as React from 'react';
 
@@ -11,8 +11,8 @@ const TokenListMeta = ({ token }) => {
             avatar={
                 <Avatar
                     src={token?.symbol === 'ETH' ? img : token?.logo}
-                    icon={<QuestionCircleOutlined  />}
-                    style={{ fontSize:'6rem', color: '#d3adf7', background: 'white' }}
+                    icon={<QuestionCircleOutlined />}
+                    style={{ fontSize: '6rem', color: '#d3adf7', background: 'white' }}
                 />
             }
             title={token?.name}

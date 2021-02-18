@@ -7,7 +7,7 @@ import { useAsync } from '@utils/useAsync';
 import { useHistory, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import Transactions from './Transactions';
-import {createContext, useContext} from 'react';
+import { createContext, useContext } from 'react';
 import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
 import { Spin } from 'antd';
 
@@ -38,12 +38,11 @@ const TransactionsPage = () => {
                     <>
                         <FillInNavBar />
                         <TokenInfo />
-
                     </>
                 )}
             </TransInfoContext.Provider>
             <TransContext.Provider value={storeTrans}>
-                <Transactions rate={rate}/>
+                <Transactions rate={rate} />
             </TransContext.Provider>
         </>
     );

@@ -31,10 +31,12 @@ export const CreateTokens = (
                 const ItemBalanceDol = itemBalance * Number(item.tokenInfo.price.rate);
 
                 totalSum += ItemBalanceDol;
-                dailyMoney += (ItemBalanceDol * Number(item.tokenInfo.price.diff)) / (100 + Number(item.tokenInfo.price.diff));
+                dailyMoney +=
+                    (ItemBalanceDol * Number(item.tokenInfo.price.diff)) /
+                    (100 + Number(item.tokenInfo.price.diff));
                 tokensForRender.push(createSingleToken(item));
             }
         });
     }
-    return { tokens: tokensForRender, totalSum: totalSum, dailyMoney: dailyMoney};
+    return { tokens: tokensForRender, totalSum: totalSum, dailyMoney: dailyMoney };
 };

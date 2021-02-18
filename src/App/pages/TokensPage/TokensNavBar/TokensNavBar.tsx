@@ -7,9 +7,12 @@ import { ReactComponent as LogoutIcon } from '@img/logout.svg';
 
 export const TokensNavBar = () => {
     return (
-        <div className="tokens-navbar" onClick={() => {
-            window.scrollTo(0,0);
-        }}>
+        <div
+            className="tokens-navbar"
+            onClick={() => {
+                window.scrollTo(0, 0);
+            }}
+        >
             <div
                 className="tokens-navbar__icon qr-code"
                 onClick={() => {

@@ -13,15 +13,17 @@ const SummaryCash = () => {
     let dailyResult = '';
     let arrow = null;
 
-
     const dailyMoneyNum: number = Number(store.repos.totalSum) - store.repos.dailyMoney;
-    const dailyProc = formatMoney(100*(-1 + Number(store.repos.totalSum)/store.repos.dailyMoney), 2);
+    const dailyProc = formatMoney(
+        100 * (-1 + Number(store.repos.totalSum) / store.repos.dailyMoney),
+        2,
+    );
 
     if (dailyMoneyNum > 0) {
         dailyResult = `+$${formatMoney(dailyMoneyNum, 2)} (+${dailyProc}%)`;
         arrow = <ArrowUpOutlined style={{ color: 'green' }} />;
     } else if (dailyMoneyNum < 0) {
-        dailyResult = `-$${String(formatMoney(dailyMoneyNum,2)).slice(1)} (${dailyProc}%)`;
+        dailyResult = `-$${String(formatMoney(dailyMoneyNum, 2)).slice(1)} (${dailyProc}%)`;
         arrow = <ArrowDownOutlined style={{ color: 'red' }} />;
     } else {
         dailyResult = `$0 (0.00%)`;
