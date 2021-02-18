@@ -43,3 +43,14 @@
         color: $color-light-dark;
     }
 }
+
+.spinning {
+    padding: 1rem 0;
+}
+
+.pullToRefresh {
+    padding: 1rem 0 0;
+    background: $color-white;
+    color: $color-white;
+    //text-align: center;
+}

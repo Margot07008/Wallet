@@ -38,5 +38,6 @@ export const CreateTokens = (
             }
         });
     }
+
     return { tokens: tokensForRender, totalSum: totalSum, dailyMoney: dailyMoney };
 };

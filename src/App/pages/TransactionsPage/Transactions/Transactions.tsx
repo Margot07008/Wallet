@@ -6,11 +6,14 @@ import './Transactions.scss';
 import { useHistory, useParams } from 'react-router-dom';
 import { TransContext } from '../TransactionsPage';
 
+
 type Props = {
     rate: string;
+    setNeedSearch: React.Dispatch<React.SetStateAction<boolean>>;
+    needSearch: boolean;
 };
 
-const Transactions: React.FC<Props> = ({ rate }) => {
+const Transactions: React.FC<Props> = ({ rate,needSearch ,setNeedSearch}) => {
     // @ts-ignore
     const { address } = useParams();
     const reqAddress = address;
@@ -25,7 +28,7 @@ const Transactions: React.FC<Props> = ({ rate }) => {
     });
 
     const [page, setPage] = useState(1);
-    let [needSearch, setNeedSearch] = useState(true);
+    // let [needSearch, setNeedSearch] = useState(true);
     const loader = useRef(null);
 
     useEffect(() => {
@@ -66,13 +69,14 @@ const Transactions: React.FC<Props> = ({ rate }) => {
         }
     };
 
+
     return (
         <>
             <div className="transactions-list">
                 <List
                     dataSource={postList.list}
                     renderItem={(trans) => (
-                           <SingleTrans trans={trans} reqAddress={reqAddress} rate={rate} />
+                        <SingleTrans trans={trans} reqAddress={reqAddress} rate={rate} />
                     )}
                 />
                 <div ref={loader} />
