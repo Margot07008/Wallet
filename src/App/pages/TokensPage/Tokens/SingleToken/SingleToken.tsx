@@ -14,7 +14,7 @@ type Props = {
 const SingleToken: React.FC<Props> = ({ token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
-    const rate = Number(token.rate.replaceAll(',', ''));
+    const rate = Number(token.rate ? token.rate.replaceAll(',', '') : 0);
 
     return (
         <>

@@ -6,14 +6,13 @@ import './Transactions.scss';
 import { useHistory, useParams } from 'react-router-dom';
 import { TransContext } from '../TransactionsPage';
 
-
 type Props = {
     rate: string;
     setNeedSearch: React.Dispatch<React.SetStateAction<boolean>>;
     needSearch: boolean;
 };
 
-const Transactions: React.FC<Props> = ({ rate,needSearch ,setNeedSearch}) => {
+const Transactions: React.FC<Props> = ({ rate, needSearch, setNeedSearch }) => {
     // @ts-ignore
     const { address } = useParams();
     const reqAddress = address;
@@ -68,7 +67,6 @@ const Transactions: React.FC<Props> = ({ rate,needSearch ,setNeedSearch}) => {
             setPage((page) => page + 1);
         }
     };
-
 
     return (
         <>

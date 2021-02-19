@@ -1,18 +1,17 @@
 import * as React from 'react';
-import {createContext, useState} from 'react';
+import { createContext, useState } from 'react';
 import SummaryCash from './SummaryCash';
 import Tokens from './Tokens';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import TokensStore from '@store/TokensStore';
-import {useLocalStore} from '@utils/useLocal';
-import {useAsync} from '@utils/useAsync';
-import {observer} from 'mobx-react-lite';
-import {Spin} from 'antd';
+import { useLocalStore } from '@utils/useLocal';
+import { useAsync } from '@utils/useAsync';
+import { observer } from 'mobx-react-lite';
+import { Spin } from 'antd';
 import './TokensPage.scss';
 import TokensNavBar from './TokensNavBar/TokensNavBar';
 import PullToRefresh from 'react-simple-pull-to-refresh';
-import {Meta} from "@utils/meta";
-
+import { Meta } from '@utils/meta';
 
 // @ts-ignore
 export const TokensContext = createContext<TokensStore>();
@@ -27,21 +26,23 @@ const TokensPage = () => {
     const [refresh, setRefresh] = useState(false);
 
     const onRefresh = async () => {
-            store.meta = Meta.initial;
-            setRefresh(true);
-            await store.fetch(id);
-            setRefresh(false)
-        };
+        store.meta = Meta.initial;
+        setRefresh(true);
+        await store.fetch(id);
+        setRefresh(false);
+    };
 
     return (
         <TokensContext.Provider value={store}>
-            {store.meta === 'loading' && !refresh && <Spin className="loading" size="large" tip="Loading..." />}
+            {store.meta === 'loading' && !refresh && (
+                <Spin className="loading" size="large" tip="Loading..." />
+            )}
             {store.meta === 'success' && (
                 <>
                     <TokensNavBar />
                     <SummaryCash />
                     <PullToRefresh
-                        refreshingContent={<Spin size="large" className="spinning"/>}
+                        refreshingContent={<Spin size="large" className="spinning" />}
                         onRefresh={onRefresh}
                         pullDownThreshold={30}
                         maxPullDownDistance={50}

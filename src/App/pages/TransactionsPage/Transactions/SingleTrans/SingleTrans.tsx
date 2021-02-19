@@ -6,7 +6,6 @@ import { formatMoney } from '@utils/formatMoney';
 import { ReactComponent as SendIcon } from '@img/send.svg';
 import { ReactComponent as Receive } from '@img/receive.svg';
 
-
 type Props = {
     trans: {
         transactionHash: string;
@@ -43,14 +42,14 @@ const SingleTrans: React.FC<Props> = ({ trans, reqAddress, rate }) => {
                         <Avatar
                             size={'small'}
                             icon={icon}
-                            style={{ color: `${style}`, background: 'white', fontSize:'4rem' }}
+                            style={{ color: `${style}`, background: 'white', fontSize: '4rem' }}
                         />
                     }
                 />
                 <div className="tokens-money-cont">
                     <div className={`tokens-money-cont__crypt `}>
-                        {isSend ? '-' : ''}
-                        ${formatMoney((Number(rate) * Number(balanceReplace)).toFixed(2), 2)}
+                        {isSend ? '-' : ''}$
+                        {formatMoney((Number(rate) * Number(balanceReplace)).toFixed(2), 2)}
                     </div>
                     <div
                         className={`tokens-money-cont__dollar ${
