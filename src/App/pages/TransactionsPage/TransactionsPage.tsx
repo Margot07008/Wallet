@@ -76,7 +76,6 @@ const TransactionsPage = () => {
                     </PullToRefresh>
                 </TransContext.Provider>
             </TransInfoContext.Provider>
-
         </>
     );
 };

@@ -1,0 +1,9 @@
+@import "src/styles/variables";
+
+.close-btn {
+    width: 100%;
+    background: $color-bg-blue;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3rem;
+}
