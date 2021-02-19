@@ -33,7 +33,6 @@ const SingleTrans: React.FC<Props> = ({ trans, reqAddress, rate }) => {
     const icon = isSend ? <Icon component={SendIcon} /> : <Icon component={Receive} />;
     const balanceReplace = replaceAll(trans.balance, ',', '');
 
-
     return (
         <>
             <List.Item key={trans.transactionHash}>

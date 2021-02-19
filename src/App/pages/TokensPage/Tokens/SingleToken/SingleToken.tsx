@@ -17,7 +17,6 @@ const SingleToken: React.FC<Props> = ({ token }) => {
     const addressWallet = history.location.pathname.split('/tokens/')[1];
     const rate = Number(replaceAll(token.rate, ',', ''));
 
-
     return (
         <>
             <Link to={urls.TRANS.create(addressWallet, token?.address)}>

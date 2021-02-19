@@ -52,5 +52,9 @@
     padding: 1rem 0 0;
     background: $color-white;
     color: $color-white;
-    //text-align: center;
+}
+
+.ptr {
+    height: fit-content;
+    overflow: visible;
 }
