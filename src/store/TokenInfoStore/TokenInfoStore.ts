@@ -11,7 +11,6 @@ import { Meta } from '@utils/meta';
 import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
 import { requestTransactions } from '@store/TokenInfoStore/requestTransactions';
 
-
 export default class TokenInfoStore {
     _repos: { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay; lastTransTime: number } = {
         trans: [],
@@ -48,7 +47,7 @@ export default class TokenInfoStore {
         this._repos = {
             lastTransTime: this._repos.lastTransTime,
             trans: this._repos.trans,
-            tokenInfo: this._repos.tokenInfo
+            tokenInfo: this._repos.tokenInfo,
         };
 
         const { isError, data } = await requestTransactions(address, searchToken);

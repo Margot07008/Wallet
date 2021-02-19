@@ -59,23 +59,24 @@ const TransactionsPage = () => {
                         <TokenInfo />
                     </>
                 )}
+                <TransContext.Provider value={storeTrans}>
+                    <PullToRefresh
+                        refreshingContent={<Spin size="large" className="spinning" />}
+                        onRefresh={onRefresh}
+                        canFetchMore={false}
+                        className="pullToRefresh"
+                        pullDownThreshold={30}
+                        maxPullDownDistance={50}
+                    >
+                        <Transactions
+                            rate={rate}
+                            needSearch={needSearch}
+                            setNeedSearch={setNeedSearch}
+                        />
+                    </PullToRefresh>
+                </TransContext.Provider>
             </TransInfoContext.Provider>
-            <TransContext.Provider value={storeTrans}>
-                <PullToRefresh
-                    refreshingContent={<Spin size="large" className="spinning" />}
-                    onRefresh={onRefresh}
-                    canFetchMore={false}
-                    className="pullToRefresh"
-                    pullDownThreshold={30}
-                    maxPullDownDistance={50}
-                >
-                    <Transactions
-                        rate={rate}
-                        needSearch={needSearch}
-                        setNeedSearch={setNeedSearch}
-                    />
-                </PullToRefresh>
-            </TransContext.Provider>
+
         </>
     );
 };
