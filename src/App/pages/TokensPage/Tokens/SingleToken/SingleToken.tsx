@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
 import { formatMoney } from '@utils/formatMoney';
-import {replaceAll} from "@utils/replaceALl";
+import { replaceAll } from '@utils/replaceALl';
 
 type Props = {
     token: EthToken;
