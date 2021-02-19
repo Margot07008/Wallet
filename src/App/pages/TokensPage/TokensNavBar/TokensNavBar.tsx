@@ -4,11 +4,11 @@ import { urls } from '@config/apiUrls';
 import * as React from 'react';
 import './TokensNavBar.scss';
 import { ReactComponent as LogoutIcon } from '@img/logout.svg';
-import {createContext, useState} from "react";
-import {Modal} from "antd";
-import QRCodePage from "./OpenModal/ModalQR/QRcodePage";
-import OpenModal from "./OpenModal";
-import TokensStore from "@store/TokensStore";
+import { createContext, useState } from 'react';
+import { Modal } from 'antd';
+import QRCodePage from './OpenModal/ModalQR/QRcodePage';
+import OpenModal from './OpenModal';
+import TokensStore from '@store/TokensStore';
 
 type Props = {
     id: string;
@@ -17,8 +17,6 @@ type Props = {
 export const WalletAddressContext = createContext<string>('');
 
 export const TokensNavBar: React.FC<Props> = ({ id }) => {
-
-
     return (
         <div
             className="tokens-navbar"
@@ -27,10 +25,8 @@ export const TokensNavBar: React.FC<Props> = ({ id }) => {
             }}
         >
             <WalletAddressContext.Provider value={id}>
-                <OpenModal/>
+                <OpenModal />
             </WalletAddressContext.Provider>
-
-
 
             <Link to={urls.MAIN}>
                 <div className="tokens-navbar__icon logout">

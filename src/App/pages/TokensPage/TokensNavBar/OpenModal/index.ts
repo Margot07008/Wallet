@@ -1,1 +1,1 @@
-export {default} from './OpenModal';
+export { default } from './OpenModal';

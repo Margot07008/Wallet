@@ -1,1 +1,1 @@
-export {default} from './ModalQR';
+export { default } from './ModalQR';
