@@ -5,6 +5,7 @@ import Icon from '@ant-design/icons';
 import { formatMoney } from '@utils/formatMoney';
 import { ReactComponent as SendIcon } from '@img/send.svg';
 import { ReactComponent as Receive } from '@img/receive.svg';
+import {replaceAll} from "@utils/replaceALl";
 
 type Props = {
     trans: {
@@ -30,7 +31,7 @@ const SingleTrans: React.FC<Props> = ({ trans, reqAddress, rate }) => {
         : `From: ${shortAddress(trans.from)}`;
     const style = isSend ? 'red' : 'green';
     const icon = isSend ? <Icon component={SendIcon} /> : <Icon component={Receive} />;
-    const balanceReplace = trans.balance.replaceAll(',', '');
+    const balanceReplace = replaceAll(trans.balance, ',', '');
 
     return (
         <>
