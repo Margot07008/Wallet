@@ -23,7 +23,6 @@ export const TokensNavBar = () => {
             </div>
             <Link to={urls.MAIN}>
                 <div className="tokens-navbar__icon logout">
-                    {/*<LogoutOutlined style={{ fontSize: '5rem', color: 'white' }}/>*/}
                     <Icon component={LogoutIcon} style={{ fontSize: '5rem' }} />
                 </div>
             </Link>

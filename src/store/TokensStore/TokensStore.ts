@@ -37,9 +37,9 @@ export default class TokensStore {
 
         this.meta = Meta.loading;
         this._repos = {
-            tokens: [],
-            totalSum: 0,
-            dailyMoney: 0,
+            tokens: this._repos.tokens,
+            totalSum: this._repos.totalSum,
+            dailyMoney: this._repos.dailyMoney,
         };
 
         const { isError, data } = await requestTokensRepos(id);

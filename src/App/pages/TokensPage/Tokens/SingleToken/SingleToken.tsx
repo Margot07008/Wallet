@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import TokenListMeta from './TokenListMeta';
 import { EthToken } from '@store/models/tokens/ethToken';
 import { formatMoney } from '@utils/formatMoney';
-import {replaceAll} from "@utils/replaceALl";
+import { replaceAll } from '@utils/replaceALl';
 
 type Props = {
     token: EthToken;
@@ -16,7 +16,7 @@ const SingleToken: React.FC<Props> = ({ token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
     const rate = Number(replaceAll(token.rate, ',', ''));
-    console.log(token.rate, rate)
+    console.log(token.rate, rate);
 
     return (
         <>

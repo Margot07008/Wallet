@@ -5,7 +5,7 @@ import Icon from '@ant-design/icons';
 import { formatMoney } from '@utils/formatMoney';
 import { ReactComponent as SendIcon } from '@img/send.svg';
 import { ReactComponent as Receive } from '@img/receive.svg';
-import {replaceAll} from "@utils/replaceALl";
+import { replaceAll } from '@utils/replaceALl';
 
 type Props = {
     trans: {
