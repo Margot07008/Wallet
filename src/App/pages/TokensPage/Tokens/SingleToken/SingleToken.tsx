@@ -16,7 +16,7 @@ const SingleToken: React.FC<Props> = ({ token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
     const rate = Number(replaceAll(token.rate, ',', ''));
-    console.log(token.rate, rate)
+
 
     return (
         <>
