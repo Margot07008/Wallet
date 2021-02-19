@@ -30,7 +30,7 @@ const SingleTrans: React.FC<Props> = ({ trans, reqAddress, rate }) => {
         : `From: ${shortAddress(trans.from)}`;
     const style = isSend ? 'red' : 'green';
     const icon = isSend ? <Icon component={SendIcon} /> : <Icon component={Receive} />;
-    const balanceReplace = trans.balance.replaceAll(',', '');
+    const balanceReplace = String(trans.balance).replaceAll(',', '');
 
     return (
         <>
