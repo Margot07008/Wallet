@@ -9,10 +9,6 @@ export const urls = {
         create: (address: string, token: string | undefined) =>
             `/transactions/${address}?token=${token}`,
     },
-    QR: {
-        mask: '/qr/:id',
-        create: (id: string) => `/qr/${id}`,
-    }
 };
 
 export const apikey = '?apiKey=EK-3HTzj-zcxPo7d-qCssY';

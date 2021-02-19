@@ -4,12 +4,21 @@ import { urls } from '@config/apiUrls';
 import * as React from 'react';
 import './TokensNavBar.scss';
 import { ReactComponent as LogoutIcon } from '@img/logout.svg';
+import {createContext, useState} from "react";
+import {Modal} from "antd";
+import QRCodePage from "./OpenModal/ModalQR/QRcodePage";
+import OpenModal from "./OpenModal";
+import TokensStore from "@store/TokensStore";
 
 type Props = {
-    id: string,
-}
+    id: string;
+};
 
-export const TokensNavBar:React.FC<Props> = ({id}) => {
+export const WalletAddressContext = createContext<string>('');
+
+export const TokensNavBar: React.FC<Props> = ({ id }) => {
+
+
     return (
         <div
             className="tokens-navbar"
@@ -17,12 +26,11 @@ export const TokensNavBar:React.FC<Props> = ({id}) => {
                 window.scrollTo(0, 0);
             }}
         >
+            <WalletAddressContext.Provider value={id}>
+                <OpenModal/>
+            </WalletAddressContext.Provider>
 
-                <div className="tokens-navbar__icon qr-code">
-                    <Link to={urls.QR.create(id)}>
-                    <QrcodeOutlined style={{ fontSize: '5rem', color: 'white' }} />
-                    </Link>
-                </div>
+
 
             <Link to={urls.MAIN}>
                 <div className="tokens-navbar__icon logout">
