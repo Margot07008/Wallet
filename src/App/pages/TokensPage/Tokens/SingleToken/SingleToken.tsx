@@ -14,7 +14,7 @@ type Props = {
 const SingleToken: React.FC<Props> = ({ token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
-    const rate = 0;
+    const rate = Number(String(token.rate).replaceAll(',', ''));
 
     return (
         <>
@@ -24,7 +24,7 @@ const SingleToken: React.FC<Props> = ({ token }) => {
                     <div className="tokens-money-cont">
                         <div className="tokens-money-cont__crypt">${token?.price}</div>
                         <div className="tokens-money-cont__dollar">
-                            {rate < 1 && formatMoney(token.balance.replaceAll(',', ''), 3)}
+                            {rate < 1 && formatMoney(String(token.balance).replaceAll(',', ''), 3)}
                             {rate >= 1 && token.balance}
                             {token.symbol}
                         </div>
