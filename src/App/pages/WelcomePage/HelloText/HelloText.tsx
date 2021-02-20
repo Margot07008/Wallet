@@ -11,13 +11,14 @@ const HelloText = () => {
                 <Title className="hello-text__text" level={1}>
                     Welcome!
                 </Title>
-                <Title className="hello-text__text" level={4}>
+                <Text className="hello-text__text hello-text__text_grey" type="secondary">
                     It is a free client interface to help you interact with the Ethereum blockchain
-                </Title>
-                <Text className="hello-text__text" type={'secondary'}>
-                    Select type of login
                 </Text>
+                <Title className="hello-text__text" level={4}>
+                    Select type of login
+                </Title>
             </div>
+
         </>
     );
 };

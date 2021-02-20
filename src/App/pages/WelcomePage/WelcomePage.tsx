@@ -3,13 +3,11 @@ import './WelcomePage.scss';
 import HelloText from './HelloText';
 import SearchTextarea from './SearchTextarea';
 import SearchAddress from './SearchAddress';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const WelcomePage = () => {
-
     const settings = {
         dots: true,
         infinite: false,

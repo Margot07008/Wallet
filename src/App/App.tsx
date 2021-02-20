@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { urls } from '@config/apiUrls';
 import NotFoundPage from './pages/NotFoundPage';
 
-
 function App() {
     return (
         <>

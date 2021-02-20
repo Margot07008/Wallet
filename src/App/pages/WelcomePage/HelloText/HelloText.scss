@@ -6,6 +6,12 @@
 
     &__text{
         color: $color-white !important;
+
+        &_grey{
+            //color: $color-light-white!important;
+            opacity: .5;
+            font-size: $fs-token-name;
+        }
     }
 
 }
