@@ -8,11 +8,11 @@ const QRcodePage = () => {
     const id = useContext(WalletAddressContext);
 
     return (
-            <div className="qr-code-page">
-                <div className="qr-code-page__qr">
-                    <QRCode value={id} />
-                </div>
+        <div className="qr-code-page">
+            <div className="qr-code-page__qr">
+                <QRCode value={id} />
             </div>
+        </div>
     );
 };
 

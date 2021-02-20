@@ -8,11 +8,11 @@ const HelloText = () => {
     return (
         <>
             <div className="hello-text">
-                <Title id="hello-text__title" level={2}>
-                    Добро пожаловать!
+                <Title id="hello-text__title" level={1}>
+                    Welcome!
                 </Title>
                 <Text id="hello-text__text" type={'secondary'}>
-                    Введите адрес кошелька, чтобы узнать баланс
+                    Enter your mnemonics or Ethereum address below
                 </Text>
             </div>
         </>
