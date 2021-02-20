@@ -1,2 +1,1 @@
-
-export {default } from './SearchAddress'
+export { default } from './SearchAddress';

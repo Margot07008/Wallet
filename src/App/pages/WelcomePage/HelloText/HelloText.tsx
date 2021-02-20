@@ -12,7 +12,7 @@ const HelloText = () => {
                     Welcome!
                 </Title>
                 <Text id="hello-text__text" type={'secondary'}>
-                    Enter your mnemonics or Ethereum address below
+                    Select type of login
                 </Text>
             </div>
         </>

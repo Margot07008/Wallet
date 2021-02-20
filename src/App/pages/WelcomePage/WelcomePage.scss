@@ -41,3 +41,26 @@
 .ant-form-item-label > label{
     color: $color-white !important;
 }
+
+.ant-carousel .slick-dots li {
+    width: 50%;
+}
+
+.ant-carousel .slick-dots li.slick-active {
+
+    width: 100%;
+}
+
+.ant-carousel .slick-dots li.slick-active button{
+    background: $color-light-white;
+}
+
+.ant-carousel .slick-dots li button {
+    height: 1.5rem;
+}
+
+.ant-btn-primary {
+    background: $color-light-white;
+    border-color: $color-light-white;
+    color: $color-bg-blue;
+}
