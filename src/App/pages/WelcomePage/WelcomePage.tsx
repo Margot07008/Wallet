@@ -1,30 +1,33 @@
 import * as React from 'react';
 import './WelcomePage.scss';
 import HelloText from './HelloText';
-import { Carousel, Typography } from 'antd';
 import SearchTextarea from './SearchTextarea';
 import SearchAddress from './SearchAddress';
-
-const { Text } = Typography;
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const WelcomePage = () => {
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 0,
+    };
+
     return (
         <div className="welcome-bg">
             <HelloText />
-            <Carousel
-                infinite={false}
-                dotPosition="top"
-                className="carousel"
-                swipe={false}
-                easing="none"
-            >
+            <Slider {...settings}>
                 <div className="input-window">
                     <SearchTextarea />
                 </div>
                 <div className="input-window">
                     <SearchAddress />
                 </div>
-            </Carousel>
+            </Slider>
         </div>
     );
 };

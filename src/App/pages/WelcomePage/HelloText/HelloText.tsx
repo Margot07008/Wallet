@@ -8,13 +8,17 @@ const HelloText = () => {
     return (
         <>
             <div className="hello-text">
-                <Title id="hello-text__title" level={1}>
+                <Title className="hello-text__text" level={1}>
                     Welcome!
                 </Title>
-                <Text id="hello-text__text" type={'secondary'}>
-                    Select type of login
+                <Text className="hello-text__text hello-text__text_grey" type="secondary">
+                    It is a free client interface to help you interact with the Ethereum blockchain
                 </Text>
+                <Title className="hello-text__text" level={4}>
+                    Select type of login
+                </Title>
             </div>
+
         </>
     );
 };

@@ -3,12 +3,15 @@
 .hello-text{
     //height: 20rem;
     text-align: center;
-}
 
-#hello-text__title{
-    color: $color-white;
-}
+    &__text{
+        color: $color-white !important;
 
-#hello-text__text{
-    color: $color-white;
+        &_grey{
+            //color: $color-light-white!important;
+            opacity: .5;
+            font-size: $fs-token-name;
+        }
+    }
+
 }

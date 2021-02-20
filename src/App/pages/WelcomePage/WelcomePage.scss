@@ -2,7 +2,7 @@
 
 .welcome-bg {
     height: 100vh;
-    padding: calc((100vh - 100%)/2 ) 5rem;
+    padding: calc((100vh - 100rem)/2 ) 5rem 5rem;
 }
 
 .input-window {
@@ -25,38 +25,13 @@
     height: 100%;
 }
 
-.slick-slider {
-    height: 100%;
-}
 
 .slick-track {
-    padding-top: 10rem;
-}
 
-.slick-dots {
-    height: 0;
 }
-
 
 .ant-form-item-label > label{
     color: $color-white !important;
-}
-
-.ant-carousel .slick-dots li {
-    width: 50%;
-}
-
-.ant-carousel .slick-dots li.slick-active {
-
-    width: 100%;
-}
-
-.ant-carousel .slick-dots li.slick-active button{
-    background: $color-light-white;
-}
-
-.ant-carousel .slick-dots li button {
-    height: 1.5rem;
 }
 
 .ant-btn-primary {
@@ -64,3 +39,27 @@
     border-color: $color-light-white;
     color: $color-bg-blue;
 }
+
+.slick-dots li.slick-active button:before {
+    color: $color-white !important;
+}
+
+.slick-dots li button:before {
+    color: $color-white !important;
+}
+
+.slick-next, .slick-prev {
+    visibility: hidden;
+}
+
+.slick-list {
+    height: 100%;
+}
+
+.slick-slider {
+    height: calc(100vh - 58%) !important;
+}
+
+//.slick-dots {
+//    bottom: 0 !important;
+//}
