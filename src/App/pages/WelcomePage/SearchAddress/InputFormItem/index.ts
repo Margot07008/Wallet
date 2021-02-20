@@ -1,2 +1,1 @@
-
-export {default} from './InputFormItem'
+export { default } from './InputFormItem';
