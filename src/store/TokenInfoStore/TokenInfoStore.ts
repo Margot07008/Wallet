@@ -15,11 +15,11 @@ export default class TokenInfoStore {
     _repos: { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay; lastTransTime: number } = {
         trans: [],
         tokenInfo: {
-            logo: '',
+            logo: 'eth',
             name: '',
-            dif: '',
-            totalDollar: '',
-            totalCrypto: '',
+            dif: '0.00',
+            totalDollar: '0.00',
+            totalCrypto: '0.00',
             rate: '',
             symbol: '',
         },

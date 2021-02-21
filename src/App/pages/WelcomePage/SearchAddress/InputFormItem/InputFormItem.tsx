@@ -6,7 +6,7 @@ const InputFormItem = () => {
         <Form.Item
             initialValue="0x6f2e19b1dac147587ab8ad3a3ff556a5f2bb332a"
             name="address"
-            label="Enter address here"
+            label="Address"
             rules={[
                 { required: true, message: 'Please input your address!' },
                 () => ({

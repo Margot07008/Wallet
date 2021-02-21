@@ -22,7 +22,7 @@ const SearchTextarea = () => {
             <Form.Item
                 initialValue="crop truly stuff sing course hour six rescue mass aunt invest dose will local empower"
                 name="mnemonics"
-                label="Enter mnemonics here"
+                label="Mnemonic phrase"
                 rules={[{ required: true }]}
             >
                 <TextArea
