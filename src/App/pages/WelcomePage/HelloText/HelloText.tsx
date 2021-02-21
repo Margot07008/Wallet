@@ -18,7 +18,6 @@ const HelloText = () => {
                     Select type of login
                 </Title>
             </div>
-
         </>
     );
 };
