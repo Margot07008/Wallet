@@ -81,7 +81,7 @@ const Transactions: React.FC<Props> = ({ rate, needSearch, setNeedSearch }) => {
             </div>
             {store.meta === 'loading' && (
                 <div className="loader">
-                    <Spin size="large" tip="Loading..." />
+                    <Spin size="large" tip="Loading..." style={{color:'#d3adf7'}}/>
                 </div>
             )}
         </>

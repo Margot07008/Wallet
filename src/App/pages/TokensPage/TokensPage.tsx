@@ -48,7 +48,7 @@ const TokensPage = () => {
                             onRefresh={onRefresh}
                             canFetchMore={false}
                             pullDownThreshold={30}
-                            maxPullDownDistance={50}
+                            maxPullDownDistance={70}
                         >
                             <Tokens />
                         </PullToRefresh>

@@ -26,10 +26,6 @@
 }
 
 
-.slick-track {
-
-}
-
 .ant-form-item-label > label{
     color: $color-white !important;
 }
@@ -57,9 +53,12 @@
 }
 
 .slick-slider {
-    height: calc(100vh - 58%) !important;
+    height: calc(100vh - 70%) !important;
 }
 
-//.slick-dots {
-//    bottom: 0 !important;
-//}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+    background: $color-bg-blue !important;
+    border-color: $color-bg-blue !important;
+    color: $color-light-white !important;
+}

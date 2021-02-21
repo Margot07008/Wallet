@@ -2,7 +2,7 @@ import QRcodePage from './QRcodePage/QRcodePage';
 import { Modal, Typography } from 'antd';
 import * as React from 'react';
 import { useState } from 'react';
-import TopField from './QRcodePage/TopField/TopField';
+import TopField from './TopField/TopField';
 import './ModalQR.scss';
 
 const { Text } = Typography;
@@ -35,7 +35,7 @@ const ModalQR: React.FC<Props> = ({ setIsModalVisible, isModalVisible }) => {
             <TopField copied={copied} setCopied={setCopied} />
             <div className="qrcode-link-fields">
                 <Text type="secondary">
-                    Send only ETH Ethereum to this address. Sending any other asset will result in
+                    Send <b>only</b> ETH Ethereum to this address. Sending any other asset will result in
                     the loss of your deposit.
                 </Text>
             </div>
