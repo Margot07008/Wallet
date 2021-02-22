@@ -1,10 +1,12 @@
 export const formatMoney = (number: string | number | undefined, decimal: number | undefined) => {
-    const strNumber = String(number);
+    // const strNumberTmp = String(number);
+    const strNumber = String(Number(number).toFixed(10).replace(/\.?0+$/,''));
     const idxDel = strNumber.indexOf('.');
     const mod = strNumber.slice(idxDel);
     const count = mod.search(/[1-9]/);
     let isRate = false;
 
+    console.log(number, strNumber, count, decimal)
     if (count > 1 && Number(decimal) === 2) {
         isRate = true;
         decimal = count;
