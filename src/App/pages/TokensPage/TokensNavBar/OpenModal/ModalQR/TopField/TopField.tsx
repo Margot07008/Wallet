@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Typography } from 'antd';
 import { useContext } from 'react';
 import { WalletAddressContext } from '../../../TokensNavBar';
-import './TopField.scss'
+import './TopField.scss';
 
 const { Text } = Typography;
 
@@ -23,14 +23,16 @@ const TopField: React.FC<Props> = ({ copied, setCopied }) => {
                     <Text type="secondary">Scan the QR code or сopy the address below</Text>
                 </div>
                 <div className="qrcode-link-fields__address">
-                    <Text  strong>{id}</Text>
+                    <Text strong>{id}</Text>
                     <CopyToClipboard
                         text={id}
                         onCopy={() => {
                             setCopied(true);
                         }}
                     >
-                        <CopyOutlined style={{ color: '#22075e', fontSize: '4rem', margin:'0 1rem 0 2rem' }} />
+                        <CopyOutlined
+                            style={{ color: '#22075e', fontSize: '4rem', margin: '0 1rem 0 2rem' }}
+                        />
                     </CopyToClipboard>
                     {copied && <span style={{ color: '#d3adf7' }}>Copied.</span>}
                 </div>

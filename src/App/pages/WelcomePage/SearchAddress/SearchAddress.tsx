@@ -13,11 +13,6 @@ const SearchAddress = () => {
     return (
         <Form name="input-address" onFinish={onFinish}>
             <InputFormItem />
-            <Form.Item>
-                <Button type="primary" htmlType="submit">
-                    Submit
-                </Button>
-            </Form.Item>
         </Form>
     );
 };
