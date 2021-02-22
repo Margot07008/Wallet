@@ -35,8 +35,8 @@ const ModalQR: React.FC<Props> = ({ setIsModalVisible, isModalVisible }) => {
             <TopField copied={copied} setCopied={setCopied} />
             <div className="qrcode-link-fields">
                 <Text type="secondary">
-                    Send <b>only</b> ETH Ethereum to this address. Sending any other asset will result in
-                    the loss of your deposit.
+                    Send <b>only</b> ETH Ethereum to this address. Sending any other asset will
+                    result in the loss of your deposit.
                 </Text>
             </div>
         </Modal>
