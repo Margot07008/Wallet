@@ -13,13 +13,19 @@ export const formatMoney = (number: string | number | undefined, decimal: number
     const typeNumber = Number(number);
 
     const rounded = Number(typeNumber.toFixed(decimal));
-    return isRate
-        ? rounded
-        : new Intl.NumberFormat('en-US', {
-              style: 'decimal',
-              minimumFractionDigits: 2,
-              maximumFractionDigits: decimal,
-          }).format(rounded);
+    // return isRate
+    //     ? rounded
+    //     : new Intl.NumberFormat('en-US', {
+    //           style: 'decimal',
+    //           minimumFractionDigits: 2,
+    //           maximumFractionDigits: decimal,
+    //       }).format(rounded);
+
+    return new Intl.NumberFormat('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: decimal,
+    }).format(rounded);
 };
 
 export const formatDiff = (diff: string | number): string => {
