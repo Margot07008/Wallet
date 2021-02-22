@@ -7,6 +7,7 @@ import { TransInfoContext } from '../TransactionsPage';
 
 const TokenInfo = () => {
     const store = useContext(TransInfoContext);
+    console.log(store.repos.tokenInfo.rate)
 
     return (
         <>
