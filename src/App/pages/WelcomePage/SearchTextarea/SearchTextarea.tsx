@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import TextArea from 'antd/es/input/TextArea';
 import { Form, Button } from 'antd';
 import './SearchTextarea.scss';
@@ -15,17 +15,20 @@ const SearchTextarea = () => {
     };
 
     return (
-        <Form name="input-mnemonics" onFinish={onFinish} >
+        <Form name="input-mnemonics" onFinish={onFinish}>
             <Form.Item
                 initialValue="crop truly stuff sing course hour six rescue mass aunt invest dose will local empower"
                 name="mnemonics"
                 label="Mnemonic phrase"
                 // validateTrigger={"onBlur"}
-                rules={[{ required: true, message: 'Please input your mnemonic!'},
+                rules={[
+                    { required: true, message: 'Please input your mnemonic!' },
                     () => ({
                         validator(_, value) {
                             try {
-                                const wallet = EthHdWallet.fromMnemonic(value.replace(/\s+/g, ' ').trim());
+                                const wallet = EthHdWallet.fromMnemonic(
+                                    value.replace(/\s+/g, ' ').trim(),
+                                );
                                 setAddress(wallet.generateAddresses(1));
                                 setError(false);
                                 return Promise.resolve();
