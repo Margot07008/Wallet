@@ -10,6 +10,7 @@ import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 // @ts-ignore
 import LoaderIcon from 'react-loader-icon';
+import TransDetailsPage from "./pages/TransDetailsPage";
 
 // Spin.setDefaultIndicator(<LoadingOutlined style={{color:'#d3adf7'}}/>)
 Spin.setDefaultIndicator(<LoaderIcon size={50} type={'spinningBubbles'} color="#d3adf7" />);
@@ -23,6 +24,7 @@ function App() {
                         <Route component={WelcomePage} exact path={urls.MAIN} />
                         <Route component={TokensPage} path={urls.TOKENS.mask} />
                         <Route component={TransactionsPage} path={urls.TRANS.mask} />
+                        <Route component={TransDetailsPage} path={urls.TRANS_DETAILS.mask} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </BrowserRouter>

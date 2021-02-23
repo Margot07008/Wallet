@@ -50,7 +50,7 @@ const TransactionsPage = () => {
     return (
         <>
             {storeTransInfo.meta === 'loading' && storeTrans.meta === 'loading' && !refresh && (
-                <Spin className="loading" size="large" style={{background:'red'}}/>
+                <Spin className="loading" size="large" style={{ background: 'red' }} />
             )}
             <TransInfoContext.Provider value={storeTransInfo}>
                 {(storeTransInfo.meta === 'success' || storeTransInfo.meta === 'loading') && (
@@ -66,15 +66,15 @@ const TransactionsPage = () => {
                         canFetchMore={false}
                         className="pullToRefresh"
                         pullDownThreshold={40}
-                        maxPullDownDistance={55}
+                        maxPullDownDistance={65}
                     >
                         <>
-                        <TokenInfo />
-                        <Transactions
-                            rate={rate}
-                            needSearch={needSearch}
-                            setNeedSearch={setNeedSearch}
-                        />
+                            <TokenInfo />
+                            <Transactions
+                                rate={rate}
+                                needSearch={needSearch}
+                                setNeedSearch={setNeedSearch}
+                            />
                         </>
                     </PullToRefresh>
                 </TransContext.Provider>
