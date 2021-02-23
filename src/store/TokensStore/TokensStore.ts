@@ -5,13 +5,9 @@ import {
     computed,
     makeObservable,
     observable,
-    reaction,
     runInAction,
-    IReactionDisposer,
-    get,
 } from 'mobx';
 import { requestTokensRepos } from '@store/TokensStore/requestTokensRepos';
-import { log } from '@utils/log';
 
 export default class TokensStore {
     _repos: { tokens: EthTokenArr; totalSum: number | string; dailyMoney: number } = {

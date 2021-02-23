@@ -1,0 +1,11 @@
+@import "src/styles/variables";
+
+.trans-details-page {
+    height: calc(100vh - 10rem);
+    background: $color-bg-blue;
+}
+
+.monitor-info {
+    text-align: center;
+    margin: 5rem 0;
+}
