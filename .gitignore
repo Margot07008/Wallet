@@ -2,7 +2,7 @@
 
 .idea
 .netlify
-build
+
 
 # dependencies
 /node_modules

@@ -20,7 +20,6 @@ const SearchTextarea = () => {
                 initialValue="crop truly stuff sing course hour six rescue mass aunt invest dose will local empower"
                 name="mnemonics"
                 label="Mnemonic phrase"
-                // validateTrigger={"onBlur"}
                 rules={[
                     { required: true, message: 'Please input your mnemonic!' },
                     () => ({
