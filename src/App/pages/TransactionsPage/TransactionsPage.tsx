@@ -12,6 +12,7 @@ import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
 import { Spin } from 'antd';
 import PullToRefresh from 'react-simple-pull-to-refresh';
 import { Meta } from '@utils/meta';
+import './TransactionsPage.scss';
 
 // @ts-ignore
 export const TransInfoContext = createContext<TokenInfoStore>();
@@ -69,7 +70,7 @@ const TransactionsPage = () => {
                         maxPullDownDistance={65}
                     >
                         <>
-                            <div style={{ background: 'white', borderRadius: '5rem 5rem 0 0' }}>
+                            <div className="trans-block" style={{ background: 'white', borderRadius: '5rem 5rem 0 0', minHeight:'calc(100vh - 11rem)' }}>
                                 <TokenInfo />
                                 <Transactions
                                     rate={rate}

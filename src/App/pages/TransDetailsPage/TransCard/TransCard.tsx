@@ -22,8 +22,13 @@ const TransCard: React.FC<Props> = ({ params }) => {
     const store = useContext(TransDetailsContext);
 
     const date = new Date(store.details.timestamp * 1000);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const hoursForm = hours < 10 ? "0"+String(hours).slice(-2) : hours;
+    const minutesForm = minutes < 10 ? "0"+String(minutes).slice(-2) : minutes;
     const balanceReplace = replaceAll(params.coins, ',', '');
     const usdBalance = formatMoney((Number(params.rate) * Number(balanceReplace)).toFixed(2), 2);
+
 
     return (
         <div className="trans-details-page">
@@ -33,7 +38,6 @@ const TransCard: React.FC<Props> = ({ params }) => {
                     Transaction Details
                 </Title>
             </div>
-
             <Card
                 title="Transaction Hash"
                 size="small"
@@ -57,7 +61,7 @@ const TransCard: React.FC<Props> = ({ params }) => {
                 {store.details.blockNumber} ({store.details.confirmations} Block Confirmations)
             </Card>
             <Card title="Timestamp" size="small" style={{ width: '100%', borderRadius: '0' }}>
-                {date.toDateString()} at {date.getHours()}:{date.getMinutes()}
+                {date.toDateString()} at {hoursForm}:{minutesForm}
             </Card>
             <Card
                 title="From"

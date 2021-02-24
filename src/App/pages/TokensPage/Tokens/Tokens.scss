@@ -4,8 +4,6 @@
     background: $color-white;
     height: 100%;
     border-radius: 5rem 5rem 0 0;
+    min-height: calc(100vh - 40rem);
 }
 
-.ptr {
-    overflow: visible !important;
-}

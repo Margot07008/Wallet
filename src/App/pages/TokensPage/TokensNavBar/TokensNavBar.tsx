@@ -24,14 +24,14 @@ export const TokensNavBar: React.FC<Props> = ({ id }) => {
                 window.scrollTo(0, 0);
             }}
         >
+            <WalletAddressContext.Provider value={id}>
+                <OpenModal />
+            </WalletAddressContext.Provider>
             <Link to={urls.MAIN}>
                 <div className="tokens-navbar__icon logout">
                     <Icon component={LogoutIcon} style={{ fontSize: '5rem' }} />
                 </div>
             </Link>
-            <WalletAddressContext.Provider value={id}>
-                <OpenModal />
-            </WalletAddressContext.Provider>
         </div>
     );
 };
