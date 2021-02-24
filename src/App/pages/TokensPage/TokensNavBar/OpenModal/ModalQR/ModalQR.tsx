@@ -12,7 +12,6 @@ type Props = {
 };
 
 const ModalQR: React.FC<Props> = ({ setIsModalVisible, isModalVisible }) => {
-
     const handleCancel = () => {
         setIsModalVisible(false);
     };

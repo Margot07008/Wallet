@@ -13,7 +13,7 @@ const defaultDetails: transDetails = {
     gasLimit: '0',
     gasUsed: '0',
     gasProc: '(0%)',
-    confirmations: ''
+    confirmations: '',
 };
 
 export default class TransDetailsStore {

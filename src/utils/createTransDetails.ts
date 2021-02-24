@@ -1,5 +1,5 @@
 import { transDetails, transDetailsApi } from '@store/models/transactions/transDetailsApi';
-import {formatNumber} from "@utils/formatMoney";
+import { formatNumber } from '@utils/formatMoney';
 
 export const CreateTransDetails = (response: transDetailsApi): transDetails => {
     return {
@@ -11,9 +11,7 @@ export const CreateTransDetails = (response: transDetailsApi): transDetails => {
         to: response.to,
         gasLimit: formatNumber(response.gasLimit),
         gasUsed: formatNumber(response.gasUsed),
-        gasProc: `(${(response.gasUsed * 100 / response.gasLimit).toFixed(2)}%)`,
+        gasProc: `(${((response.gasUsed * 100) / response.gasLimit).toFixed(2)}%)`,
         confirmations: formatNumber(response.confirmations),
     };
 };
-
-
