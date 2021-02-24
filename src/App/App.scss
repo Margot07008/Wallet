@@ -7,13 +7,13 @@
 .app {
     min-height: 100%;
     background: $color-bg-blue;
-    max-width: 500px;
+    max-width: 1000px;
     margin: auto;
 }
 
 .loading {
     width: 100%;
-    max-width: 500px;
+    max-width: 1000px;
     position: absolute;
     transform: translateY(-50%);
     top: 50%;

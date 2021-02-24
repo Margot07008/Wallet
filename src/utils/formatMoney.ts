@@ -38,3 +38,7 @@ export const formatDiff = (diff: string | number): string => {
 export const formatNumber = (num: number): string => {
     return new Intl.NumberFormat('en-US', {}).format(num);
 };
+
+export const shortAddress = (trans: string) => {
+    return `${trans.slice(0, 5)}..${trans.slice(37)}`;
+};
