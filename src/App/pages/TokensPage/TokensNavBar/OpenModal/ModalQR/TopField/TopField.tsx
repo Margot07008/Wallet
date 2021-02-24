@@ -5,10 +5,9 @@ import { Typography } from 'antd';
 import { useContext } from 'react';
 import { WalletAddressContext } from '../../../TokensNavBar';
 import './TopField.scss';
-import DataToCopy from "@components/DataToCopy";
+import DataToCopy from '@components/DataToCopy';
 
 const { Text } = Typography;
-
 
 const TopField = () => {
     const id = useContext(WalletAddressContext);
