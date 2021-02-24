@@ -34,3 +34,8 @@ export const formatDiff = (diff: string | number): string => {
     const diffNum = Number(diff);
     return String(diffNum.toFixed(2));
 };
+
+export const formatNumber = (num: number): string => {
+    return new Intl.NumberFormat('en-US', {
+    }).format(num);
+}

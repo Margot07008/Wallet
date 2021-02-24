@@ -6,12 +6,14 @@ import { transDetails, transDetailsApi } from '@store/models/transactions/transD
 const defaultDetails: transDetails = {
     hash: '',
     timestamp: 0,
-    blockNumber: 0,
+    blockNumber: '0',
     success: false,
     from: '',
     to: '',
-    gasLimit: 0,
-    gasUsed: 0,
+    gasLimit: '0',
+    gasUsed: '0',
+    gasProc: '(0%)',
+    confirmations: ''
 };
 
 export default class TransDetailsStore {

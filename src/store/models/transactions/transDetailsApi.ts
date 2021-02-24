@@ -8,15 +8,18 @@ export type transDetailsApi = {
     gasLimit: number;
     gasUsed: number;
     value: number;
+    confirmations: number;
 };
 
 export type transDetails = {
     hash: string;
     timestamp: number;
-    blockNumber: number;
+    blockNumber: string;
     success: boolean;
     from: string;
     to: string;
-    gasLimit: number;
-    gasUsed: number;
+    gasLimit: string;
+    gasUsed: string;
+    gasProc: string;
+    confirmations: string;
 };
