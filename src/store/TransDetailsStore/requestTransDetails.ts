@@ -1,10 +1,10 @@
-import {ApiResp} from "@utils/ApiResp";
-import axios from "axios";
-import {apikey, apiUrl, getTransDetails} from "@config/apiUrls";
-import {log} from "@utils/log";
-import {CreateTransDetails} from "@utils/createTransDetails";
+import { ApiResp } from '@utils/ApiResp';
+import axios from 'axios';
+import { apikey, apiUrl, getTransDetails } from '@config/apiUrls';
+import { log } from '@utils/log';
+import { CreateTransDetails } from '@utils/createTransDetails';
 
-export const requestTransDetails = async (transHash: string) : Promise<ApiResp> => {
+export const requestTransDetails = async (transHash: string): Promise<ApiResp> => {
     try {
         const response = await axios({
             method: 'get',
@@ -21,4 +21,4 @@ export const requestTransDetails = async (transHash: string) : Promise<ApiResp> 
             data: null,
         };
     }
-}
+};

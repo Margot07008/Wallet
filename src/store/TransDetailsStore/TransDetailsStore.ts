@@ -1,9 +1,9 @@
-import {Meta} from "@utils/meta";
-import {action, computed, get, makeObservable, observable, runInAction} from "mobx";
-import {requestTransDetails} from "@store/TransDetailsStore/requestTransDetails";
-import {transDetails, transDetailsApi} from "@store/models/transactions/transDetailsApi";
+import { Meta } from '@utils/meta';
+import { action, computed, get, makeObservable, observable, runInAction } from 'mobx';
+import { requestTransDetails } from '@store/TransDetailsStore/requestTransDetails';
+import { transDetails, transDetailsApi } from '@store/models/transactions/transDetailsApi';
 
-const defaultDetails:transDetails= {
+const defaultDetails: transDetails = {
     hash: '',
     timestamp: 0,
     blockNumber: 0,
@@ -12,12 +12,10 @@ const defaultDetails:transDetails= {
     to: '',
     gasLimit: 0,
     gasUsed: 0,
-    symbol: '',
-}
+};
 
 export default class TransDetailsStore {
-
-    _details:transDetails = defaultDetails;
+    _details: transDetails = defaultDetails;
     meta: Meta = Meta.initial;
 
     constructor() {
@@ -26,10 +24,10 @@ export default class TransDetailsStore {
             meta: observable,
             fetch: action.bound,
             details: computed,
-        })
+        });
     }
 
-    async fetch (transHash: string): Promise<void> {
+    async fetch(transHash: string): Promise<void> {
         if (this.meta === Meta.loading || this.meta === Meta.success) {
             return;
         }
@@ -46,11 +44,9 @@ export default class TransDetailsStore {
             this.meta = Meta.success;
             this._details = data;
         });
-
     }
 
     get details(): transDetails {
         return this._details;
     }
-
 }

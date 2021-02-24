@@ -1,2 +1,1 @@
-
-export {default} from './TransHashCopy';
+export { default } from './TransHashCopy';

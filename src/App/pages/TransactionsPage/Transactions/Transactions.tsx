@@ -3,9 +3,9 @@ import * as React from 'react';
 import { useContext, useEffect, useRef, useState } from 'react';
 import SingleTrans from './SingleTrans';
 import './Transactions.scss';
-import {Link, useHistory, useParams} from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { TransContext } from '../TransactionsPage';
-import {urls} from "@config/apiUrls";
+import { urls } from '@config/apiUrls';
 
 type Props = {
     rate: string;
@@ -74,8 +74,22 @@ const Transactions: React.FC<Props> = ({ rate, needSearch, setNeedSearch }) => {
             <div className="transactions-list">
                 <List
                     dataSource={postList.list}
-                    renderItem={(trans: {transactionHash: string, timestamp: string, balance: string, to: string, from: string, symbol: string}) => (
-                        <Link to={urls.TRANS_DETAILS.create(trans.transactionHash, trans.balance, rate)} >
+                    renderItem={(trans: {
+                        transactionHash: string;
+                        timestamp: string;
+                        balance: string;
+                        to: string;
+                        from: string;
+                        symbol: string;
+                    }) => (
+                        <Link
+                            to={urls.TRANS_DETAILS.create(
+                                trans.transactionHash,
+                                trans.balance,
+                                rate,
+                                trans.symbol,
+                            )}
+                        >
                             <SingleTrans trans={trans} reqAddress={reqAddress} rate={rate} />
                         </Link>
                     )}

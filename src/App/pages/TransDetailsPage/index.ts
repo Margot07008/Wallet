@@ -1,2 +1,1 @@
-
-export {default} from './TransDetailsPage';
+export { default } from './TransDetailsPage';
