@@ -1,7 +1,6 @@
 import QRcodePage from './QRcodePage/QRcodePage';
 import { Modal, Typography } from 'antd';
 import * as React from 'react';
-import { useState } from 'react';
 import TopField from './TopField/TopField';
 import './ModalQR.scss';
 
@@ -13,11 +12,9 @@ type Props = {
 };
 
 const ModalQR: React.FC<Props> = ({ setIsModalVisible, isModalVisible }) => {
-    const [copied, setCopied] = useState(false);
 
     const handleCancel = () => {
         setIsModalVisible(false);
-        setCopied(false);
     };
 
     return (
@@ -32,7 +29,7 @@ const ModalQR: React.FC<Props> = ({ setIsModalVisible, isModalVisible }) => {
             <div className="qrcode-link-fields">
                 <QRcodePage />
             </div>
-            <TopField copied={copied} setCopied={setCopied} />
+            <TopField />
             <div className="qrcode-link-fields">
                 <Text type="secondary">
                     Send <b>only</b> ETH Ethereum to this address. Sending any other asset will

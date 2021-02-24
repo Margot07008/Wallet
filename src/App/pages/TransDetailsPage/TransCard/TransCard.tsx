@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Card, Typography } from 'antd';
 import { replaceAll } from '@utils/replaceALl';
 import { formatMoney } from '@utils/formatMoney';
-import { CopyOutlined } from '@ant-design/icons';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { TransDetailsContext } from '../TransDetailsPage';
-import TransHashCopy from './TransHashCopy';
+import DataToCopy from '@components/DataToCopy';
+import './TransCard.scss';
 
 const { Title } = Typography;
 
@@ -34,11 +33,20 @@ const TransCard: React.FC<Props> = ({ params }) => {
                     Transaction Details
                 </Title>
             </div>
-            <TransHashCopy hash={store.details.hash} />
+
+            <Card
+                title="Transaction Hash"
+                size="small"
+                bordered={true}
+                style={{ width: '100%', borderRadius: '5rem 5rem 0 0', wordBreak: 'break-all', paddingTop:'2rem' }}
+            >
+                {store.details.hash}
+                <DataToCopy text={store.details.hash} />
+            </Card>
+
             <Card
                 title="Status"
                 size="small"
-                bordered={true}
                 style={{ width: '100%', borderRadius: '0' }}
             >
                 {store.details.success && 'Success'}
@@ -47,47 +55,50 @@ const TransCard: React.FC<Props> = ({ params }) => {
             <Card
                 title="Block"
                 size="small"
-                bordered={true}
                 style={{ width: '100%', borderRadius: '0' }}
             >
-                {store.details.blockNumber}
+                {store.details.blockNumber} ({store.details.confirmations} Block Confirmations)
+            </Card>
+            <Card
+                title="Timestamp"
+                size="small"
+                style={{ width: '100%', borderRadius: '0' }}
+            >
+                {date.toDateString()} at {date.getHours()}:{date.getMinutes()}
+            </Card>
+            <Card
+                title="From"
+                size="small"
+                style={{ width: '100%', borderRadius: '0', wordBreak: 'break-word' }}
+            >
+                {store.details.from}
+                <DataToCopy text={store.details.from} />
+            </Card>
+            <Card
+                title="To"
+                size="small"
+                style={{ width: '100%', borderRadius: '0', wordBreak: 'break-word' }}
+            >
+                {store.details.to}
+                <DataToCopy text={store.details.to} />
             </Card>
             <Card
                 title="Value USD"
                 size="small"
-                bordered={true}
                 style={{ width: '100%', borderRadius: '0' }}
             >
                 ${usdBalance}
             </Card>
             <Card
-                title="Value in token"
+                title="Value"
                 size="small"
-                bordered={true}
                 style={{ width: '100%', borderRadius: '0' }}
             >
                 {params.coins} {params.symbol}
             </Card>
             <Card
-                title="From"
-                size="small"
-                bordered={true}
-                style={{ width: '100%', borderRadius: '0', wordBreak: 'break-all' }}
-            >
-                {store.details.from}
-            </Card>
-            <Card
-                title="To"
-                size="small"
-                bordered={true}
-                style={{ width: '100%', borderRadius: '0', wordBreak: 'break-all' }}
-            >
-                {store.details.to}
-            </Card>
-            <Card
                 title="Gas Limit"
                 size="small"
-                bordered={true}
                 style={{ width: '100%', borderRadius: '0' }}
             >
                 {store.details.gasLimit}
@@ -95,18 +106,9 @@ const TransCard: React.FC<Props> = ({ params }) => {
             <Card
                 title="Gas Used by Transaction"
                 size="small"
-                bordered={true}
                 style={{ width: '100%', borderRadius: '0' }}
             >
-                {store.details.gasUsed}
-            </Card>
-            <Card
-                title="Timestamp"
-                size="small"
-                bordered={true}
-                style={{ width: '100%', borderRadius: '0' }}
-            >
-                {date.toDateString()} at {date.getHours()}:{date.getMinutes()}
+                {store.details.gasUsed} {store.details.gasProc}
             </Card>
         </div>
     );
