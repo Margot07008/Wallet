@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Avatar, List } from 'antd';
 import './SingleTrans.scss';
 import Icon from '@ant-design/icons';
-import { formatMoney } from '@utils/formatMoney';
+import {formatMoney, shortAddress} from '@utils/formatMoney';
 import { ReactComponent as SendIcon } from '@img/send.svg';
 import { ReactComponent as Receive } from '@img/receive.svg';
 import { replaceAll } from '@utils/replaceALl';
@@ -20,9 +20,7 @@ type Props = {
     rate: string;
 };
 
-const shortAddress = (trans: string) => {
-    return `${trans.slice(0, 5)}..${trans.slice(37)}`;
-};
+
 
 const SingleTrans: React.FC<Props> = ({ trans, reqAddress, rate }) => {
     const isSend = reqAddress.toUpperCase() === trans.from.toUpperCase();
