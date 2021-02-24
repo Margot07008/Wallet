@@ -24,11 +24,10 @@ const TransCard: React.FC<Props> = ({ params }) => {
     const date = new Date(store.details.timestamp * 1000);
     const hours = date.getHours();
     const minutes = date.getMinutes();
-    const hoursForm = hours < 10 ? "0"+String(hours).slice(-2) : hours;
-    const minutesForm = minutes < 10 ? "0"+String(minutes).slice(-2) : minutes;
+    const hoursForm = hours < 10 ? '0' + String(hours).slice(-2) : hours;
+    const minutesForm = minutes < 10 ? '0' + String(minutes).slice(-2) : minutes;
     const balanceReplace = replaceAll(params.coins, ',', '');
     const usdBalance = formatMoney((Number(params.rate) * Number(balanceReplace)).toFixed(2), 2);
-
 
     return (
         <div className="trans-details-page">

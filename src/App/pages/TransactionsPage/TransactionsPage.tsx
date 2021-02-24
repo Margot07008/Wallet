@@ -70,7 +70,14 @@ const TransactionsPage = () => {
                         maxPullDownDistance={65}
                     >
                         <>
-                            <div className="trans-block" style={{ background: 'white', borderRadius: '5rem 5rem 0 0', minHeight:'calc(100vh - 11rem)' }}>
+                            <div
+                                className="trans-block"
+                                style={{
+                                    background: 'white',
+                                    borderRadius: '5rem 5rem 0 0',
+                                    minHeight: 'calc(100vh - 11rem)',
+                                }}
+                            >
                                 <TokenInfo />
                                 <Transactions
                                     rate={rate}

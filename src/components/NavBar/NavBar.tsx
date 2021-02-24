@@ -21,7 +21,7 @@ const NavBar: React.FC<Props> = ({ title, subtitle }) => {
                 }}
             >
                 <PageHeader
-                    backIcon={<ArrowLeftOutlined style={{ color: 'white', fontSize:'5rem' }} />}
+                    backIcon={<ArrowLeftOutlined style={{ color: 'white', fontSize: '5rem' }} />}
                     ghost={false}
                     onBack={() => {
                         history.goBack();
