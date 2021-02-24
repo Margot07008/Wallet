@@ -3,8 +3,8 @@ import { Avatar } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import './DisplayToken.scss';
 import imgEth from '@img/ethereum.png';
-import {replaceAll} from "@utils/replaceALl";
-import {formatMoney} from "@utils/formatMoney";
+import { replaceAll } from '@utils/replaceALl';
+import { formatMoney } from '@utils/formatMoney';
 
 type Props = {
     logo: string;
@@ -14,7 +14,7 @@ type Props = {
 };
 
 const DisplayToken: React.FC<Props> = ({ logo, balance, price, symbol }) => {
-    const clearPrice = formatMoney(Number(replaceAll(price, ',','')).toFixed(2),2);
+    const clearPrice = formatMoney(Number(replaceAll(price, ',', '')).toFixed(2), 2);
 
     return (
         <div className="personal-token-info">
