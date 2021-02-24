@@ -1,0 +1,11 @@
+@import "src/styles/variables";
+
+.pullToRefresh > .ptr__children {
+    min-height: calc(100vh - 11rem);
+}
+
+.trans-block {
+    background: $color-white;
+    border-radius: 5rem 5rem 0 0;
+    min-height: calc(100vh - 11rem);
+}

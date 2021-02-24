@@ -1,7 +1,7 @@
 export const formatMoney = (number: string | number | undefined, decimal: number | undefined) => {
     const strNumber = String(
         Number(number)
-            .toFixed(10)
+            .toFixed(15)
             .replace(/\.?0+$/, ''),
     );
     const idxDel = strNumber.indexOf('.');

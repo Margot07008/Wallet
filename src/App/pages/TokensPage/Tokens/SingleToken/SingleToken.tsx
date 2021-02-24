@@ -16,6 +16,7 @@ const SingleToken: React.FC<Props> = ({ token }) => {
     const history = useHistory();
     const addressWallet = history.location.pathname.split('/tokens/')[1];
     const rate = Number(replaceAll(token.rate, ',', ''));
+    const price = Number(replaceAll(token.price, ',', '')).toFixed(2);
 
     return (
         <>
@@ -23,7 +24,7 @@ const SingleToken: React.FC<Props> = ({ token }) => {
                 <List.Item key={token?.address}>
                     <TokenListMeta token={token} />
                     <div className="tokens-money-cont">
-                        <div className="tokens-money-cont__crypt">${token?.price}</div>
+                        <div className="tokens-money-cont__crypt">${formatMoney(price, 2)}</div>
                         <div className="tokens-money-cont__dollar">
                             {rate < 1 && formatMoney(replaceAll(token.balance, ',', ''), 3)}
                             {rate >= 1 && token.balance}

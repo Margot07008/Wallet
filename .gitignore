@@ -2,7 +2,7 @@
 
 .idea
 .netlify
-build
+
 
 # dependencies
 /node_modules
@@ -13,7 +13,7 @@ build
 /coverage
 
 # production
-/build
+
 
 # misc
 .DS_Store

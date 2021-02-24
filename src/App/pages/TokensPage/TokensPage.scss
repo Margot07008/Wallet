@@ -1,4 +1,6 @@
 @import "src/styles/variables";
 
 
-
+.tokens-ptr > .ptr__children {
+    min-height: calc(100vh - 40rem);
+}
