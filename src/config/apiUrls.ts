@@ -11,8 +11,9 @@ export const urls = {
     },
     TRANS_DETAILS: {
         mask: '/single-transaction/:transHash',
-        create: (transHash: string, coins: string, rate: string) => `/single-transaction/${transHash}&coins=${coins}&rate=${rate}`,
-    }
+        create: (transHash: string, coins: string, rate: string, symbol: string) =>
+            `/single-transaction/${transHash}&coins=${coins}&rate=${rate}&symbol=${symbol}`,
+    },
 };
 
 export const apikey = '?apiKey=EK-3HTzj-zcxPo7d-qCssY';

@@ -1,2 +1,1 @@
-
-export {default} from './TransCard';
+export { default } from './TransCard';

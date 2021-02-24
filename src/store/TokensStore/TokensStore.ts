@@ -1,12 +1,6 @@
 import { EthTokenArr } from '@store/models/tokens/ethToken';
 import { Meta } from '@utils/meta';
-import {
-    action,
-    computed,
-    makeObservable,
-    observable,
-    runInAction,
-} from 'mobx';
+import { action, computed, makeObservable, observable, runInAction } from 'mobx';
 import { requestTokensRepos } from '@store/TokensStore/requestTokensRepos';
 
 export default class TokensStore {
