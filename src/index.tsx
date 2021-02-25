@@ -6,7 +6,7 @@ import App from './App';
 import '@styles/index.scss';
 import { fit } from '@utils/fit';
 import bridge from '@vkontakte/vk-bridge';
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
     <React.StrictMode>

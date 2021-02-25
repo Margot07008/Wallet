@@ -33,7 +33,7 @@ const SearchTextarea = () => {
                                 return Promise.resolve();
                             } catch (e) {
                                 setError(true);
-                                return Promise.reject('Enter a correct Eth mnemonic!');
+                                return Promise.reject('Enter a correct bip39 mnemonic!');
                             }
                         },
                     }),
