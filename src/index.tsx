@@ -6,11 +6,14 @@ import App from './App';
 import '@styles/index.scss';
 import { fit } from '@utils/fit';
 import bridge from '@vkontakte/vk-bridge';
+import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
     <React.StrictMode>
         <ConfigProvider>
-            <App />
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
         </ConfigProvider>
     </React.StrictMode>,
     document.getElementById('root'),
@@ -24,9 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(e);
     });
     bridge.send('VKWebAppInit', {});
-    if (bridge.supports('VKWebAppResizeWindow')) {
-        bridge.send('VKWebAppResizeWindow', { width: 800, height: 1000 });
-    }
     initScale();
 });
 
