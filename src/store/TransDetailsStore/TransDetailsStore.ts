@@ -35,7 +35,6 @@ export default class TransDetailsStore {
         }
 
         this.meta = Meta.loading;
-        this._details = defaultDetails;
 
         const { isError, data } = await requestTransDetails(transHash);
         if (isError) {

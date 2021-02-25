@@ -10,13 +10,6 @@ import { Spin } from 'antd';
 // @ts-ignore
 import LoaderIcon from 'react-loader-icon';
 import TransDetailsPage from './pages/TransDetailsPage';
-import bridge from '@vkontakte/vk-bridge';
-
-bridge.subscribe((e) => console.log(e));
-bridge.send("VKWebAppInit", {});
-if (bridge.supports("VKWebAppResizeWindow")) {
-    bridge.send("VKWebAppResizeWindow", {"width": 800, "height": 1000});
-}
 
 // Spin.setDefaultIndicator(<LoadingOutlined style={{color:'#d3adf7'}}/>)
 Spin.setDefaultIndicator(<LoaderIcon size={50} type={'spokes'} color="#d3adf7" />);

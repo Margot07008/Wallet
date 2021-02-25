@@ -55,10 +55,7 @@ const TransactionsPage = () => {
             )}
             <TransInfoContext.Provider value={storeTransInfo}>
                 {(storeTransInfo.meta === 'success' || storeTransInfo.meta === 'loading') && (
-                    <>
                         <FillInNavBar />
-                        {/*<TokenInfo />*/}
-                    </>
                 )}
                 <TransContext.Provider value={storeTrans}>
                     <PullToRefresh
@@ -69,23 +66,14 @@ const TransactionsPage = () => {
                         pullDownThreshold={65}
                         maxPullDownDistance={65}
                     >
-                        <>
-                            <div
-                                className="trans-block"
-                                style={{
-                                    background: 'white',
-                                    borderRadius: '5rem 5rem 0 0',
-                                    minHeight: 'calc(100vh - 11rem)',
-                                }}
-                            >
-                                <TokenInfo />
-                                <Transactions
-                                    rate={rate}
-                                    needSearch={needSearch}
-                                    setNeedSearch={setNeedSearch}
-                                />
-                            </div>
-                        </>
+                        <div className="trans-block">
+                            <TokenInfo />
+                            <Transactions
+                                rate={rate}
+                                needSearch={needSearch}
+                                setNeedSearch={setNeedSearch}
+                            />
+                        </div>
                     </PullToRefresh>
                 </TransContext.Provider>
             </TransInfoContext.Provider>

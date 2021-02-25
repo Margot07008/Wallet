@@ -6,6 +6,7 @@ import './Transactions.scss';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { TransContext } from '../TransactionsPage';
 import { urls } from '@config/apiUrls';
+import {Meta} from "@utils/meta";
 
 type Props = {
     rate: string;
@@ -96,7 +97,7 @@ const Transactions: React.FC<Props> = ({ rate, needSearch, setNeedSearch }) => {
                 />
                 <div ref={loader} />
             </div>
-            {store.meta === 'loading' && (
+            {store.meta === Meta.loading && (
                 <div className="loader">
                     <Spin size="large" tip="Loading..." style={{ color: '#d3adf7' }} />
                 </div>

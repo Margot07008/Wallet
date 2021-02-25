@@ -34,12 +34,12 @@ const TokensPage = () => {
 
     return (
         <>
-            {store.meta === 'initial' && <TokensNavBar id={id} />}
-            {store.meta === 'loading' && !refresh && (
+            {store.meta === Meta.initial && <TokensNavBar id={id} />}
+            {store.meta === Meta.loading && !refresh && (
                 <Spin className="loading" size="large" tip="Loading..." />
             )}
             <TokensContext.Provider value={store}>
-                {(store.meta === 'success' || (store.meta === 'loading' && refresh)) && (
+                {(store.meta === Meta.success || (store.meta === Meta.loading && refresh)) && (
                     <>
                         <TokensNavBar id={id} />
                         <SummaryCash />
