@@ -1,10 +1,16 @@
 @import "src/styles/variables";
+@import "src/styles/mixins";
 
 .ant-page-header {
     background: $color-bg-blue;
     padding: 0 2rem;
     height: 100%;
     display: flex;
+
+    @include vk {
+        padding-top: 8rem;
+    }
+
 }
 
 .navbar-slogan {
@@ -18,4 +24,9 @@
     width: 100%;
     z-index: 2;
     height: 10rem;
+
+    @include vk {
+        height: 18rem;
+    }
+
 }

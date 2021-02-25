@@ -6,11 +6,6 @@
     background: $color-bg-blue;
     max-width: 1000px;
     margin: auto;
-
-    @include vk {
-        padding-top: 10rem;
-    }
-
 }
 
 .loading {
@@ -66,4 +61,8 @@
 .tokens-ptr {
     min-height: calc(100vh - 40rem);
     overflow: visible;
+
+    @include vk {
+        min-height: calc(100vh - 52rem);
+    }
 }

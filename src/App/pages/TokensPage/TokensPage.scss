@@ -1,6 +1,10 @@
 @import "src/styles/variables";
-
+@import "src/styles/mixins";
 
 .tokens-ptr > .ptr__children {
     min-height: calc(100vh - 40rem);
+
+    @include vk {
+        min-height: calc(100vh - 52rem);
+    }
 }
