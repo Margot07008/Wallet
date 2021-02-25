@@ -1,12 +1,11 @@
 import * as React from 'react';
-import {useContext} from 'react';
-import {Card} from 'antd';
-import {replaceAll} from '@utils/replaceALl';
-import {formatMoney} from '@utils/formatMoney';
-import {TransDetailsContext} from '../TransDetailsPage';
+import { useContext } from 'react';
+import { Card } from 'antd';
+import { replaceAll } from '@utils/replaceALl';
+import { formatMoney } from '@utils/formatMoney';
+import { TransDetailsContext } from '../TransDetailsPage';
 import DataToCopy from '@components/DataToCopy';
 import './TransCard.scss';
-
 
 type Props = {
     params: {
@@ -17,7 +16,7 @@ type Props = {
     };
 };
 
-const TransCard: React.FC<Props> = ({params}) => {
+const TransCard: React.FC<Props> = ({ params }) => {
     const store = useContext(TransDetailsContext);
 
     const date = new Date(store.details.timestamp * 1000);
@@ -42,48 +41,48 @@ const TransCard: React.FC<Props> = ({params}) => {
                 }}
             >
                 {store.details.hash}
-                <DataToCopy text={store.details.hash}/>
+                <DataToCopy text={store.details.hash} />
             </Card>
 
-            <Card title="Status" size="small" style={{width: '100%', borderRadius: '0'}}>
+            <Card title="Status" size="small" style={{ width: '100%', borderRadius: '0' }}>
                 {store.details.success && 'Success'}
                 {!store.details.success && 'Failed'}
             </Card>
-            <Card title="Block" size="small" style={{width: '100%', borderRadius: '0'}}>
+            <Card title="Block" size="small" style={{ width: '100%', borderRadius: '0' }}>
                 {store.details.blockNumber} ({store.details.confirmations} Block Confirmations)
             </Card>
-            <Card title="Timestamp" size="small" style={{width: '100%', borderRadius: '0'}}>
+            <Card title="Timestamp" size="small" style={{ width: '100%', borderRadius: '0' }}>
                 {date.toDateString()} at {hoursForm}:{minutesForm}
             </Card>
             <Card
                 title="From"
                 size="small"
-                style={{width: '100%', borderRadius: '0', wordBreak: 'break-word'}}
+                style={{ width: '100%', borderRadius: '0', wordBreak: 'break-word' }}
             >
                 {store.details.from}
-                <DataToCopy text={store.details.from}/>
+                <DataToCopy text={store.details.from} />
             </Card>
             <Card
                 title="To"
                 size="small"
-                style={{width: '100%', borderRadius: '0', wordBreak: 'break-word'}}
+                style={{ width: '100%', borderRadius: '0', wordBreak: 'break-word' }}
             >
                 {store.details.to}
-                <DataToCopy text={store.details.to}/>
+                <DataToCopy text={store.details.to} />
             </Card>
-            <Card title="Value USD" size="small" style={{width: '100%', borderRadius: '0'}}>
+            <Card title="Value USD" size="small" style={{ width: '100%', borderRadius: '0' }}>
                 ${usdBalance}
             </Card>
-            <Card title="Value" size="small" style={{width: '100%', borderRadius: '0'}}>
+            <Card title="Value" size="small" style={{ width: '100%', borderRadius: '0' }}>
                 {params.coins} {params.symbol}
             </Card>
-            <Card title="Gas Limit" size="small" style={{width: '100%', borderRadius: '0'}}>
+            <Card title="Gas Limit" size="small" style={{ width: '100%', borderRadius: '0' }}>
                 {store.details.gasLimit}
             </Card>
             <Card
                 title="Gas Used by Transaction"
                 size="small"
-                style={{width: '100%', borderRadius: '0'}}
+                style={{ width: '100%', borderRadius: '0' }}
             >
                 {store.details.gasUsed} {store.details.gasProc}
             </Card>

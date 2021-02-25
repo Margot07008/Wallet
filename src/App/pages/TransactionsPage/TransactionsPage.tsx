@@ -55,7 +55,7 @@ const TransactionsPage = () => {
             )}
             <TransInfoContext.Provider value={storeTransInfo}>
                 {(storeTransInfo.meta === 'success' || storeTransInfo.meta === 'loading') && (
-                        <FillInNavBar />
+                    <FillInNavBar />
                 )}
                 <TransContext.Provider value={storeTrans}>
                     <PullToRefresh

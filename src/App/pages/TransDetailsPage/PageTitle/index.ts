@@ -1,2 +1,1 @@
-
-export {default} from './PageTitle'
+export { default } from './PageTitle';

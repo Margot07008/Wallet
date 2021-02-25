@@ -5,8 +5,7 @@ import 'antd/dist/antd.css';
 import App from './App';
 import '@styles/index.scss';
 import { fit } from '@utils/fit';
-import bridge from "@vkontakte/vk-bridge";
-
+import bridge from '@vkontakte/vk-bridge';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -19,10 +18,10 @@ ReactDOM.render(
 
 document.addEventListener('DOMContentLoaded', () => {
     bridge.subscribe((e) => {
-        if (e.detail.type === "VKWebAppInitResult") {
+        if (e.detail.type === 'VKWebAppInitResult') {
             document.body.classList.add('vk-app');
         }
-        console.log(e)
+        console.log(e);
     });
     bridge.send('VKWebAppInit', {});
     if (bridge.supports('VKWebAppResizeWindow')) {

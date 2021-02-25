@@ -1,5 +1,5 @@
-import * as React from "react";
-import {Typography} from "antd";
+import * as React from 'react';
+import { Typography } from 'antd';
 import './PageTitle.scss';
 const { Title } = Typography;
 
@@ -11,7 +11,7 @@ const PageTitle = () => {
                 Transaction Details
             </Title>
         </div>
-    )
-}
+    );
+};
 
 export default PageTitle;

@@ -6,7 +6,7 @@ import './Transactions.scss';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { TransContext } from '../TransactionsPage';
 import { urls } from '@config/apiUrls';
-import {Meta} from "@utils/meta";
+import { Meta } from '@utils/meta';
 
 type Props = {
     rate: string;
