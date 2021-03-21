@@ -1,0 +1,24 @@
+.qrcode-link-fields {
+    width: 100%;
+    padding: 0 5rem;
+
+    &_bordered {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+
+    &__address{
+        margin: 2rem 0;
+    }
+
+    &__link{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.ant-modal-content {
+    text-align: center;
+}

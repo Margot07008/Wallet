@@ -15,8 +15,8 @@ const TokenListMeta = ({ token }) => {
                     style={{ fontSize: '6rem', color: '#d3adf7', background: 'white' }}
                 />
             }
-            title={token?.name}
-            description={<Rate rate={token?.rate} diff={token?.dif} />}
+            title={token.name}
+            description={<Rate rate={token.rate} diff={token.dif} />}
         />
     );
 };

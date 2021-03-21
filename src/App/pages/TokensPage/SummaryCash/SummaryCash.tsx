@@ -13,9 +13,10 @@ const SummaryCash = () => {
     let dailyResult = '';
     let arrow = null;
 
-    const dailyMoneyNum: number = Number(store.repos.totalSum) - store.repos.dailyMoney;
+    const dailyMoneyNum = store.repos.dailyMoney;
+    const totalSumNum = Number(store.repos.totalSum);
     const dailyProc = formatMoney(
-        100 * (-1 + Number(store.repos.totalSum) / store.repos.dailyMoney),
+        100 * (-1 + totalSumNum / (totalSumNum - store.repos.dailyMoney)),
         2,
     );
 

@@ -1,5 +1,6 @@
-
+@import "src/styles/mixins";
 @import "src/styles/variables";
+
 
 .tokens-navbar {
     width: 100%;
@@ -9,6 +10,15 @@
     top: 0;
     z-index: 2;
     display: flex;
-    justify-content: space-between;
     padding: 3rem;
+
+    @include vk {
+        height: 18rem;
+        padding-top: 8rem;
+    }
+
+}
+
+.qr-code {
+    margin-right: 3rem;
 }

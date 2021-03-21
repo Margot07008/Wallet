@@ -1,20 +1,25 @@
 @import "src/styles/variables";
+@import "src/styles/mixins";
 
-.root {
-    height: 100vh;
+body{
+    background: $color-bg-blue;
 }
 
 .app {
-    min-height: 100%;
+    height: 100%;
     background: $color-bg-blue;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .loading {
     width: 100%;
+    max-width: 1000px;
     position: absolute;
     transform: translateY(-50%);
     top: 50%;
     text-align: center;
+    color: $color-light-white;
 }
 
 .loader {
@@ -27,19 +32,41 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: white;
+    background: $color-bg-blue;
+    color: $color-light-white;
 }
 
 .stonks {
     font-size: 2.5rem;
     &_up {
         color: $color-green;
-
     }
     &_down {
         color: $color-red;
     }
     &_static{
         color: $color-light-dark;
+    }
+}
+
+.spinning {
+    padding: 1rem 0 5rem 0;
+}
+
+.pullToRefresh {
+    padding: 1rem 0 0;
+    background: $color-white;
+    color: $color-bg-blue;
+    background: $color-bg-blue;
+    height: 100% !important;
+    min-height: calc(100vh - 11rem) !important;
+}
+
+.tokens-ptr {
+    min-height: calc(100vh - 40rem);
+    overflow: visible;
+
+    @include vk {
+        min-height: calc(100vh - 52rem);
     }
 }

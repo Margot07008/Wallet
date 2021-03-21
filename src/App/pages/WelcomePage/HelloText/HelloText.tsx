@@ -8,12 +8,19 @@ const HelloText = () => {
     return (
         <>
             <div className="hello-text">
-                <Title id="hello-text__title" level={2}>
-                    Добро пожаловать!
-                </Title>
-                <Text id="hello-text__text" type={'secondary'}>
-                    Введите адрес кошелька, чтобы узнать баланс
-                </Text>
+                <div className="hello-text-title">
+                    <Title className="hello-text__text" level={1}></Title>
+                    <Title className="hello-text__text hello-text__text_purple" level={1}>
+                        CryptoMargot
+                    </Title>
+                    <Text className="hello-text__text hello-text__text_grey" type="secondary">
+                        It is a free client interface to help you interact with the Ethereum
+                        blockchain
+                    </Text>
+                    <Text className="hello-text__text">
+                        <b>Swipe to select</b> a type of authorization
+                    </Text>
+                </div>
             </div>
         </>
     );

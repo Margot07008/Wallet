@@ -2,19 +2,63 @@
 
 .welcome-bg {
     height: 100vh;
-    background: $color-shadow-blue;
-    display: flex;
-    align-items: center;
+    padding: calc((100vh - 100rem)/2 ) 5rem 5rem;
 }
 
 .input-window {
     width: 100%;
     height: 50%;
-    padding: 0 6rem;
-    box-shadow: 1rem 1rem 14rem 15rem $color-bg-blue;
+    padding: 0 2rem;
+    //box-shadow: 1rem 1rem 14rem 15rem $color-bg-blue;
     background: $color-bg-blue;
+}
+
+.ant-space {
+    width: 100%;
 }
 
 .search-input{
     display: flex;
+}
+
+.ant-carousel {
+    height: 100%;
+}
+
+
+.ant-form-item-label > label{
+    color: $color-white !important;
+}
+
+.ant-btn-primary {
+    background: $color-light-white;
+    border-color: $color-light-white;
+    color: $color-bg-blue;
+}
+
+.slick-dots li.slick-active button:before {
+    color: $color-white !important;
+}
+
+.slick-dots li button:before {
+    color: $color-white !important;
+}
+
+.slick-next, .slick-prev {
+    visibility: hidden;
+}
+
+.slick-list {
+    height: 100%;
+}
+
+.slick-slider {
+    height: calc(100vh - 70%) !important;
+}
+
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+    background: $color-bg-blue !important;
+    border-color: $color-bg-blue !important;
+    color: $color-light-white !important;
 }

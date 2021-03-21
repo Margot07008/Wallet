@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { createContext, useState } from 'react';
 import FillInNavBar from './FillInNavBar';
 import TokenInfo from './TokenInfo';
 import TokenInfoStore from '@store/TokenInfoStore';
@@ -7,9 +8,11 @@ import { useAsync } from '@utils/useAsync';
 import { useHistory, useParams } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import Transactions from './Transactions';
-import { createContext, useContext } from 'react';
 import UploadTransStore from '@store/UploadTransStore/UploadTransStore';
 import { Spin } from 'antd';
+import PullToRefresh from 'react-simple-pull-to-refresh';
+import { Meta } from '@utils/meta';
+import './TransactionsPage.scss';
 
 // @ts-ignore
 export const TransInfoContext = createContext<TokenInfoStore>();
@@ -28,22 +31,52 @@ const TransactionsPage = () => {
     const storeTrans = useLocalStore(() => new UploadTransStore());
     const rate = storeTransInfo.repos.tokenInfo.rate.replace(',', '');
 
+    const [refresh, setRefresh] = useState(true);
+    let [needSearch, setNeedSearch] = useState(true);
+
+    const onRefresh = async () => {
+        storeTransInfo.meta = Meta.initial;
+
+        setRefresh(true);
+        await storeTransInfo.fetch(address, searchToken);
+        setRefresh(false);
+
+        storeTrans.meta = Meta.initial;
+
+        setRefresh(true);
+        await storeTrans.loadMore(address, searchToken, needSearch, setNeedSearch);
+        setRefresh(false);
+    };
+
     return (
         <>
-            {(storeTransInfo.meta === 'loading' || storeTrans.meta === 'loading') && (
+            {storeTransInfo.meta === 'loading' && storeTrans.meta === 'loading' && !refresh && (
                 <Spin className="loading" size="large" />
             )}
             <TransInfoContext.Provider value={storeTransInfo}>
-                {storeTransInfo.meta === 'success' && (
-                    <>
-                        <FillInNavBar />
-                        <TokenInfo />
-                    </>
+                {(storeTransInfo.meta === 'success' || storeTransInfo.meta === 'loading') && (
+                    <FillInNavBar />
                 )}
+                <TransContext.Provider value={storeTrans}>
+                    <PullToRefresh
+                        refreshingContent={<Spin size="large" className="spinning" />}
+                        onRefresh={onRefresh}
+                        canFetchMore={false}
+                        className="pullToRefresh"
+                        pullDownThreshold={65}
+                        maxPullDownDistance={65}
+                    >
+                        <div className="trans-block">
+                            <TokenInfo />
+                            <Transactions
+                                rate={rate}
+                                needSearch={needSearch}
+                                setNeedSearch={setNeedSearch}
+                            />
+                        </div>
+                    </PullToRefresh>
+                </TransContext.Provider>
             </TransInfoContext.Provider>
-            <TransContext.Provider value={storeTrans}>
-                <Transactions rate={rate} />
-            </TransContext.Provider>
         </>
     );
 };

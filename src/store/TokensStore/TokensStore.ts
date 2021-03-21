@@ -1,17 +1,7 @@
 import { EthTokenArr } from '@store/models/tokens/ethToken';
 import { Meta } from '@utils/meta';
-import {
-    action,
-    computed,
-    makeObservable,
-    observable,
-    reaction,
-    runInAction,
-    IReactionDisposer,
-    get,
-} from 'mobx';
+import { action, computed, makeObservable, observable, runInAction } from 'mobx';
 import { requestTokensRepos } from '@store/TokensStore/requestTokensRepos';
-import { log } from '@utils/log';
 
 export default class TokensStore {
     _repos: { tokens: EthTokenArr; totalSum: number | string; dailyMoney: number } = {
@@ -37,9 +27,9 @@ export default class TokensStore {
 
         this.meta = Meta.loading;
         this._repos = {
-            tokens: [],
-            totalSum: 0,
-            dailyMoney: 0,
+            tokens: this._repos.tokens,
+            totalSum: this._repos.totalSum,
+            dailyMoney: this._repos.dailyMoney,
         };
 
         const { isError, data } = await requestTokensRepos(id);

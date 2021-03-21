@@ -9,19 +9,17 @@ import {
 } from 'mobx';
 import { Meta } from '@utils/meta';
 import { SingleTransaction, TokenInfoDisplay } from '@store/models/transactions/transactionsEthApi';
-import { log } from '@utils/log';
 import { requestTransactions } from '@store/TokenInfoStore/requestTransactions';
-import React from 'react';
 
 export default class TokenInfoStore {
     _repos: { trans: SingleTransaction[]; tokenInfo: TokenInfoDisplay; lastTransTime: number } = {
         trans: [],
         tokenInfo: {
-            logo: '',
+            logo: 'eth',
             name: '',
-            dif: '',
-            totalDollar: '',
-            totalCrypto: '',
+            dif: '0.00',
+            totalDollar: '0.00',
+            totalCrypto: '0.00',
             rate: '',
             symbol: '',
         },
@@ -48,16 +46,8 @@ export default class TokenInfoStore {
         this.meta = Meta.loading;
         this._repos = {
             lastTransTime: this._repos.lastTransTime,
-            trans: [],
-            tokenInfo: {
-                logo: '',
-                name: '',
-                dif: '',
-                totalDollar: '',
-                totalCrypto: '',
-                rate: '',
-                symbol: '',
-            },
+            trans: this._repos.trans,
+            tokenInfo: this._repos.tokenInfo,
         };
 
         const { isError, data } = await requestTransactions(address, searchToken);
